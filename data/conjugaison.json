@@ -1,11 +1,13 @@
 {
   "axes": [
-    { "id": "conjugaison", "title": "Conjugaison" }
+    { "id": "indicatif", "title": "Indicatif" },
+    { "id": "conditionnel", "title": "Conditionnel" },
+    { "id": "imperatif", "title": "Impératif" }
   ],
   "fiches": [
     {
       "id": "C1a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent des verbes en -ER",
       "rule": "Les verbes du 1er groupe au présent prennent les terminaisons -e, -es, -e, -ons, -ez, -ent.",
       "examples": ["je chante", "nous aimons", "ils regardent"],
@@ -21,7 +23,7 @@
     },
     {
       "id": "C1b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent des verbes en -CER, -GER, -GUER",
       "rule": "Les verbes en -CER prennent une cédille devant a/o (nous plaçons). Ceux en -GER gardent le e devant a/o (nous mangeons).",
       "examples": ["nous plaçons", "nous mangeons"],
@@ -36,7 +38,7 @@
     },
     {
       "id": "C1c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent des verbes en -IER, -UER, -OUER",
       "rule": "Ces verbes se conjuguent comme les -ER mais gardent leur i, u ou ou (nous étudions, nous continuons).",
       "examples": ["nous étudions", "nous continuons"],
@@ -51,7 +53,7 @@
     },
     {
       "id": "C1d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent des verbes en -ELER, -ETER",
       "rule": "Doublement de la consonne : j’appelle, tu jettes. Exceptions : geler, peler, acheter → accent grave.",
       "examples": ["j’appelle", "tu jettes", "j’achète"],
@@ -66,7 +68,7 @@
     },
     {
       "id": "C1e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent des verbes en -AYER, -OYER, -UYER",
       "rule": "Le y devient i devant e muet (j’emploie, tu essuies).",
       "examples": ["j’emploie", "tu essuies"],
@@ -81,7 +83,7 @@
     },
     {
       "id": "C2",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent des verbes en -IR (2ᵉ groupe)",
       "rule": "Les verbes du 2ᵉ groupe prennent -is, -is, -it, -issons, -issez, -issent.",
       "examples": ["je finis", "nous choisissons", "ils réussissent"],
@@ -97,7 +99,7 @@
     },
     {
       "id": "C3a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – FAIRE",
       "rule": "Le verbe FAIRE est irrégulier : je fais, tu fais, il fait, nous faisons, vous faites, ils font.",
       "examples": ["je fais", "nous faisons", "ils font"],
@@ -112,7 +114,7 @@
     },
     {
       "id": "C3b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – VENIR",
       "rule": "Verbe irrégulier : je viens, tu viens, il vient, nous venons, vous venez, ils viennent.",
       "examples": ["je viens", "nous venons", "ils viennent"],
@@ -127,7 +129,7 @@
     },
     {
       "id": "C3c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – VOIR",
       "rule": "Verbe irrégulier : je vois, tu vois, il voit, nous voyons, vous voyez, ils voient.",
       "examples": ["je vois", "nous voyons"],
@@ -142,7 +144,7 @@
     },
     {
       "id": "C3d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – PRENDRE",
       "rule": "Je prends, tu prends, il prend, nous prenons, vous prenez, ils prennent.",
       "examples": ["je prends", "ils prennent"],
@@ -157,7 +159,7 @@
     },
     {
       "id": "C3e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – DIRE",
       "rule": "Je dis, tu dis, il dit, nous disons, vous dites, ils disent.",
       "examples": ["vous dites", "ils disent"],
@@ -172,7 +174,7 @@
     },
     {
       "id": "C3f",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – PARTIR",
       "rule": "Je pars, tu pars, il part, nous partons, vous partez, ils partent.",
       "examples": ["il part", "nous partons"],
@@ -187,7 +189,7 @@
     },
     {
       "id": "C3g",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – VOULOIR",
       "rule": "Je veux, tu veux, il veut, nous voulons, vous voulez, ils veulent.",
       "examples": ["je veux", "ils veulent"],
@@ -202,7 +204,7 @@
     },
     {
       "id": "C3h",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – POUVOIR",
       "rule": "Je peux, tu peux, il peut, nous pouvons, vous pouvez, ils peuvent.",
       "examples": ["je peux", "nous pouvons"],
@@ -217,7 +219,7 @@
     },
     {
       "id": "C3i",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – ALLER",
       "rule": "Je vais, tu vas, il va, nous allons, vous allez, ils vont.",
       "examples": ["je vais", "nous allons"],
@@ -233,7 +235,7 @@
     },
     {
       "id": "C4a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – ÊTRE",
       "rule": "Je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
       "examples": ["tu es", "nous sommes"],
@@ -249,7 +251,7 @@
     },
     {
       "id": "C4b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Présent – AVOIR",
       "rule": "J’ai, tu as, il a, nous avons, vous avez, ils ont.",
       "examples": ["j’ai", "nous avons"],
@@ -265,7 +267,7 @@
     },
     {
       "id": "C5a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — verbes en -ER",
       "rule": "Infinitif + terminaisons du futur : -ai, -as, -a, -ons, -ez, -ont.",
       "examples": ["je chanterai", "nous parlerons", "ils regarderont"],
@@ -281,7 +283,7 @@
     },
     {
       "id": "C5b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — -CER, -GER, -GUER",
       "rule": "On garde la valeur du son : placer → je placerai, nous placerons ; manger → je mangerai, nous mangerons ; narguer → nous narguerons.",
       "examples": ["je mangerai", "nous mangerons", "je placerai"],
@@ -296,7 +298,7 @@
     },
     {
       "id": "C5c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — -IER, -UER, -OUER",
       "rule": "Infinitif + terminaisons du futur. On conserve i, u, ou : étudier → nous étudierons ; jouer → vous jouerez ; continuer → je continuerai.",
       "examples": ["nous étudierons", "vous jouerez", "je continuerai"],
@@ -311,7 +313,7 @@
     },
     {
       "id": "C5d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — -ELER, -ETER",
       "rule": "appeler → j’appellerai (ll), jeter → je jetterai (tt). Exceptions : geler/peler/acheter → j’achèterai, je gèlerai, je pèlerai.",
       "examples": ["j’appellerai", "je jetterai", "j’achèterai"],
@@ -326,7 +328,7 @@
     },
     {
       "id": "C5e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — -AYER, -OYER, -UYER",
       "rule": "y → i devant e muet : employer → j’emploierai ; nettoyer → je nettoierai ; essuyer → j’essuierai.",
       "examples": ["j’emploierai", "je nettoierai", "j’essuierai"],
@@ -341,7 +343,7 @@
     },
     {
       "id": "C6",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — verbes en -IR (2ᵉ groupe)",
       "rule": "Infinitif + -ai, -as, -a, -ons, -ez, -ont : finir → je finirai, nous finirons.",
       "examples": ["je finirai", "nous choisirons", "ils réussiront"],
@@ -357,7 +359,7 @@
     },
     {
       "id": "C7a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — FAIRE",
       "rule": "Radical irrégulier FER- : je ferai, tu feras, il fera, nous ferons, vous ferez, ils feront.",
       "examples": ["je ferai", "nous ferons"],
@@ -372,7 +374,7 @@
     },
     {
       "id": "C7b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — VENIR",
       "rule": "Radical VIENDR- : je viendrai, nous viendrons.",
       "examples": ["je viendrai", "nous viendrons"],
@@ -386,7 +388,7 @@
     },
     {
       "id": "C7c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — VOIR",
       "rule": "Radical VERR- : je verrai, nous verrons.",
       "examples": ["je verrai", "nous verrons"],
@@ -400,7 +402,7 @@
     },
     {
       "id": "C7d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — PRENDRE",
       "rule": "Radical PRENDR- : je prendrai, nous prendrons.",
       "examples": ["je prendrai", "nous prendrons"],
@@ -414,7 +416,7 @@
     },
     {
       "id": "C7e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — DIRE",
       "rule": "Radical DIR- : je dirai, nous dirons.",
       "examples": ["je dirai", "nous dirons"],
@@ -428,7 +430,7 @@
     },
     {
       "id": "C7f",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — PARTIR",
       "rule": "Radical PARTIR- (régulier au futur) : je partirai, nous partirons.",
       "examples": ["je partirai", "nous partirons"],
@@ -442,7 +444,7 @@
     },
     {
       "id": "C7g",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — VOULOIR",
       "rule": "Radical VOUDR- : je voudrai, nous voudrons.",
       "examples": ["je voudrai", "nous voudrons"],
@@ -456,7 +458,7 @@
     },
     {
       "id": "C7h",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — POUVOIR",
       "rule": "Radical POURR- : je pourrai, nous pourrons.",
       "examples": ["je pourrai", "nous pourrons"],
@@ -470,7 +472,7 @@
     },
     {
       "id": "C7i",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — ALLER",
       "rule": "Radical IR- : j’irai, nous irons.",
       "examples": ["j’irai", "nous irons"],
@@ -484,7 +486,7 @@
     },
     {
       "id": "C8a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — ÊTRE",
       "rule": "Radical SER- : je serai, tu seras, il sera, nous serons, vous serez, ils seront.",
       "examples": ["je serai", "nous serons"],
@@ -498,7 +500,7 @@
     },
     {
       "id": "C8b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur simple — AVOIR",
       "rule": "Radical AUR- : j’aurai, tu auras, il aura, nous aurons, vous aurez, ils auront.",
       "examples": ["j’aurai", "nous aurons"],
@@ -512,7 +514,7 @@
     },
     {
       "id": "C9a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — verbes en -ER",
       "rule": "Radical de la 1ʳᵉ personne du pluriel au présent + terminaisons : -ais, -ais, -ait, -ions, -iez, -aient.",
       "examples": ["nous parlons → je parlais", "nous chantons → ils chantaient"],
@@ -528,7 +530,7 @@
     },
     {
       "id": "C9b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — -CER, -GER, -GUER",
       "rule": "On garde la cédille (nous placions) et le e de -GER (nous mangions).",
       "examples": ["nous placions", "nous mangions"],
@@ -543,7 +545,7 @@
     },
     {
       "id": "C9c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — -IER, -UER, -OUER",
       "rule": "Même formation que les -ER classiques : nous étudiions, nous criions.",
       "examples": ["nous étudiions", "nous criions"],
@@ -558,7 +560,7 @@
     },
     {
       "id": "C9d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — -ELER, -ETER",
       "rule": "Même règle qu’au présent (appeler → j’appelais, jeter → tu jetais). Exceptions : acheter → j’achetais.",
       "examples": ["j’appelais", "tu jetais", "j’achetais"],
@@ -573,7 +575,7 @@
     },
     {
       "id": "C9e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — -AYER, -OYER, -UYER",
       "rule": "y reste ou devient i devant e muet : employer → j’employais/j’employions.",
       "examples": ["j’employais", "nous essuyions"],
@@ -588,7 +590,7 @@
     },
     {
       "id": "C10",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — verbes en -IR (2ᵉ groupe)",
       "rule": "Radical + terminaisons : -issais, -issais, -issait, -issions, -issiez, -issaient.",
       "examples": ["je finissais", "nous choisissions"],
@@ -604,7 +606,7 @@
     },
     {
       "id": "C11a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — FAIRE",
       "rule": "Radical fais- : je faisais, tu faisais, il faisait, nous faisions, vous faisiez, ils faisaient.",
       "examples": ["je faisais", "nous faisions"],
@@ -619,7 +621,7 @@
     },
     {
       "id": "C11b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — VENIR",
       "rule": "Radical ven- : je venais, tu venais, il venait, nous venions, vous veniez, ils venaient.",
       "examples": ["je venais", "nous venions"],
@@ -634,7 +636,7 @@
     },
     {
       "id": "C11c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — VOIR",
       "rule": "Radical voy- : je voyais, tu voyais, il voyait, nous voyions, vous voyiez, ils voyaient.",
       "examples": ["je voyais", "nous voyions"],
@@ -649,7 +651,7 @@
     },
     {
       "id": "C11d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — PRENDRE",
       "rule": "Radical pren- : je prenais, tu prenais, il prenait, nous prenions, vous preniez, ils prenaient.",
       "examples": ["je prenais", "ils prenaient"],
@@ -664,7 +666,7 @@
     },
     {
       "id": "C11e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — DIRE",
       "rule": "Radical dis- : je disais, tu disais, il disait, nous disions, vous disiez, ils disaient.",
       "examples": ["je disais", "ils disaient"],
@@ -679,7 +681,7 @@
     },
     {
       "id": "C11f",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — PARTIR",
       "rule": "Radical part- : je partais, tu partais, il partait, nous partions, vous partiez, ils partaient.",
       "examples": ["je partais", "nous partions"],
@@ -694,7 +696,7 @@
     },
     {
       "id": "C11g",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — VOULOIR",
       "rule": "Radical voul- : je voulais, tu voulais, il voulait, nous voulions, vous vouliez, ils voulaient.",
       "examples": ["je voulais", "nous voulions"],
@@ -709,7 +711,7 @@
     },
     {
       "id": "C11h",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — POUVOIR",
       "rule": "Radical pouv- : je pouvais, tu pouvais, il pouvait, nous pouvions, vous pouviez, ils pouvaient.",
       "examples": ["je pouvais", "nous pouvions"],
@@ -724,7 +726,7 @@
     },
     {
       "id": "C11i",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — ALLER",
       "rule": "Radical all- : j’allais, tu allais, il allait, nous allions, vous alliez, ils allaient.",
       "examples": ["j’allais", "nous allions"],
@@ -740,7 +742,7 @@
     },
     {
       "id": "C12a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — ÊTRE",
       "rule": "Radical ét- : j’étais, tu étais, il était, nous étions, vous étiez, ils étaient.",
       "examples": ["j’étais", "nous étions"],
@@ -756,7 +758,7 @@
     },
     {
       "id": "C12b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Imparfait — AVOIR",
       "rule": "Radical av- : j’avais, tu avais, il avait, nous avions, vous aviez, ils avaient.",
       "examples": ["j’avais", "nous avions"],
@@ -772,7 +774,7 @@
     },
     {
       "id": "C13a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — verbes en -ER",
       "rule": "Terminaisons : -ai, -as, -a, -âmes, -âtes, -èrent.",
       "examples": ["je chantai", "nous parlâmes", "ils dansèrent"],
@@ -788,7 +790,7 @@
     },
     {
       "id": "C13b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — -CER, -GER, -GUER",
       "rule": "Même terminaisons que les -ER, avec maintien de la cédille (nous plaçâmes) et du e (nous mangeâmes).",
       "examples": ["nous plaçâmes", "nous mangeâmes"],
@@ -803,7 +805,7 @@
     },
     {
       "id": "C13c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — -IER, -UER, -OUER",
       "rule": "Même modèle que les verbes du 1er groupe. Exemple : j’étudiai, nous criâmes.",
       "examples": ["j’étudiai", "nous criâmes"],
@@ -818,7 +820,7 @@
     },
     {
       "id": "C13d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — -ELER, -ETER",
       "rule": "Même alternances qu’au présent (j’appelai, tu jetas, j’achetai).",
       "examples": ["j’appelai", "tu jetas", "j’achetai"],
@@ -833,7 +835,7 @@
     },
     {
       "id": "C13e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — -AYER, -OYER, -UYER",
       "rule": "y → i ou maintien du y. Exemple : j’employai, j’essuyai.",
       "examples": ["j’employai", "j’essuyai"],
@@ -848,7 +850,7 @@
     },
     {
       "id": "C14",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — verbes en -IR (2ᵉ groupe)",
       "rule": "Terminaisons : -is, -is, -it, -îmes, -îtes, -irent.",
       "examples": ["je finis", "nous finîmes", "ils finirent"],
@@ -864,7 +866,7 @@
     },
     {
       "id": "C15a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — FAIRE",
       "rule": "Radical FIS- : je fis, tu fis, il fit, nous fîmes, vous fîtes, ils firent.",
       "examples": ["je fis", "nous fîmes"],
@@ -879,7 +881,7 @@
     },
     {
       "id": "C15b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — VENIR",
       "rule": "Radical VIN- : je vins, tu vins, il vint, nous vînmes, vous vîntes, ils vinrent.",
       "examples": ["je vins", "nous vînmes"],
@@ -894,7 +896,7 @@
     },
     {
       "id": "C15c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — VOIR",
       "rule": "Radical VI- : je vis, tu vis, il vit, nous vîmes, vous vîtes, ils virent.",
       "examples": ["je vis", "ils virent"],
@@ -909,7 +911,7 @@
     },
     {
       "id": "C15d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — PRENDRE",
       "rule": "Radical PRIS- : je pris, tu pris, il prit, nous prîmes, vous prîtes, ils prirent.",
       "examples": ["je pris", "ils prirent"],
@@ -924,7 +926,7 @@
     },
     {
       "id": "C15e",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — DIRE",
       "rule": "Radical DIS- : je dis, tu dis, il dit, nous dîmes, vous dîtes, ils dirent.",
       "examples": ["je dis", "nous dîmes"],
@@ -939,7 +941,7 @@
     },
     {
       "id": "C15f",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — PARTIR",
       "rule": "Radical PART- : je partis, tu partis, il partit, nous partîmes, vous partîtes, ils partirent.",
       "examples": ["je partis", "nous partîmes"],
@@ -954,7 +956,7 @@
     },
     {
       "id": "C15g",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — VOULOIR",
       "rule": "Radical VOUL- → je voulus, nous voulûmes.",
       "examples": ["je voulus", "nous voulûmes"],
@@ -969,7 +971,7 @@
     },
     {
       "id": "C15h",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — POUVOIR",
       "rule": "Radical PUS- : je pus, tu pus, il put, nous pûmes, vous pûtes, ils purent.",
       "examples": ["je pus", "nous pûmes"],
@@ -984,7 +986,7 @@
     },
     {
       "id": "C15i",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — ALLER",
       "rule": "Radical ALL- : j’allai, tu allas, il alla, nous allâmes, vous allâtes, ils allèrent.",
       "examples": ["j’allai", "nous allâmes"],
@@ -1000,7 +1002,7 @@
     },
     {
       "id": "C16a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — ÊTRE",
       "rule": "Radical FU- : je fus, tu fus, il fut, nous fûmes, vous fûtes, ils furent.",
       "examples": ["je fus", "nous fûmes"],
@@ -1015,7 +1017,7 @@
     },
     {
       "id": "C16b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé simple — AVOIR",
       "rule": "Radical EU- : j’eus, tu eus, il eut, nous eûmes, vous eûtes, ils eurent.",
       "examples": ["j’eus", "nous eûmes"],
@@ -1030,7 +1032,7 @@
     },
     {
       "id": "C17a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé composé — auxiliaire AVOIR sans COD avant",
       "rule": "Avec l’auxiliaire avoir, le participe passé ne s’accorde pas avec le sujet quand le COD est placé après.",
       "examples": ["J’ai mangé une pomme.", "Nous avons vu des amis."],
@@ -1046,7 +1048,7 @@
     },
     {
       "id": "C17b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé composé — auxiliaire AVOIR avec COD avant",
       "rule": "Avec avoir, le participe passé s’accorde avec le COD placé avant le verbe.",
       "examples": ["Les pommes que j’ai mangées.", "La lettre que tu as écrite."],
@@ -1061,7 +1063,7 @@
     },
     {
       "id": "C17c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé composé — participes passés particuliers",
       "rule": "Certains participes sont irréguliers : pris, mis, écrit, dit, fait, ouvert, etc.",
       "examples": ["J’ai pris un café.", "Elle a écrit une lettre."],
@@ -1076,7 +1078,7 @@
     },
     {
       "id": "C17d",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé composé — verbes pronominaux avec avoir (cas rares)",
       "rule": "Quelques verbes pronominaux se conjuguent avec avoir et suivent les règles de l’auxiliaire avoir.",
       "examples": ["Ils se sont laissé faire.", "Elles se sont fait mal."],
@@ -1090,7 +1092,7 @@
     },
     {
       "id": "C18a",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé composé — auxiliaire ÊTRE (accord avec le sujet)",
       "rule": "Avec être, le participe passé s’accorde toujours avec le sujet.",
       "examples": ["Elle est allée.", "Ils sont partis."],
@@ -1105,7 +1107,7 @@
     },
     {
       "id": "C18b",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé composé — verbes de mouvement avec ÊTRE",
       "rule": "Les verbes de mouvement (aller, venir, entrer, sortir, naître, mourir…) se conjuguent avec être.",
       "examples": ["Il est venu.", "Elle est née."],
@@ -1120,7 +1122,7 @@
     },
     {
       "id": "C18c",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Passé composé — verbes pronominaux avec ÊTRE",
       "rule": "Les verbes pronominaux se conjuguent avec être et s’accordent avec le sujet.",
       "examples": ["Elles se sont levées.", "Ils se sont lavés."],
@@ -1135,7 +1137,7 @@
     },
     {
       "id": "C19",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Indicatif plus-que-parfait — auxiliaire AVOIR",
       "rule": "Auxiliaire avoir à l’imparfait + participe passé. Accord avec le COD si placé avant.",
       "examples": ["J’avais mangé.", "Nous avions fini."],
@@ -1151,7 +1153,7 @@
     },
     {
       "id": "C20",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Indicatif plus-que-parfait — auxiliaire ÊTRE",
       "rule": "Auxiliaire être à l’imparfait + participe passé. Accord obligatoire avec le sujet.",
       "examples": ["Elle était partie.", "Nous étions arrivés."],
@@ -1166,7 +1168,7 @@
     },
     {
       "id": "C21",
-      "axe": "conjugaison",
+      "axe": "conditionnel",
       "title": "Conditionnel présent — 1er groupe (-ER)",
       "rule": "Infinitif + terminaisons de l’imparfait : -ais, -ais, -ait, -ions, -iez, -aient.",
       "examples": ["je parlerais", "nous chanterions", "ils aimeraient"],
@@ -1182,7 +1184,7 @@
     },
     {
       "id": "C22",
-      "axe": "conjugaison",
+      "axe": "conditionnel",
       "title": "Conditionnel présent — 2ᵉ groupe (-IR)",
       "rule": "Infinitif + terminaisons de l’imparfait : -irais, -irais, -irait, -irions, -iriez, -iraient.",
       "examples": ["je finirais", "nous choisirions", "ils réussiraient"],
@@ -1198,7 +1200,7 @@
     },
     {
       "id": "C23",
-      "axe": "conjugaison",
+      "axe": "conditionnel",
       "title": "Conditionnel présent — verbes particuliers",
       "rule": "Radicaux irréguliers : faire → fer-, venir → viendr-, voir → verr-, prendre → prendr-, dire → dir-, partir → partir-, vouloir → voudr-, pouvoir → pourr-, aller → ir- + terminaisons imparfait.",
       "examples": ["je ferais", "tu viendrais", "il verrait", "nous prendrions", "vous diriez", "ils voudraient"],
@@ -1216,7 +1218,7 @@
     },
     {
       "id": "C24",
-      "axe": "conjugaison",
+      "axe": "conditionnel",
       "title": "Conditionnel présent — être et avoir",
       "rule": "Être → je serais, tu serais, il serait, nous serions, vous seriez, ils seraient. Avoir → j’aurais, tu aurais, il aurait, nous aurions, vous auriez, ils auraient.",
       "examples": ["je serais heureux", "nous aurions du temps"],
@@ -1231,7 +1233,7 @@
     },
     {
       "id": "C25",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur antérieur — auxiliaire AVOIR",
       "rule": "Auxiliaire avoir au futur + participe passé.",
       "examples": ["j’aurai mangé", "nous aurons terminé"],
@@ -1247,7 +1249,7 @@
     },
     {
       "id": "C26",
-      "axe": "conjugaison",
+      "axe": "indicatif",
       "title": "Futur antérieur — auxiliaire ÊTRE",
       "rule": "Auxiliaire être au futur + participe passé. Accord avec le sujet.",
       "examples": ["je serai allé", "nous serons partis"],
@@ -1263,7 +1265,7 @@
     },
     {
       "id": "C27",
-      "axe": "conjugaison",
+      "axe": "imperatif",
       "title": "Impératif présent — 1er groupe (-ER)",
       "rule": "Pas de pronom sujet. Terminaisons : -e, -ons, -ez. Exemple : chante, chantons, chantez.",
       "examples": ["Chante !", "Parlons !", "Regardez !"],
@@ -1278,7 +1280,7 @@
     },
     {
       "id": "C28",
-      "axe": "conjugaison",
+      "axe": "imperatif",
       "title": "Impératif présent — 2ᵉ groupe (-IR)",
       "rule": "Terminaisons : -is, -issons, -issez. Exemple : finis, finissons, finissez.",
       "examples": ["Finis !", "Choisissons !", "Réussissez !"],
@@ -1293,7 +1295,7 @@
     },
     {
       "id": "C29",
-      "axe": "conjugaison",
+      "axe": "imperatif",
       "title": "Impératif présent — 3e groupe (verbes particuliers)",
       "rule": "Les verbes du 3e groupe ont des formes irrégulières : faire → fais, faisons, faites ; venir → viens, venons, venez ; dire → dis, disons, dites ; prendre → prends, prenons, prenez ; aller → va, allons, allez.",
       "examples": ["Fais ton travail !", "Viens ici !", "Dites la vérité !"],
@@ -1309,7 +1311,7 @@
     },
     {
       "id": "C30",
-      "axe": "conjugaison",
+      "axe": "imperatif",
       "title": "Impératif présent — ÊTRE et AVOIR",
       "rule": "Être → sois, soyons, soyez. Avoir → aie, ayons, ayez.",
       "examples": ["Sois sage !", "Soyez attentifs !", "Ayez confiance !"],
