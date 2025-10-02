@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier Français — Règles & Exercices</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <h1>Atelier Français</h1>
+  <nav class="tabs">
+    <button class="tab active" data-domain="orthographe">Orthographe</button>
+    <button class="tab disabled" title="Bientôt">Conjugaison</button>
+    <button class="tab disabled" title="Bientôt">Homonymes</button>
+    <button class="tab disabled" title="Bientôt">Grammaire</button>
+  </nav>
+</header>
+
+<main class="wrapper">
+  <section id="filters">
+    <label for="axeSelect">Axe travaillé</label>
+    <select id="axeSelect"></select>
+    <input id="searchInput" type="search" placeholder="Rechercher une fiche (titre, mot-clé)…">
+    <label class="toggle">
+      <input type="checkbox" id="showOnlyInProgress"> Montrer seulement mes fiches en cours
+    </label>
+  </section>
+
+  <section id="ficheList" class="grid"></section>
+</main>
+
+<footer class="site-footer">
+  <p>Progression enregistrée sur cet appareil (localStorage). ✓ = en cours, ✓✓ = maîtrisé.</p>
+</footer>
+</body>
+</html>

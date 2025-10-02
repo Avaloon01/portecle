@@ -1,0 +1,398 @@
+{
+  "axes": [
+    {
+      "id": "homophones",
+      "title": "Homophones grammaticaux"
+    },
+    {
+      "id": "graphies",
+      "title": "Graphies & sons"
+    },
+    {
+      "id": "accords",
+      "title": "Accords & terminaisons"
+    },
+    {
+      "id": "lexique",
+      "title": "Lexique & préfixes"
+    }
+  ],
+  "fiches": [
+    {
+      "id": "O1",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "a / à",
+      "rule": "<p><strong>a</strong> : verbe <em>avoir</em> (il a, avait). <strong>à</strong> : préposition invariable.</p>",
+      "examples": [
+        "Zoé a des patins à roulettes."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "a",
+          "b": "à",
+          "sentence": "Zoé ___ des patins ___ roulettes.",
+          "correct": "a"
+        },
+        {
+          "a": "a",
+          "b": "à",
+          "sentence": "Il part ___ midi.",
+          "correct": "à"
+        },
+        {
+          "a": "a",
+          "b": "à",
+          "sentence": "Mon frère ___ faim.",
+          "correct": "a"
+        },
+        {
+          "a": "a",
+          "b": "à",
+          "sentence": "Nous allons ___ la piscine.",
+          "correct": "à"
+        }
+      ]
+    },
+    {
+      "id": "O2",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "et / es / est",
+      "rule": "<p><strong>et</strong> : mot invariable (et puis). <strong>es</strong>, <strong>est</strong> : verbe <em>être</em> (tu es, il est).</p>",
+      "examples": [
+        "Tu es jeune mais Papy est âgé et fatigué."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "et",
+          "b": "est",
+          "sentence": "Papy ___ fatigué ___ âgé.",
+          "correct": "est"
+        },
+        {
+          "a": "et",
+          "b": "es",
+          "sentence": "Tu ___ content ___ moi aussi.",
+          "correct": "es"
+        },
+        {
+          "a": "et",
+          "b": "est",
+          "sentence": "Il ___ tard ___ je dois dormir.",
+          "correct": "est"
+        }
+      ]
+    },
+    {
+      "id": "O3",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "on / ont",
+      "rule": "<p><strong>on</strong> : pronom personnel. <strong>ont</strong> : verbe <em>avoir</em> (ils ont).</p>",
+      "examples": [
+        "Ils ont peur mais on les rassure."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "on",
+          "b": "ont",
+          "sentence": "Ils ___ gagné le match.",
+          "correct": "ont"
+        },
+        {
+          "a": "on",
+          "b": "ont",
+          "sentence": "___ frappe à la porte.",
+          "correct": "on"
+        },
+        {
+          "a": "on",
+          "b": "ont",
+          "sentence": "Elles ___ de bonnes notes.",
+          "correct": "ont"
+        }
+      ]
+    },
+    {
+      "id": "O4",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "son / sont",
+      "rule": "<p><strong>son</strong> : déterminant (le sien). <strong>sont</strong> : verbe <em>être</em> (ils sont).</p>",
+      "examples": [
+        "Tom et son père sont dans le jardin."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "son",
+          "b": "sont",
+          "sentence": "Les élèves ___ attentifs.",
+          "correct": "sont"
+        },
+        {
+          "a": "son",
+          "b": "sont",
+          "sentence": "Il cherche ___ cahier.",
+          "correct": "son"
+        },
+        {
+          "a": "son",
+          "b": "sont",
+          "sentence": "Les chats ___ mignons.",
+          "correct": "sont"
+        }
+      ]
+    },
+    {
+      "id": "O5",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "ce / se",
+      "rule": "<p><strong>ce</strong> + nom : déterminant démonstratif. <strong>se</strong> + verbe : pronom réfléchi (se + verbe).</p>",
+      "examples": [
+        "Papa se gare dans ce parking."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "ce",
+          "b": "se",
+          "sentence": "Il ___ lave les mains dans ___ lavabo.",
+          "correct": "se"
+        },
+        {
+          "a": "ce",
+          "b": "se",
+          "sentence": "___ chien est gentil.",
+          "correct": "ce"
+        },
+        {
+          "a": "ce",
+          "b": "se",
+          "sentence": "Elle ___ prépare pour ___ concours.",
+          "correct": "se"
+        }
+      ]
+    },
+    {
+      "id": "O6",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "ces / ses",
+      "rule": "<p><strong>ces</strong> : déterminant démonstratif (ceux-ci/celles-ci). <strong>ses</strong> : déterminant possessif (les siens/les siennes).</p>",
+      "examples": [
+        "Il a abîmé ses bottes dans ces sentiers."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "ces",
+          "b": "ses",
+          "sentence": "___ amis arrivent avec ___ vélos.",
+          "correct": "ces"
+        },
+        {
+          "a": "ces",
+          "b": "ses",
+          "sentence": "Elle cherche ___ clés.",
+          "correct": "ses"
+        },
+        {
+          "a": "ces",
+          "b": "ses",
+          "sentence": "___ fleurs sentent bon.",
+          "correct": "ces"
+        }
+      ]
+    },
+    {
+      "id": "O7",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "ou / où",
+      "rule": "<p><strong>ou</strong> : ou bien. <strong>où</strong> : lieu (à quel endroit).</p>",
+      "examples": [
+        "Où es-tu ? à la cave ou dans le grenier ?"
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "ou",
+          "b": "où",
+          "sentence": "___ vas-tu ?",
+          "correct": "où"
+        },
+        {
+          "a": "ou",
+          "b": "où",
+          "sentence": "Tu veux du thé ___ du café ?",
+          "correct": "ou"
+        },
+        {
+          "a": "ou",
+          "b": "où",
+          "sentence": "Je ne sais pas ___ sont mes gants.",
+          "correct": "où"
+        }
+      ]
+    },
+    {
+      "id": "O8",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "mes / mais",
+      "rule": "<p><strong>mes</strong> : déterminant possessif. <strong>mais</strong> : mot invariable (opposition).</p>",
+      "examples": [
+        "Mes roses sont belles mais elles piquent."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "mes",
+          "b": "mais",
+          "sentence": "___ parents viennent, ___ ils repartiront tôt.",
+          "correct": "mes"
+        },
+        {
+          "a": "mes",
+          "b": "mais",
+          "sentence": "Je veux jouer ___ il pleut.",
+          "correct": "mais"
+        },
+        {
+          "a": "mes",
+          "b": "mais",
+          "sentence": "Où sont ___ cahiers ?",
+          "correct": "mes"
+        }
+      ]
+    },
+    {
+      "id": "O9",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "c'est / s'est",
+      "rule": "<p><strong>c'est</strong>/<strong>c'était</strong> + nom. <strong>s'est</strong>/<strong>s'était</strong> + verbe.</p>",
+      "examples": [
+        "C'est mon frère qui s'est blessé. C'était mon frère qui s'était blessé."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "c'est",
+          "b": "s'est",
+          "sentence": "___ fini ! Il ___ bien amusé.",
+          "correct": "c'est"
+        },
+        {
+          "a": "c'est",
+          "b": "s'est",
+          "sentence": "Elle ___ levée tôt.",
+          "correct": "s'est"
+        },
+        {
+          "a": "c'est",
+          "b": "s'est",
+          "sentence": "___ un problème simple.",
+          "correct": "c'est"
+        }
+      ]
+    },
+    {
+      "id": "O10",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "la / là / l'a / l'as",
+      "rule": "<p><strong>là</strong> : endroit (ici/là-bas). <strong>la</strong> : article/pronom. <strong>l'a</strong>, <strong>l'as</strong> : pronom + verbe <em>avoir</em> (il/tu l'a(s)).</p>",
+      "examples": [
+        "La clé était là. Tu la veux mais papa l'a prise. Tu l'as cherchée ?"
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "la",
+          "b": "là",
+          "sentence": "___ clé était ___.",
+          "correct": "la"
+        },
+        {
+          "a": "la",
+          "b": "l'a",
+          "sentence": "Papa ___ prise.",
+          "correct": "l'a"
+        },
+        {
+          "a": "la",
+          "b": "l'as",
+          "sentence": "Tu ___ trouvée ?",
+          "correct": "l'as"
+        }
+      ]
+    },
+    {
+      "id": "O11",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "quel / quelle / qu'elle",
+      "rule": "<p><strong>quel(s)/quelle(s)</strong> s'accorde avec le nom. <strong>qu'elle(s)</strong> = que + elle(s) (remplaçable par « qu'il(s) »).</p>",
+      "examples": [
+        "Quel bonheur ! Je sais qu'elle viendra. Je sais qu'elles viendront."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "quel",
+          "b": "qu'elle",
+          "sentence": "___ âge as-tu ?",
+          "correct": "quel"
+        },
+        {
+          "a": "quelle",
+          "b": "qu'elle",
+          "sentence": "Je sais ___ réussira.",
+          "correct": "qu'elle"
+        },
+        {
+          "a": "qu'elle",
+          "b": "quelle",
+          "sentence": "___ surprise !",
+          "correct": "quelle"
+        }
+      ]
+    },
+    {
+      "id": "O12",
+      "axe": "accords",
+      "axeLabel": "Accords & terminaisons",
+      "title": "-er / -é",
+      "rule": "<p>Infinitif en <strong>-er</strong> si on peut dire « <em>prendre</em> ». Participe passé en <strong>-é</strong> si on peut dire « <em>pris</em> » ; accord selon l'auxiliaire.</p>",
+      "examples": [
+        "Elle va chanter. Elle a chanté."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Elle va chant___ ce soir.",
+          "answer": "er"
+        },
+        {
+          "prompt": "Elle a chant___ hier.",
+          "answer": "é"
+        },
+        {
+          "prompt": "Ils ont mang___ au restaurant.",
+          "answer": "é"
+        },
+        {
+          "prompt": "Tu veux regard___ un film ?",
+          "answer": "er"
+        }
+      ]
+    }
+  ]
+}
