@@ -262,14 +262,7 @@
         { "prompt": "vous av___", "answer": "ez", "acceptLoose": true },
         { "prompt": "ils ___", "answer": "ont", "acceptLoose": true }
       ]
-    }
-  ]
-}
-{
-  "axes": [
-    { "id": "conjugaison", "title": "Conjugaison" }
-  ],
-  "fiches": [
+    },
     {
       "id": "C5a",
       "axe": "conjugaison",
@@ -346,7 +339,6 @@
         { "prompt": "vous netto___rez (nettoyer)", "answer": "ierez", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C6",
       "axe": "conjugaison",
@@ -363,7 +355,6 @@
         { "prompt": "ils réuss___ (réussir)", "answer": "iront", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C7a",
       "axe": "conjugaison",
@@ -491,7 +482,6 @@
         { "prompt": "tu ___as", "answer": "ir", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C8a",
       "axe": "conjugaison",
@@ -518,11 +508,8 @@
         { "prompt": "nous ___ons", "answer": "aur", "acceptLoose": true },
         { "prompt": "ils ___ont", "answer": "aur", "acceptLoose": true },
         { "prompt": "tu ___as", "answer": "aur", "acceptLoose": true }
-      ]{
-  "axes": [
-    { "id": "conjugaison", "title": "Conjugaison" }
-  ],
-  "fiches": [
+      ]
+    },
     {
       "id": "C9a",
       "axe": "conjugaison",
@@ -599,7 +586,6 @@
         { "prompt": "vous netto___ (nettoyer)", "answer": "yiez", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C10",
       "axe": "conjugaison",
@@ -616,7 +602,6 @@
         { "prompt": "ils réuss___", "answer": "issaient", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C11a",
       "axe": "conjugaison",
@@ -753,7 +738,6 @@
         { "prompt": "ils all___", "answer": "aient", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C12a",
       "axe": "conjugaison",
@@ -785,14 +769,7 @@
         { "prompt": "vous av___", "answer": "iez", "acceptLoose": true },
         { "prompt": "ils av___", "answer": "aient", "acceptLoose": true }
       ]
-    }
-  ]
-}
-{
-  "axes": [
-    { "id": "conjugaison", "title": "Conjugaison" }
-  ],
-  "fiches": [
+    },
     {
       "id": "C13a",
       "axe": "conjugaison",
@@ -869,7 +846,6 @@
         { "prompt": "ils netto___ (nettoyer)", "answer": "yèrent", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C14",
       "axe": "conjugaison",
@@ -886,7 +862,6 @@
         { "prompt": "ils réuss___", "answer": "irent", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C15a",
       "axe": "conjugaison",
@@ -1023,7 +998,6 @@
         { "prompt": "ils all___ (aller)", "answer": "èrent", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C16a",
       "axe": "conjugaison",
@@ -1053,14 +1027,7 @@
         { "prompt": "vous e___tes", "answer": "û", "acceptLoose": true },
         { "prompt": "ils e___rent", "answer": "u", "acceptLoose": true }
       ]
-    }
-  ]
-}
-{
-  "axes": [
-    { "id": "conjugaison", "title": "Conjugaison" }
-  ],
-  "fiches": [
+    },
     {
       "id": "C17a",
       "axe": "conjugaison",
@@ -1121,7 +1088,6 @@
         { "prompt": "Elles se sont laiss___ tenter.", "answer": "é", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C18a",
       "axe": "conjugaison",
@@ -1166,15 +1132,7 @@
         { "prompt": "Tu t’es couch___", "answer": "é", "acceptLoose": true },
         { "prompt": "Elle s’est dépêch___", "answer": "ée", "acceptLoose": true }
       ]
-    }
-  ]
-}
-{
-  "axes": [
-    { "id": "conjugaison", "title": "Conjugaison" }
-  ],
-  "fiches": [
-
+    },
     {
       "id": "C19",
       "axe": "conjugaison",
@@ -1191,7 +1149,6 @@
         { "prompt": "Ils av___ compris.", "answer": "aient", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C20",
       "axe": "conjugaison",
@@ -1207,7 +1164,6 @@
         { "prompt": "J’ét___ allé (garçon).", "answer": "ais", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C21",
       "axe": "conjugaison",
@@ -1304,15 +1260,7 @@
         { "prompt": "vous s___ arrivés", "answer": "erez", "acceptLoose": true },
         { "prompt": "ils s___ restés", "answer": "eront", "acceptLoose": true }
       ]
-    }
-  ]
-}
-{
-  "axes": [
-    { "id": "conjugaison", "title": "Conjugaison" }
-  ],
-  "fiches": [
-
+    },
     {
       "id": "C27",
       "axe": "conjugaison",
@@ -1328,7 +1276,6 @@
         { "prompt": "___ ! (regarder, 2ᵉ pers. pl.)", "answer": "Regardez", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C28",
       "axe": "conjugaison",
@@ -1344,7 +1291,6 @@
         { "prompt": "___ ! (applaudir, 1ʳᵉ pers. pl.)", "answer": "Applaudissons", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C29",
       "axe": "conjugaison",
@@ -1361,7 +1307,6 @@
         { "prompt": "___ ! (aller, 2ᵉ pers. pl.)", "answer": "Allez", "acceptLoose": true }
       ]
     },
-
     {
       "id": "C30",
       "axe": "conjugaison",
