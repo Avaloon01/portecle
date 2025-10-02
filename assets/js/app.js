@@ -231,3 +231,80 @@ function generateExercises(f){
 
 // Init
 window.addEventListener('DOMContentLoaded', loadData);
+
+// -- ajout : lecture du domaine via l’URL (si tu ne l’as pas déjà)
+function getUrlDomain(){
+  const u = new URL(window.location.href);
+  const d = (u.searchParams.get('domain') || '').toLowerCase();
+  return (d === 'conjugaison' || d === 'orthographe') ? d : 'orthographe';
+}
+
+// -- état (si pas déjà présent)
+const state = {
+  domain: getUrlDomain(),
+  fiches: [],
+  progression: {},
+  axeFilter: 'all',
+  search: '',
+  onlyInProgress: false,
+};
+
+const DATA_FILES = {
+  orthographe: 'data/orthographe.json',
+  conjugaison: 'data/conjugaison.json',
+};
+function progKey(){ return `atelier_fr_progression_v1_${state.domain}`; }
+
+// -- AJOUT: gestion des onglets
+function initTabs(){
+  const tabs = document.querySelectorAll('.tabs .tab[data-domain]');
+  tabs.forEach(btn=>{
+    // état visuel initial
+    btn.classList.toggle('active', btn.dataset.domain === state.domain);
+
+    btn.addEventListener('click', ()=>{
+      const newDomain = btn.dataset.domain;
+      if(newDomain === state.domain) return;
+
+      // bascule domaine
+      state.domain = newDomain;
+
+      // maj URL pour conserver le choix
+      const url = new URL(window.location.href);
+      url.searchParams.set('domain', newDomain);
+      history.replaceState({}, '', url);
+
+      // reset filtres UI
+      state.axeFilter = 'all';
+      state.search = '';
+      state.onlyInProgress = false;
+      const si = document.getElementById('searchInput');
+      if(si) si.value = '';
+      const chk = document.getElementById('showOnlyInProgress');
+      if(chk) chk.checked = false;
+
+      // recharger data & axes
+      loadData();
+
+      // bascule visuelle des onglets
+      tabs.forEach(b=> b.classList.toggle('active', b === btn));
+    });
+  });
+}
+
+// -- charge les données du domaine courant
+async function loadData(){
+  const file = DATA_FILES[state.domain];
+  const res = await fetch(file);
+  const data = await res.json();
+  state.fiches = data.fiches;
+  buildAxeSelect(data.axes);
+  restoreProgress();
+  render();
+
+  // s’assurer que l'onglet actif correspond au domaine courant
+  initTabs();
+}
+
+// --- (le reste de ton script inchangé) ---
+
