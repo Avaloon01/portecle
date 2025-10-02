@@ -1,0 +1,525 @@
+{
+  "axes": [
+    { "id": "conjugaison", "title": "Conjugaison" }
+  ],
+  "fiches": [
+    {
+      "id": "C1a",
+      "axe": "conjugaison",
+      "title": "Présent des verbes en -ER",
+      "rule": "Les verbes du 1er groupe au présent prennent les terminaisons -e, -es, -e, -ons, -ez, -ent.",
+      "examples": ["je chante", "nous aimons", "ils regardent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je chant___", "answer": "e", "acceptLoose": true },
+        { "prompt": "tu parl___", "answer": "es", "acceptLoose": true },
+        { "prompt": "il jou___", "answer": "e", "acceptLoose": true },
+        { "prompt": "nous mang___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous dans___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "elles regard___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C1b",
+      "axe": "conjugaison",
+      "title": "Présent des verbes en -CER, -GER, -GUER",
+      "rule": "Les verbes en -CER prennent une cédille devant a/o (nous plaçons). Ceux en -GER gardent le e devant a/o (nous mangeons).",
+      "examples": ["nous plaçons", "nous mangeons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "nous plaç___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "nous mang___", "answer": "eons", "acceptLoose": true },
+        { "prompt": "nous navigu___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "je commen___", "answer": "ce", "acceptLoose": true },
+        { "prompt": "ils boug___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C1c",
+      "axe": "conjugaison",
+      "title": "Présent des verbes en -IER, -UER, -OUER",
+      "rule": "Ces verbes se conjuguent comme les -ER mais gardent leur i, u ou ou (nous étudions, nous continuons).",
+      "examples": ["nous étudions", "nous continuons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "nous étud___ons", "answer": "i", "acceptLoose": true },
+        { "prompt": "vous cri___ez", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils continu___", "answer": "ent", "acceptLoose": true },
+        { "prompt": "tu essu___", "answer": "ies", "acceptLoose": true },
+        { "prompt": "je appuy___", "answer": "e", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C1d",
+      "axe": "conjugaison",
+      "title": "Présent des verbes en -ELER, -ETER",
+      "rule": "Doublement de la consonne : j’appelle, tu jettes. Exceptions : geler, peler, acheter → accent grave.",
+      "examples": ["j’appelle", "tu jettes", "j’achète"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "il app___le", "answer": "el", "acceptLoose": true },
+        { "prompt": "tu j___ttes", "answer": "e", "acceptLoose": true },
+        { "prompt": "nous achet___ns", "answer": "o", "acceptLoose": true },
+        { "prompt": "vous appel___z", "answer": "ez", "acceptLoose": true },
+        { "prompt": "elles j___ttent", "answer": "e", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C1e",
+      "axe": "conjugaison",
+      "title": "Présent des verbes en -AYER, -OYER, -UYER",
+      "rule": "Le y devient i devant e muet (j’emploie, tu essuies).",
+      "examples": ["j’emploie", "tu essuies"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’emplo___", "answer": "ie", "acceptLoose": true },
+        { "prompt": "tu essu___", "answer": "ies", "acceptLoose": true },
+        { "prompt": "il bal___e", "answer": "aye", "acceptLoose": true },
+        { "prompt": "nous essu___ons", "answer": "y", "acceptLoose": true },
+        { "prompt": "ils envoy___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C2",
+      "axe": "conjugaison",
+      "title": "Présent des verbes en -IR (2ᵉ groupe)",
+      "rule": "Les verbes du 2ᵉ groupe prennent -is, -is, -it, -issons, -issez, -issent.",
+      "examples": ["je finis", "nous choisissons", "ils réussissent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je fin___", "answer": "is", "acceptLoose": true },
+        { "prompt": "tu chois___", "answer": "is", "acceptLoose": true },
+        { "prompt": "il réuss___", "answer": "it", "acceptLoose": true },
+        { "prompt": "nous fin___", "answer": "issons", "acceptLoose": true },
+        { "prompt": "vous chois___", "answer": "issez", "acceptLoose": true },
+        { "prompt": "ils réuss___", "answer": "issent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3a",
+      "axe": "conjugaison",
+      "title": "Présent – FAIRE",
+      "rule": "Le verbe FAIRE est irrégulier : je fais, tu fais, il fait, nous faisons, vous faites, ils font.",
+      "examples": ["je fais", "nous faisons", "ils font"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je fa___", "answer": "is", "acceptLoose": true },
+        { "prompt": "il fa___", "answer": "it", "acceptLoose": true },
+        { "prompt": "nous fais___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous fa___tes", "answer": "i", "acceptLoose": true },
+        { "prompt": "ils fo___", "answer": "nt", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3b",
+      "axe": "conjugaison",
+      "title": "Présent – VENIR",
+      "rule": "Verbe irrégulier : je viens, tu viens, il vient, nous venons, vous venez, ils viennent.",
+      "examples": ["je viens", "nous venons", "ils viennent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je vien___", "answer": "s", "acceptLoose": true },
+        { "prompt": "il vien___", "answer": "t", "acceptLoose": true },
+        { "prompt": "nous ven___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous ven___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "elles vienn___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3c",
+      "axe": "conjugaison",
+      "title": "Présent – VOIR",
+      "rule": "Verbe irrégulier : je vois, tu vois, il voit, nous voyons, vous voyez, ils voient.",
+      "examples": ["je vois", "nous voyons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je vo___", "answer": "is", "acceptLoose": true },
+        { "prompt": "il vo___", "answer": "it", "acceptLoose": true },
+        { "prompt": "nous voy___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous voy___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "ils voi___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3d",
+      "axe": "conjugaison",
+      "title": "Présent – PRENDRE",
+      "rule": "Je prends, tu prends, il prend, nous prenons, vous prenez, ils prennent.",
+      "examples": ["je prends", "ils prennent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je pren___", "answer": "ds", "acceptLoose": true },
+        { "prompt": "il pren___", "answer": "d", "acceptLoose": true },
+        { "prompt": "nous pren___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous pren___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "elles prenn___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3e",
+      "axe": "conjugaison",
+      "title": "Présent – DIRE",
+      "rule": "Je dis, tu dis, il dit, nous disons, vous dites, ils disent.",
+      "examples": ["vous dites", "ils disent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je d___", "answer": "is", "acceptLoose": true },
+        { "prompt": "il d___", "answer": "it", "acceptLoose": true },
+        { "prompt": "nous dis___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous dit___", "answer": "es", "acceptLoose": true },
+        { "prompt": "ils dis___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3f",
+      "axe": "conjugaison",
+      "title": "Présent – PARTIR",
+      "rule": "Je pars, tu pars, il part, nous partons, vous partez, ils partent.",
+      "examples": ["il part", "nous partons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je par___", "answer": "s", "acceptLoose": true },
+        { "prompt": "il par___", "answer": "t", "acceptLoose": true },
+        { "prompt": "nous part___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous part___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "ils part___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3g",
+      "axe": "conjugaison",
+      "title": "Présent – VOULOIR",
+      "rule": "Je veux, tu veux, il veut, nous voulons, vous voulez, ils veulent.",
+      "examples": ["je veux", "ils veulent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je veu___", "answer": "x", "acceptLoose": true },
+        { "prompt": "il veu___", "answer": "t", "acceptLoose": true },
+        { "prompt": "nous voul___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous voul___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "ils veul___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3h",
+      "axe": "conjugaison",
+      "title": "Présent – POUVOIR",
+      "rule": "Je peux, tu peux, il peut, nous pouvons, vous pouvez, ils peuvent.",
+      "examples": ["je peux", "nous pouvons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je pe___", "answer": "ux", "acceptLoose": true },
+        { "prompt": "il pe___", "answer": "ut", "acceptLoose": true },
+        { "prompt": "nous pouv___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous pouv___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "ils peuv___", "answer": "ent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C3i",
+      "axe": "conjugaison",
+      "title": "Présent – ALLER",
+      "rule": "Je vais, tu vas, il va, nous allons, vous allez, ils vont.",
+      "examples": ["je vais", "nous allons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je v___s", "answer": "ai", "acceptLoose": true },
+        { "prompt": "tu v___", "answer": "as", "acceptLoose": true },
+        { "prompt": "il v___", "answer": "a", "acceptLoose": true },
+        { "prompt": "nous all___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous all___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "ils v___nt", "answer": "o", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C4a",
+      "axe": "conjugaison",
+      "title": "Présent – ÊTRE",
+      "rule": "Je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
+      "examples": ["tu es", "nous sommes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je su___", "answer": "is", "acceptLoose": true },
+        { "prompt": "tu ___", "answer": "es", "acceptLoose": true },
+        { "prompt": "il ___", "answer": "est", "acceptLoose": true },
+        { "prompt": "nous som___", "answer": "mes", "acceptLoose": true },
+        { "prompt": "vous êt___", "answer": "es", "acceptLoose": true },
+        { "prompt": "ils so___", "answer": "nt", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C4b",
+      "axe": "conjugaison",
+      "title": "Présent – AVOIR",
+      "rule": "J’ai, tu as, il a, nous avons, vous avez, ils ont.",
+      "examples": ["j’ai", "nous avons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’___", "answer": "ai", "acceptLoose": true },
+        { "prompt": "tu ___", "answer": "as", "acceptLoose": true },
+        { "prompt": "il ___", "answer": "a", "acceptLoose": true },
+        { "prompt": "nous av___", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous av___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "ils ___", "answer": "ont", "acceptLoose": true }
+      ]
+    }
+  ]
+}
+{
+  "axes": [
+    { "id": "conjugaison", "title": "Conjugaison" }
+  ],
+  "fiches": [
+    {
+      "id": "C5a",
+      "axe": "conjugaison",
+      "title": "Futur simple — verbes en -ER",
+      "rule": "Infinitif + terminaisons du futur : -ai, -as, -a, -ons, -ez, -ont.",
+      "examples": ["je chanterai", "nous parlerons", "ils regarderont"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je chant___", "answer": "erai", "acceptLoose": true },
+        { "prompt": "tu parl___", "answer": "eras", "acceptLoose": true },
+        { "prompt": "il jou___", "answer": "era", "acceptLoose": true },
+        { "prompt": "nous écout___", "answer": "erons", "acceptLoose": true },
+        { "prompt": "vous dans___", "answer": "erez", "acceptLoose": true },
+        { "prompt": "elles regard___", "answer": "eront", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C5b",
+      "axe": "conjugaison",
+      "title": "Futur simple — -CER, -GER, -GUER",
+      "rule": "On garde la valeur du son : placer → je placerai, nous placerons ; manger → je mangerai, nous mangerons ; narguer → nous narguerons.",
+      "examples": ["je mangerai", "nous mangerons", "je placerai"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "nous mang___ (manger)", "answer": "erons", "acceptLoose": true },
+        { "prompt": "je plac___ (placer)", "answer": "erai", "acceptLoose": true },
+        { "prompt": "vous nargu___ (narguer)", "answer": "erez", "acceptLoose": true },
+        { "prompt": "ils mang___ (manger)", "answer": "eront", "acceptLoose": true },
+        { "prompt": "tu boug___ (bouger)", "answer": "eras", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C5c",
+      "axe": "conjugaison",
+      "title": "Futur simple — -IER, -UER, -OUER",
+      "rule": "Infinitif + terminaisons du futur. On conserve i, u, ou : étudier → nous étudierons ; jouer → vous jouerez ; continuer → je continuerai.",
+      "examples": ["nous étudierons", "vous jouerez", "je continuerai"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "nous étud___ons (étudier)", "answer": "ier", "acceptLoose": true },
+        { "prompt": "vous jo___ez (jouer)", "answer": "uerez", "acceptLoose": true },
+        { "prompt": "je contin___ (continuer)", "answer": "uerai", "acceptLoose": true },
+        { "prompt": "ils cri___nt (crier)", "answer": "eront", "acceptLoose": true },
+        { "prompt": "tu essu___ (essuyer)", "answer": "ieras", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C5d",
+      "axe": "conjugaison",
+      "title": "Futur simple — -ELER, -ETER",
+      "rule": "appeler → j’appellerai (ll), jeter → je jetterai (tt). Exceptions : geler/peler/acheter → j’achèterai, je gèlerai, je pèlerai.",
+      "examples": ["j’appellerai", "je jetterai", "j’achèterai"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je appel___rai (appeler)", "answer": "le", "acceptLoose": true },
+        { "prompt": "tu jet___ras (jeter)", "answer": "te", "acceptLoose": true },
+        { "prompt": "il ach___tera (acheter)", "answer": "è", "acceptLoose": true },
+        { "prompt": "nous appel___rons (appeler)", "answer": "ler", "acceptLoose": true },
+        { "prompt": "vous gél___rez (geler)", "answer": "e", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C5e",
+      "axe": "conjugaison",
+      "title": "Futur simple — -AYER, -OYER, -UYER",
+      "rule": "y → i devant e muet : employer → j’emploierai ; nettoyer → je nettoierai ; essuyer → j’essuierai.",
+      "examples": ["j’emploierai", "je nettoierai", "j’essuierai"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’emplo___rai (employer)", "answer": "ie", "acceptLoose": true },
+        { "prompt": "tu netto___ras (nettoyer)", "answer": "ieras", "acceptLoose": true },
+        { "prompt": "il essu___ra (essuyer)", "answer": "iera", "acceptLoose": true },
+        { "prompt": "nous employ___rons (employer)", "answer": "erons", "acceptLoose": true },
+        { "prompt": "vous netto___rez (nettoyer)", "answer": "ierez", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C6",
+      "axe": "conjugaison",
+      "title": "Futur simple — verbes en -IR (2ᵉ groupe)",
+      "rule": "Infinitif + -ai, -as, -a, -ons, -ez, -ont : finir → je finirai, nous finirons.",
+      "examples": ["je finirai", "nous choisirons", "ils réussiront"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je fin___ (finir)", "answer": "irai", "acceptLoose": true },
+        { "prompt": "tu chois___ (choisir)", "answer": "iras", "acceptLoose": true },
+        { "prompt": "il réuss___ (réussir)", "answer": "ira", "acceptLoose": true },
+        { "prompt": "nous fin___ (finir)", "answer": "irons", "acceptLoose": true },
+        { "prompt": "vous chois___ (choisir)", "answer": "irez", "acceptLoose": true },
+        { "prompt": "ils réuss___ (réussir)", "answer": "iront", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C7a",
+      "axe": "conjugaison",
+      "title": "Futur simple — FAIRE",
+      "rule": "Radical irrégulier FER- : je ferai, tu feras, il fera, nous ferons, vous ferez, ils feront.",
+      "examples": ["je ferai", "nous ferons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je f___ai", "answer": "er", "acceptLoose": true },
+        { "prompt": "tu f___as", "answer": "er", "acceptLoose": true },
+        { "prompt": "il f___a", "answer": "er", "acceptLoose": true },
+        { "prompt": "nous f___ons", "answer": "er", "acceptLoose": true },
+        { "prompt": "ils f___ont", "answer": "er", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7b",
+      "axe": "conjugaison",
+      "title": "Futur simple — VENIR",
+      "rule": "Radical VIENDR- : je viendrai, nous viendrons.",
+      "examples": ["je viendrai", "nous viendrons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je vien___ai", "answer": "dr", "acceptLoose": true },
+        { "prompt": "nous vien___ons", "answer": "dr", "acceptLoose": true },
+        { "prompt": "ils vien___ont", "answer": "dr", "acceptLoose": true },
+        { "prompt": "tu vien___as", "answer": "dr", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7c",
+      "axe": "conjugaison",
+      "title": "Futur simple — VOIR",
+      "rule": "Radical VERR- : je verrai, nous verrons.",
+      "examples": ["je verrai", "nous verrons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je ve___ai", "answer": "rr", "acceptLoose": true },
+        { "prompt": "nous ve___ons", "answer": "rr", "acceptLoose": true },
+        { "prompt": "ils ve___ont", "answer": "rr", "acceptLoose": true },
+        { "prompt": "tu ve___as", "answer": "rr", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7d",
+      "axe": "conjugaison",
+      "title": "Futur simple — PRENDRE",
+      "rule": "Radical PRENDR- : je prendrai, nous prendrons.",
+      "examples": ["je prendrai", "nous prendrons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je pren___ai", "answer": "dr", "acceptLoose": true },
+        { "prompt": "nous pren___ons", "answer": "dr", "acceptLoose": true },
+        { "prompt": "ils pren___ont", "answer": "dr", "acceptLoose": true },
+        { "prompt": "tu pren___as", "answer": "dr", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7e",
+      "axe": "conjugaison",
+      "title": "Futur simple — DIRE",
+      "rule": "Radical DIR- : je dirai, nous dirons.",
+      "examples": ["je dirai", "nous dirons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je d___ai", "answer": "ir", "acceptLoose": true },
+        { "prompt": "nous d___ons", "answer": "ir", "acceptLoose": true },
+        { "prompt": "ils d___ont", "answer": "ir", "acceptLoose": true },
+        { "prompt": "tu d___as", "answer": "ir", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7f",
+      "axe": "conjugaison",
+      "title": "Futur simple — PARTIR",
+      "rule": "Radical PARTIR- (régulier au futur) : je partirai, nous partirons.",
+      "examples": ["je partirai", "nous partirons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je part___ai", "answer": "ir", "acceptLoose": true },
+        { "prompt": "nous part___ons", "answer": "ir", "acceptLoose": true },
+        { "prompt": "ils part___ont", "answer": "ir", "acceptLoose": true },
+        { "prompt": "tu part___as", "answer": "ir", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7g",
+      "axe": "conjugaison",
+      "title": "Futur simple — VOULOIR",
+      "rule": "Radical VOUDR- : je voudrai, nous voudrons.",
+      "examples": ["je voudrai", "nous voudrons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je vou___ai", "answer": "dr", "acceptLoose": true },
+        { "prompt": "nous vou___ons", "answer": "dr", "acceptLoose": true },
+        { "prompt": "ils vou___ont", "answer": "dr", "acceptLoose": true },
+        { "prompt": "tu vou___as", "answer": "dr", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7h",
+      "axe": "conjugaison",
+      "title": "Futur simple — POUVOIR",
+      "rule": "Radical POURR- : je pourrai, nous pourrons.",
+      "examples": ["je pourrai", "nous pourrons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je pou___ai", "answer": "rr", "acceptLoose": true },
+        { "prompt": "nous pou___ons", "answer": "rr", "acceptLoose": true },
+        { "prompt": "ils pou___ont", "answer": "rr", "acceptLoose": true },
+        { "prompt": "tu pou___as", "answer": "rr", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C7i",
+      "axe": "conjugaison",
+      "title": "Futur simple — ALLER",
+      "rule": "Radical IR- : j’irai, nous irons.",
+      "examples": ["j’irai", "nous irons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’___ai", "answer": "ir", "acceptLoose": true },
+        { "prompt": "nous ___ons", "answer": "ir", "acceptLoose": true },
+        { "prompt": "ils ___ont", "answer": "ir", "acceptLoose": true },
+        { "prompt": "tu ___as", "answer": "ir", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C8a",
+      "axe": "conjugaison",
+      "title": "Futur simple — ÊTRE",
+      "rule": "Radical SER- : je serai, tu seras, il sera, nous serons, vous serez, ils seront.",
+      "examples": ["je serai", "nous serons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je s___ai", "answer": "er", "acceptLoose": true },
+        { "prompt": "nous s___ons", "answer": "er", "acceptLoose": true },
+        { "prompt": "ils s___ont", "answer": "er", "acceptLoose": true },
+        { "prompt": "tu s___as", "answer": "er", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C8b",
+      "axe": "conjugaison",
+      "title": "Futur simple — AVOIR",
+      "rule": "Radical AUR- : j’aurai, tu auras, il aura, nous aurons, vous aurez, ils auront.",
+      "examples": ["j’aurai", "nous aurons"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’___ai", "answer": "aur", "acceptLoose": true },
+        { "prompt": "nous ___ons", "answer": "aur", "acceptLoose": true },
+        { "prompt": "ils ___ont", "answer": "aur", "acceptLoose": true },
+        { "prompt": "tu ___as", "answer": "aur", "acceptLoose": true }
+      ]
+    }
+  ]
+}
+
