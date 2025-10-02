@@ -518,8 +518,864 @@
         { "prompt": "nous ___ons", "answer": "aur", "acceptLoose": true },
         { "prompt": "ils ___ont", "answer": "aur", "acceptLoose": true },
         { "prompt": "tu ___as", "answer": "aur", "acceptLoose": true }
+      ]{
+  "axes": [
+    { "id": "conjugaison", "title": "Conjugaison" }
+  ],
+  "fiches": [
+    {
+      "id": "C9a",
+      "axe": "conjugaison",
+      "title": "Imparfait — verbes en -ER",
+      "rule": "Radical de la 1ʳᵉ personne du pluriel au présent + terminaisons : -ais, -ais, -ait, -ions, -iez, -aient.",
+      "examples": ["nous parlons → je parlais", "nous chantons → ils chantaient"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je chant___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "tu parl___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il jou___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous dans___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous regard___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "elles march___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C9b",
+      "axe": "conjugaison",
+      "title": "Imparfait — -CER, -GER, -GUER",
+      "rule": "On garde la cédille (nous placions) et le e de -GER (nous mangions).",
+      "examples": ["nous placions", "nous mangions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "nous plaç___ (placer)", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous mang___ (manger)", "answer": "iez", "acceptLoose": true },
+        { "prompt": "je boug___ (bouger)", "answer": "eais", "acceptLoose": true },
+        { "prompt": "ils nargu___ (narguer)", "answer": "aient", "acceptLoose": true },
+        { "prompt": "tu commen___ (commencer)", "answer": "çais", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C9c",
+      "axe": "conjugaison",
+      "title": "Imparfait — -IER, -UER, -OUER",
+      "rule": "Même formation que les -ER classiques : nous étudiions, nous criions.",
+      "examples": ["nous étudiions", "nous criions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "nous étud___ons (étudier)", "answer": "iions", "acceptLoose": true },
+        { "prompt": "vous cri___ez (crier)", "answer": "iiez", "acceptLoose": true },
+        { "prompt": "ils jou___ (jouer)", "answer": "aient", "acceptLoose": true },
+        { "prompt": "je essuy___ (essuyer)", "answer": "ais", "acceptLoose": true },
+        { "prompt": "tu continu___ (continuer)", "answer": "ais", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C9d",
+      "axe": "conjugaison",
+      "title": "Imparfait — -ELER, -ETER",
+      "rule": "Même règle qu’au présent (appeler → j’appelais, jeter → tu jetais). Exceptions : acheter → j’achetais.",
+      "examples": ["j’appelais", "tu jetais", "j’achetais"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je appel___ (appeler)", "answer": "ais", "acceptLoose": true },
+        { "prompt": "tu jet___ (jeter)", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il achet___ (acheter)", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous appel___ (appeler)", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous jet___ (jeter)", "answer": "iez", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C9e",
+      "axe": "conjugaison",
+      "title": "Imparfait — -AYER, -OYER, -UYER",
+      "rule": "y reste ou devient i devant e muet : employer → j’employais/j’employions.",
+      "examples": ["j’employais", "nous essuyions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’emplo___ (employer)", "answer": "yais", "acceptLoose": true },
+        { "prompt": "tu netto___ (nettoyer)", "answer": "yais", "acceptLoose": true },
+        { "prompt": "il essu___ (essuyer)", "answer": "yait", "acceptLoose": true },
+        { "prompt": "nous employ___ (employer)", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous netto___ (nettoyer)", "answer": "yiez", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C10",
+      "axe": "conjugaison",
+      "title": "Imparfait — verbes en -IR (2ᵉ groupe)",
+      "rule": "Radical + terminaisons : -issais, -issais, -issait, -issions, -issiez, -issaient.",
+      "examples": ["je finissais", "nous choisissions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je fin___", "answer": "issais", "acceptLoose": true },
+        { "prompt": "tu chois___", "answer": "issais", "acceptLoose": true },
+        { "prompt": "il réuss___", "answer": "issait", "acceptLoose": true },
+        { "prompt": "nous fin___", "answer": "issions", "acceptLoose": true },
+        { "prompt": "vous chois___", "answer": "issiez", "acceptLoose": true },
+        { "prompt": "ils réuss___", "answer": "issaient", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C11a",
+      "axe": "conjugaison",
+      "title": "Imparfait — FAIRE",
+      "rule": "Radical fais- : je faisais, tu faisais, il faisait, nous faisions, vous faisiez, ils faisaient.",
+      "examples": ["je faisais", "nous faisions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je fais___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il fais___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous fais___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous fais___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils fais___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11b",
+      "axe": "conjugaison",
+      "title": "Imparfait — VENIR",
+      "rule": "Radical ven- : je venais, tu venais, il venait, nous venions, vous veniez, ils venaient.",
+      "examples": ["je venais", "nous venions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je ven___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il ven___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous ven___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous ven___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils ven___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11c",
+      "axe": "conjugaison",
+      "title": "Imparfait — VOIR",
+      "rule": "Radical voy- : je voyais, tu voyais, il voyait, nous voyions, vous voyiez, ils voyaient.",
+      "examples": ["je voyais", "nous voyions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je vo___", "answer": "yais", "acceptLoose": true },
+        { "prompt": "il vo___", "answer": "yait", "acceptLoose": true },
+        { "prompt": "nous vo___", "answer": "yions", "acceptLoose": true },
+        { "prompt": "vous vo___", "answer": "yiez", "acceptLoose": true },
+        { "prompt": "ils vo___", "answer": "yaient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11d",
+      "axe": "conjugaison",
+      "title": "Imparfait — PRENDRE",
+      "rule": "Radical pren- : je prenais, tu prenais, il prenait, nous prenions, vous preniez, ils prenaient.",
+      "examples": ["je prenais", "ils prenaient"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je pren___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il pren___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous pren___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous pren___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils pren___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11e",
+      "axe": "conjugaison",
+      "title": "Imparfait — DIRE",
+      "rule": "Radical dis- : je disais, tu disais, il disait, nous disions, vous disiez, ils disaient.",
+      "examples": ["je disais", "ils disaient"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je dis___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il dis___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous dis___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous dis___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils dis___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11f",
+      "axe": "conjugaison",
+      "title": "Imparfait — PARTIR",
+      "rule": "Radical part- : je partais, tu partais, il partait, nous partions, vous partiez, ils partaient.",
+      "examples": ["je partais", "nous partions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je part___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il part___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous part___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous part___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils part___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11g",
+      "axe": "conjugaison",
+      "title": "Imparfait — VOULOIR",
+      "rule": "Radical voul- : je voulais, tu voulais, il voulait, nous voulions, vous vouliez, ils voulaient.",
+      "examples": ["je voulais", "nous voulions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je voul___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il voul___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous voul___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous voul___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils voul___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11h",
+      "axe": "conjugaison",
+      "title": "Imparfait — POUVOIR",
+      "rule": "Radical pouv- : je pouvais, tu pouvais, il pouvait, nous pouvions, vous pouviez, ils pouvaient.",
+      "examples": ["je pouvais", "nous pouvions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je pouv___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il pouv___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous pouv___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous pouv___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils pouv___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C11i",
+      "axe": "conjugaison",
+      "title": "Imparfait — ALLER",
+      "rule": "Radical all- : j’allais, tu allais, il allait, nous allions, vous alliez, ils allaient.",
+      "examples": ["j’allais", "nous allions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’all___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "tu all___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il all___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous all___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous all___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils all___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C12a",
+      "axe": "conjugaison",
+      "title": "Imparfait — ÊTRE",
+      "rule": "Radical ét- : j’étais, tu étais, il était, nous étions, vous étiez, ils étaient.",
+      "examples": ["j’étais", "nous étions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’ét___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "tu ét___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il ét___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous ét___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous ét___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils ét___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C12b",
+      "axe": "conjugaison",
+      "title": "Imparfait — AVOIR",
+      "rule": "Radical av- : j’avais, tu avais, il avait, nous avions, vous aviez, ils avaient.",
+      "examples": ["j’avais", "nous avions"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’av___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "tu av___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il av___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "nous av___", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous av___", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils av___", "answer": "aient", "acceptLoose": true }
       ]
     }
   ]
 }
+{
+  "axes": [
+    { "id": "conjugaison", "title": "Conjugaison" }
+  ],
+  "fiches": [
+    {
+      "id": "C13a",
+      "axe": "conjugaison",
+      "title": "Passé simple — verbes en -ER",
+      "rule": "Terminaisons : -ai, -as, -a, -âmes, -âtes, -èrent.",
+      "examples": ["je chantai", "nous parlâmes", "ils dansèrent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je chant___", "answer": "ai", "acceptLoose": true },
+        { "prompt": "tu parl___", "answer": "as", "acceptLoose": true },
+        { "prompt": "il dans___", "answer": "a", "acceptLoose": true },
+        { "prompt": "nous aim___", "answer": "âmes", "acceptLoose": true },
+        { "prompt": "vous regard___", "answer": "âtes", "acceptLoose": true },
+        { "prompt": "ils jou___", "answer": "èrent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C13b",
+      "axe": "conjugaison",
+      "title": "Passé simple — -CER, -GER, -GUER",
+      "rule": "Même terminaisons que les -ER, avec maintien de la cédille (nous plaçâmes) et du e (nous mangeâmes).",
+      "examples": ["nous plaçâmes", "nous mangeâmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je plaç___ (placer)", "answer": "ai", "acceptLoose": true },
+        { "prompt": "nous plaç___ (placer)", "answer": "âmes", "acceptLoose": true },
+        { "prompt": "je mang___ (manger)", "answer": "ai", "acceptLoose": true },
+        { "prompt": "nous mang___ (manger)", "answer": "âmes", "acceptLoose": true },
+        { "prompt": "ils boug___ (bouger)", "answer": "èrent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C13c",
+      "axe": "conjugaison",
+      "title": "Passé simple — -IER, -UER, -OUER",
+      "rule": "Même modèle que les verbes du 1er groupe. Exemple : j’étudiai, nous criâmes.",
+      "examples": ["j’étudiai", "nous criâmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’étudi___ (étudier)", "answer": "ai", "acceptLoose": true },
+        { "prompt": "nous cri___ (crier)", "answer": "âmes", "acceptLoose": true },
+        { "prompt": "vous jou___ (jouer)", "answer": "âtes", "acceptLoose": true },
+        { "prompt": "ils continu___ (continuer)", "answer": "èrent", "acceptLoose": true },
+        { "prompt": "tu essuy___ (essuyer)", "answer": "as", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C13d",
+      "axe": "conjugaison",
+      "title": "Passé simple — -ELER, -ETER",
+      "rule": "Même alternances qu’au présent (j’appelai, tu jetas, j’achetai).",
+      "examples": ["j’appelai", "tu jetas", "j’achetai"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’appel___ (appeler)", "answer": "ai", "acceptLoose": true },
+        { "prompt": "tu jet___ (jeter)", "answer": "as", "acceptLoose": true },
+        { "prompt": "il achet___ (acheter)", "answer": "a", "acceptLoose": true },
+        { "prompt": "nous appel___ (appeler)", "answer": "âmes", "acceptLoose": true },
+        { "prompt": "ils jet___ (jeter)", "answer": "èrent", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C13e",
+      "axe": "conjugaison",
+      "title": "Passé simple — -AYER, -OYER, -UYER",
+      "rule": "y → i ou maintien du y. Exemple : j’employai, j’essuyai.",
+      "examples": ["j’employai", "j’essuyai"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’emplo___ (employer)", "answer": "yai", "acceptLoose": true },
+        { "prompt": "tu netto___ (nettoyer)", "answer": "yas", "acceptLoose": true },
+        { "prompt": "il essu___ (essuyer)", "answer": "ya", "acceptLoose": true },
+        { "prompt": "nous employ___ (employer)", "answer": "âmes", "acceptLoose": true },
+        { "prompt": "ils netto___ (nettoyer)", "answer": "yèrent", "acceptLoose": true }
+      ]
+    },
 
+    {
+      "id": "C14",
+      "axe": "conjugaison",
+      "title": "Passé simple — verbes en -IR (2ᵉ groupe)",
+      "rule": "Terminaisons : -is, -is, -it, -îmes, -îtes, -irent.",
+      "examples": ["je finis", "nous finîmes", "ils finirent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je fin___", "answer": "is", "acceptLoose": true },
+        { "prompt": "tu chois___", "answer": "is", "acceptLoose": true },
+        { "prompt": "il réuss___", "answer": "it", "acceptLoose": true },
+        { "prompt": "nous fin___", "answer": "îmes", "acceptLoose": true },
+        { "prompt": "vous chois___", "answer": "îtes", "acceptLoose": true },
+        { "prompt": "ils réuss___", "answer": "irent", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C15a",
+      "axe": "conjugaison",
+      "title": "Passé simple — FAIRE",
+      "rule": "Radical FIS- : je fis, tu fis, il fit, nous fîmes, vous fîtes, ils firent.",
+      "examples": ["je fis", "nous fîmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je f___ (faire)", "answer": "is", "acceptLoose": true },
+        { "prompt": "il f___ (faire)", "answer": "it", "acceptLoose": true },
+        { "prompt": "nous f___mes (faire)", "answer": "î", "acceptLoose": true },
+        { "prompt": "vous f___tes (faire)", "answer": "î", "acceptLoose": true },
+        { "prompt": "ils f___rent (faire)", "answer": "i", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15b",
+      "axe": "conjugaison",
+      "title": "Passé simple — VENIR",
+      "rule": "Radical VIN- : je vins, tu vins, il vint, nous vînmes, vous vîntes, ils vinrent.",
+      "examples": ["je vins", "nous vînmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je v___s (venir)", "answer": "in", "acceptLoose": true },
+        { "prompt": "il v___t (venir)", "answer": "in", "acceptLoose": true },
+        { "prompt": "nous v___mes (venir)", "answer": "în", "acceptLoose": true },
+        { "prompt": "vous v___tes (venir)", "answer": "în", "acceptLoose": true },
+        { "prompt": "ils v___rent (venir)", "answer": "in", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15c",
+      "axe": "conjugaison",
+      "title": "Passé simple — VOIR",
+      "rule": "Radical VI- : je vis, tu vis, il vit, nous vîmes, vous vîtes, ils virent.",
+      "examples": ["je vis", "ils virent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je v___s (voir)", "answer": "i", "acceptLoose": true },
+        { "prompt": "il v___t (voir)", "answer": "i", "acceptLoose": true },
+        { "prompt": "nous v___mes (voir)", "answer": "î", "acceptLoose": true },
+        { "prompt": "vous v___tes (voir)", "answer": "î", "acceptLoose": true },
+        { "prompt": "ils v___rent (voir)", "answer": "i", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15d",
+      "axe": "conjugaison",
+      "title": "Passé simple — PRENDRE",
+      "rule": "Radical PRIS- : je pris, tu pris, il prit, nous prîmes, vous prîtes, ils prirent.",
+      "examples": ["je pris", "ils prirent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je pr___s (prendre)", "answer": "i", "acceptLoose": true },
+        { "prompt": "il pr___t (prendre)", "answer": "i", "acceptLoose": true },
+        { "prompt": "nous pr___mes (prendre)", "answer": "î", "acceptLoose": true },
+        { "prompt": "vous pr___tes (prendre)", "answer": "î", "acceptLoose": true },
+        { "prompt": "ils pr___rent (prendre)", "answer": "i", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15e",
+      "axe": "conjugaison",
+      "title": "Passé simple — DIRE",
+      "rule": "Radical DIS- : je dis, tu dis, il dit, nous dîmes, vous dîtes, ils dirent.",
+      "examples": ["je dis", "nous dîmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je d___s (dire)", "answer": "i", "acceptLoose": true },
+        { "prompt": "il d___t (dire)", "answer": "i", "acceptLoose": true },
+        { "prompt": "nous d___mes (dire)", "answer": "î", "acceptLoose": true },
+        { "prompt": "vous d___tes (dire)", "answer": "î", "acceptLoose": true },
+        { "prompt": "ils d___rent (dire)", "answer": "i", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15f",
+      "axe": "conjugaison",
+      "title": "Passé simple — PARTIR",
+      "rule": "Radical PART- : je partis, tu partis, il partit, nous partîmes, vous partîtes, ils partirent.",
+      "examples": ["je partis", "nous partîmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je part___s", "answer": "i", "acceptLoose": true },
+        { "prompt": "il part___t", "answer": "i", "acceptLoose": true },
+        { "prompt": "nous part___mes", "answer": "î", "acceptLoose": true },
+        { "prompt": "vous part___tes", "answer": "î", "acceptLoose": true },
+        { "prompt": "ils part___rent", "answer": "i", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15g",
+      "axe": "conjugaison",
+      "title": "Passé simple — VOULOIR",
+      "rule": "Radical VOUL- → je voulus, nous voulûmes.",
+      "examples": ["je voulus", "nous voulûmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je voul___s", "answer": "u", "acceptLoose": true },
+        { "prompt": "il voul___t", "answer": "u", "acceptLoose": true },
+        { "prompt": "nous voul___mes", "answer": "û", "acceptLoose": true },
+        { "prompt": "vous voul___tes", "answer": "û", "acceptLoose": true },
+        { "prompt": "ils voul___rent", "answer": "u", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15h",
+      "axe": "conjugaison",
+      "title": "Passé simple — POUVOIR",
+      "rule": "Radical PUS- : je pus, tu pus, il put, nous pûmes, vous pûtes, ils purent.",
+      "examples": ["je pus", "nous pûmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je p___s (pouvoir)", "answer": "u", "acceptLoose": true },
+        { "prompt": "il p___t (pouvoir)", "answer": "u", "acceptLoose": true },
+        { "prompt": "nous p___mes (pouvoir)", "answer": "û", "acceptLoose": true },
+        { "prompt": "vous p___tes (pouvoir)", "answer": "û", "acceptLoose": true },
+        { "prompt": "ils p___rent (pouvoir)", "answer": "u", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C15i",
+      "axe": "conjugaison",
+      "title": "Passé simple — ALLER",
+      "rule": "Radical ALL- : j’allai, tu allas, il alla, nous allâmes, vous allâtes, ils allèrent.",
+      "examples": ["j’allai", "nous allâmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’all___ (aller)", "answer": "ai", "acceptLoose": true },
+        { "prompt": "tu all___ (aller)", "answer": "as", "acceptLoose": true },
+        { "prompt": "il all___ (aller)", "answer": "a", "acceptLoose": true },
+        { "prompt": "nous all___ (aller)", "answer": "âmes", "acceptLoose": true },
+        { "prompt": "vous all___ (aller)", "answer": "âtes", "acceptLoose": true },
+        { "prompt": "ils all___ (aller)", "answer": "èrent", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C16a",
+      "axe": "conjugaison",
+      "title": "Passé simple — ÊTRE",
+      "rule": "Radical FU- : je fus, tu fus, il fut, nous fûmes, vous fûtes, ils furent.",
+      "examples": ["je fus", "nous fûmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je f___s", "answer": "u", "acceptLoose": true },
+        { "prompt": "il f___t", "answer": "u", "acceptLoose": true },
+        { "prompt": "nous f___mes", "answer": "û", "acceptLoose": true },
+        { "prompt": "vous f___tes", "answer": "û", "acceptLoose": true },
+        { "prompt": "ils f___rent", "answer": "u", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C16b",
+      "axe": "conjugaison",
+      "title": "Passé simple — AVOIR",
+      "rule": "Radical EU- : j’eus, tu eus, il eut, nous eûmes, vous eûtes, ils eurent.",
+      "examples": ["j’eus", "nous eûmes"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’e___s", "answer": "u", "acceptLoose": true },
+        { "prompt": "il e___t", "answer": "u", "acceptLoose": true },
+        { "prompt": "nous e___mes", "answer": "û", "acceptLoose": true },
+        { "prompt": "vous e___tes", "answer": "û", "acceptLoose": true },
+        { "prompt": "ils e___rent", "answer": "u", "acceptLoose": true }
+      ]
+    }
+  ]
+}
+{
+  "axes": [
+    { "id": "conjugaison", "title": "Conjugaison" }
+  ],
+  "fiches": [
+    {
+      "id": "C17a",
+      "axe": "conjugaison",
+      "title": "Passé composé — auxiliaire AVOIR sans COD avant",
+      "rule": "Avec l’auxiliaire avoir, le participe passé ne s’accorde pas avec le sujet quand le COD est placé après.",
+      "examples": ["J’ai mangé une pomme.", "Nous avons vu des amis."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "J’___ mangé une pomme.", "answer": "ai", "acceptLoose": true },
+        { "prompt": "Tu ___ regardé le film.", "answer": "as", "acceptLoose": true },
+        { "prompt": "Il ___ pris une photo.", "answer": "a", "acceptLoose": true },
+        { "prompt": "Nous ___ trouvé un chat.", "answer": "avons", "acceptLoose": true },
+        { "prompt": "Vous ___ vu des oiseaux.", "answer": "avez", "acceptLoose": true },
+        { "prompt": "Ils ___ lu le livre.", "answer": "ont", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C17b",
+      "axe": "conjugaison",
+      "title": "Passé composé — auxiliaire AVOIR avec COD avant",
+      "rule": "Avec avoir, le participe passé s’accorde avec le COD placé avant le verbe.",
+      "examples": ["Les pommes que j’ai mangées.", "La lettre que tu as écrite."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "Les pommes que j’___ mang___", "answer": "ai|ées", "acceptLoose": true },
+        { "prompt": "La lettre que tu ___ écri___", "answer": "as|te", "acceptLoose": true },
+        { "prompt": "Les photos qu’il ___ pri___", "answer": "a|ses", "acceptLoose": true },
+        { "prompt": "Les chansons que nous ___ chant___", "answer": "avons|ées", "acceptLoose": true },
+        { "prompt": "Les fleurs que vous ___ cueill___", "answer": "avez|ies", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C17c",
+      "axe": "conjugaison",
+      "title": "Passé composé — participes passés particuliers",
+      "rule": "Certains participes sont irréguliers : pris, mis, écrit, dit, fait, ouvert, etc.",
+      "examples": ["J’ai pris un café.", "Elle a écrit une lettre."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "J’___ pri___ un café.", "answer": "ai|s", "acceptLoose": true },
+        { "prompt": "Tu ___ mi___ la table.", "answer": "as|s", "acceptLoose": true },
+        { "prompt": "Il ___ écri___ une carte.", "answer": "a|t", "acceptLoose": true },
+        { "prompt": "Nous ___ di___ la vérité.", "answer": "avons|t", "acceptLoose": true },
+        { "prompt": "Vous ___ fai___ vos devoirs.", "answer": "avez|t", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C17d",
+      "axe": "conjugaison",
+      "title": "Passé composé — verbes pronominaux avec avoir (cas rares)",
+      "rule": "Quelques verbes pronominaux se conjuguent avec avoir et suivent les règles de l’auxiliaire avoir.",
+      "examples": ["Ils se sont laissé faire.", "Elles se sont fait mal."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "Ils se sont laiss___ faire.", "answer": "é", "acceptLoose": true },
+        { "prompt": "Elles se sont fait___ mal.", "answer": "", "acceptLoose": true },
+        { "prompt": "Ils se sont fait___ plaisir.", "answer": "", "acceptLoose": true },
+        { "prompt": "Elles se sont laiss___ tenter.", "answer": "é", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C18a",
+      "axe": "conjugaison",
+      "title": "Passé composé — auxiliaire ÊTRE (accord avec le sujet)",
+      "rule": "Avec être, le participe passé s’accorde toujours avec le sujet.",
+      "examples": ["Elle est allée.", "Ils sont partis."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "Elle est allé___", "answer": "e", "acceptLoose": true },
+        { "prompt": "Ils sont parti___", "answer": "s", "acceptLoose": true },
+        { "prompt": "Nous sommes arriv___", "answer": "és", "acceptLoose": true },
+        { "prompt": "Vous êtes tomb___", "answer": "é(s)", "acceptLoose": true },
+        { "prompt": "Je suis allé___ (fille)", "answer": "e", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C18b",
+      "axe": "conjugaison",
+      "title": "Passé composé — verbes de mouvement avec ÊTRE",
+      "rule": "Les verbes de mouvement (aller, venir, entrer, sortir, naître, mourir…) se conjuguent avec être.",
+      "examples": ["Il est venu.", "Elle est née."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "Il est ven___", "answer": "u", "acceptLoose": true },
+        { "prompt": "Elle est né___", "answer": "e", "acceptLoose": true },
+        { "prompt": "Nous sommes sort___", "answer": "is", "acceptLoose": true },
+        { "prompt": "Vous êtes entr___", "answer": "é(s)", "acceptLoose": true },
+        { "prompt": "Ils sont mort___", "answer": "s", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C18c",
+      "axe": "conjugaison",
+      "title": "Passé composé — verbes pronominaux avec ÊTRE",
+      "rule": "Les verbes pronominaux se conjuguent avec être et s’accordent avec le sujet.",
+      "examples": ["Elles se sont levées.", "Ils se sont lavés."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "Elles se sont lev___", "answer": "ées", "acceptLoose": true },
+        { "prompt": "Ils se sont lav___", "answer": "és", "acceptLoose": true },
+        { "prompt": "Nous nous sommes habill___", "answer": "és", "acceptLoose": true },
+        { "prompt": "Tu t’es couch___", "answer": "é", "acceptLoose": true },
+        { "prompt": "Elle s’est dépêch___", "answer": "ée", "acceptLoose": true }
+      ]
+    }
+  ]
+}
+{
+  "axes": [
+    { "id": "conjugaison", "title": "Conjugaison" }
+  ],
+  "fiches": [
+
+    {
+      "id": "C19",
+      "axe": "conjugaison",
+      "title": "Indicatif plus-que-parfait — auxiliaire AVOIR",
+      "rule": "Auxiliaire avoir à l’imparfait + participe passé. Accord avec le COD si placé avant.",
+      "examples": ["J’avais mangé.", "Nous avions fini."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "J’av___ mangé.", "answer": "ais", "acceptLoose": true },
+        { "prompt": "Tu av___ lu.", "answer": "ais", "acceptLoose": true },
+        { "prompt": "Il av___ écrit.", "answer": "ait", "acceptLoose": true },
+        { "prompt": "Nous av___ terminé.", "answer": "ions", "acceptLoose": true },
+        { "prompt": "Vous av___ choisi.", "answer": "iez", "acceptLoose": true },
+        { "prompt": "Ils av___ compris.", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C20",
+      "axe": "conjugaison",
+      "title": "Indicatif plus-que-parfait — auxiliaire ÊTRE",
+      "rule": "Auxiliaire être à l’imparfait + participe passé. Accord obligatoire avec le sujet.",
+      "examples": ["Elle était partie.", "Nous étions arrivés."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "Elle ét___ allée.", "answer": "ait", "acceptLoose": true },
+        { "prompt": "Nous ét___ partis.", "answer": "ions", "acceptLoose": true },
+        { "prompt": "Vous ét___ tombés.", "answer": "iez", "acceptLoose": true },
+        { "prompt": "Ils ét___ rentrés.", "answer": "aient", "acceptLoose": true },
+        { "prompt": "J’ét___ allé (garçon).", "answer": "ais", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C21",
+      "axe": "conjugaison",
+      "title": "Conditionnel présent — 1er groupe (-ER)",
+      "rule": "Infinitif + terminaisons de l’imparfait : -ais, -ais, -ait, -ions, -iez, -aient.",
+      "examples": ["je parlerais", "nous chanterions", "ils aimeraient"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je parl___", "answer": "erais", "acceptLoose": true },
+        { "prompt": "tu chant___", "answer": "erais", "acceptLoose": true },
+        { "prompt": "il jou___", "answer": "erait", "acceptLoose": true },
+        { "prompt": "nous regard___", "answer": "erions", "acceptLoose": true },
+        { "prompt": "vous dans___", "answer": "eriez", "acceptLoose": true },
+        { "prompt": "elles aim___", "answer": "eraient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C22",
+      "axe": "conjugaison",
+      "title": "Conditionnel présent — 2ᵉ groupe (-IR)",
+      "rule": "Infinitif + terminaisons de l’imparfait : -irais, -irais, -irait, -irions, -iriez, -iraient.",
+      "examples": ["je finirais", "nous choisirions", "ils réussiraient"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je fin___", "answer": "irais", "acceptLoose": true },
+        { "prompt": "tu chois___", "answer": "irais", "acceptLoose": true },
+        { "prompt": "il réuss___", "answer": "irait", "acceptLoose": true },
+        { "prompt": "nous fin___", "answer": "irions", "acceptLoose": true },
+        { "prompt": "vous chois___", "answer": "iriez", "acceptLoose": true },
+        { "prompt": "ils grand___", "answer": "iraient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C23",
+      "axe": "conjugaison",
+      "title": "Conditionnel présent — verbes particuliers",
+      "rule": "Radicaux irréguliers : faire → fer-, venir → viendr-, voir → verr-, prendre → prendr-, dire → dir-, partir → partir-, vouloir → voudr-, pouvoir → pourr-, aller → ir- + terminaisons imparfait.",
+      "examples": ["je ferais", "tu viendrais", "il verrait", "nous prendrions", "vous diriez", "ils voudraient"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je f___ais (faire)", "answer": "er", "acceptLoose": true },
+        { "prompt": "tu vien___ais (venir)", "answer": "dr", "acceptLoose": true },
+        { "prompt": "il v___ait (voir)", "answer": "err", "acceptLoose": true },
+        { "prompt": "nous prendr___ (prendre)", "answer": "ions", "acceptLoose": true },
+        { "prompt": "vous dir___ (dire)", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils vou___aient (vouloir)", "answer": "dr", "acceptLoose": true },
+        { "prompt": "je pou___ais (pouvoir)", "answer": "rr", "acceptLoose": true },
+        { "prompt": "nous i___ions (aller)", "answer": "r", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C24",
+      "axe": "conjugaison",
+      "title": "Conditionnel présent — être et avoir",
+      "rule": "Être → je serais, tu serais, il serait, nous serions, vous seriez, ils seraient. Avoir → j’aurais, tu aurais, il aurait, nous aurions, vous auriez, ils auraient.",
+      "examples": ["je serais heureux", "nous aurions du temps"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je s___ais (être)", "answer": "er", "acceptLoose": true },
+        { "prompt": "nous s___ions (être)", "answer": "er", "acceptLoose": true },
+        { "prompt": "j’aur___ (avoir)", "answer": "ais", "acceptLoose": true },
+        { "prompt": "vous aur___ (avoir)", "answer": "iez", "acceptLoose": true },
+        { "prompt": "ils s___aient (être)", "answer": "er", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C25",
+      "axe": "conjugaison",
+      "title": "Futur antérieur — auxiliaire AVOIR",
+      "rule": "Auxiliaire avoir au futur + participe passé.",
+      "examples": ["j’aurai mangé", "nous aurons terminé"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "j’aur___ fini", "answer": "ai", "acceptLoose": true },
+        { "prompt": "tu aur___ lu", "answer": "as", "acceptLoose": true },
+        { "prompt": "il aur___ écrit", "answer": "a", "acceptLoose": true },
+        { "prompt": "nous aur___ joué", "answer": "ons", "acceptLoose": true },
+        { "prompt": "vous aur___ parlé", "answer": "ez", "acceptLoose": true },
+        { "prompt": "ils aur___ chanté", "answer": "ont", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "C26",
+      "axe": "conjugaison",
+      "title": "Futur antérieur — auxiliaire ÊTRE",
+      "rule": "Auxiliaire être au futur + participe passé. Accord avec le sujet.",
+      "examples": ["je serai allé", "nous serons partis"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "je s___ allé", "answer": "erai", "acceptLoose": true },
+        { "prompt": "tu s___ tombé", "answer": "eras", "acceptLoose": true },
+        { "prompt": "il s___ parti", "answer": "era", "acceptLoose": true },
+        { "prompt": "nous s___ rentrés", "answer": "erons", "acceptLoose": true },
+        { "prompt": "vous s___ arrivés", "answer": "erez", "acceptLoose": true },
+        { "prompt": "ils s___ restés", "answer": "eront", "acceptLoose": true }
+      ]
+    }
+  ]
+}
+{
+  "axes": [
+    { "id": "conjugaison", "title": "Conjugaison" }
+  ],
+  "fiches": [
+
+    {
+      "id": "C27",
+      "axe": "conjugaison",
+      "title": "Impératif présent — 1er groupe (-ER)",
+      "rule": "Pas de pronom sujet. Terminaisons : -e, -ons, -ez. Exemple : chante, chantons, chantez.",
+      "examples": ["Chante !", "Parlons !", "Regardez !"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "___ ! (chanter, 2ᵉ pers. sg.)", "answer": "Chante", "acceptLoose": true },
+        { "prompt": "___ ! (parler, 1ʳᵉ pers. pl.)", "answer": "Parlons", "acceptLoose": true },
+        { "prompt": "___ ! (écouter, 2ᵉ pers. pl.)", "answer": "Écoutez", "acceptLoose": true },
+        { "prompt": "___ ! (jouer, 2ᵉ pers. sg.)", "answer": "Joue", "acceptLoose": true },
+        { "prompt": "___ ! (regarder, 2ᵉ pers. pl.)", "answer": "Regardez", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C28",
+      "axe": "conjugaison",
+      "title": "Impératif présent — 2ᵉ groupe (-IR)",
+      "rule": "Terminaisons : -is, -issons, -issez. Exemple : finis, finissons, finissez.",
+      "examples": ["Finis !", "Choisissons !", "Réussissez !"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "___ ! (finir, 2ᵉ pers. sg.)", "answer": "Finis", "acceptLoose": true },
+        { "prompt": "___ ! (choisir, 1ʳᵉ pers. pl.)", "answer": "Choisissons", "acceptLoose": true },
+        { "prompt": "___ ! (réussir, 2ᵉ pers. pl.)", "answer": "Réussissez", "acceptLoose": true },
+        { "prompt": "___ ! (grandir, 2ᵉ pers. sg.)", "answer": "Grandis", "acceptLoose": true },
+        { "prompt": "___ ! (applaudir, 1ʳᵉ pers. pl.)", "answer": "Applaudissons", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C29",
+      "axe": "conjugaison",
+      "title": "Impératif présent — 3e groupe (verbes particuliers)",
+      "rule": "Les verbes du 3e groupe ont des formes irrégulières : faire → fais, faisons, faites ; venir → viens, venons, venez ; dire → dis, disons, dites ; prendre → prends, prenons, prenez ; aller → va, allons, allez.",
+      "examples": ["Fais ton travail !", "Viens ici !", "Dites la vérité !"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "___ ! (faire, 2ᵉ pers. sg.)", "answer": "Fais", "acceptLoose": true },
+        { "prompt": "___ ! (venir, 2ᵉ pers. sg.)", "answer": "Viens", "acceptLoose": true },
+        { "prompt": "___ ! (dire, 2ᵉ pers. pl.)", "answer": "Dites", "acceptLoose": true },
+        { "prompt": "___ ! (prendre, 1ʳᵉ pers. pl.)", "answer": "Prenons", "acceptLoose": true },
+        { "prompt": "___ ! (aller, 2ᵉ pers. sg.)", "answer": "Va", "acceptLoose": true },
+        { "prompt": "___ ! (aller, 2ᵉ pers. pl.)", "answer": "Allez", "acceptLoose": true }
+      ]
+    },
+
+    {
+      "id": "C30",
+      "axe": "conjugaison",
+      "title": "Impératif présent — ÊTRE et AVOIR",
+      "rule": "Être → sois, soyons, soyez. Avoir → aie, ayons, ayez.",
+      "examples": ["Sois sage !", "Soyez attentifs !", "Ayez confiance !"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "___ sage ! (être, 2ᵉ pers. sg.)", "answer": "Sois", "acceptLoose": true },
+        { "prompt": "___ attentifs ! (être, 2ᵉ pers. pl.)", "answer": "Soyez", "acceptLoose": true },
+        { "prompt": "___ patient ! (avoir, 2ᵉ pers. sg.)", "answer": "Aie", "acceptLoose": true },
+        { "prompt": "___ confiance ! (avoir, 1ʳᵉ pers. pl.)", "answer": "Ayons", "acceptLoose": true },
+        { "prompt": "___ courage ! (avoir, 2ᵉ pers. pl.)", "answer": "Ayez", "acceptLoose": true }
+      ]
+    }
+  ]
+}
