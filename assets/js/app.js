@@ -1,7 +1,17 @@
-
 // --- Data loading ---
+const DATA_FILES = {
+  orthographe: 'data/orthographe.json',
+  conjugaison: 'data/conjugaison.json',
+};
+
+function getUrlDomain(){
+  const u = new URL(window.location.href);
+  const d = (u.searchParams.get('domain') || '').toLowerCase();
+  return (d === 'conjugaison' || d === 'orthographe') ? d : 'orthographe';
+}
+
 const state = {
-  domain: 'orthographe',
+  domain: getUrlDomain(), // 'orthographe' (par défaut) ou 'conjugaison' via ?domain=...
   fiches: [],
   progression: {}, // key: fiche.id -> 0/1/2
   axeFilter: 'all',
@@ -9,31 +19,55 @@ const state = {
   onlyInProgress: false,
 };
 
-const PROG_KEY = 'atelier_fr_progression_v1';
+function progKey(){ return `atelier_fr_progression_v1_${state.domain}`; }
 
 async function loadData(){
-  const res = await fetch('data/orthographe.json');
+  const file = DATA_FILES[state.domain];
+  const res = await fetch(file);
   const data = await res.json();
   state.fiches = data.fiches;
-  buildAxeSelect(data.axes);
+  buildDomainSelect();         // <- init (si présent dans le DOM)
+  buildAxeSelect(data.axes);   // <- axes du domaine courant
   restoreProgress();
   render();
+}
+
+function buildDomainSelect(){
+  const sel = document.getElementById('domainSelect');
+  if(!sel) return; // optionnel
+  sel.innerHTML = `
+    <option value="orthographe">Orthographe</option>
+    <option value="conjugaison">Conjugaison</option>
+  `;
+  sel.value = state.domain;
+  sel.onchange = (e)=>{
+    const newDomain = e.target.value;
+    if(newDomain === state.domain) return;
+    state.domain = newDomain;
+    // met à jour l’URL (facultatif) pour conserver le choix au rechargement
+    const url = new URL(window.location.href);
+    url.searchParams.set('domain', newDomain);
+    history.replaceState({}, '', url);
+    loadData(); // recharge le bon JSON et les axes
+  };
 }
 
 function buildAxeSelect(axes){
   const sel = document.getElementById('axeSelect');
   sel.innerHTML = '<option value="all">Tous les axes</option>' + axes.map(a => `<option value="${a.id}">${a.title}</option>`).join('');
-  sel.addEventListener('change', e => { state.axeFilter = e.target.value; render(); });
-  document.getElementById('searchInput').addEventListener('input', e => { state.search = e.target.value.toLowerCase().trim(); render(); });
-  document.getElementById('showOnlyInProgress').addEventListener('change', e => { state.onlyInProgress = e.target.checked; render(); });
+  sel.onchange = (e => { state.axeFilter = e.target.value; render(); });
+  const si = document.getElementById('searchInput');
+  if(si) si.oninput = (e => { state.search = e.target.value.toLowerCase().trim(); render(); });
+  const chk = document.getElementById('showOnlyInProgress');
+  if(chk) chk.onchange = (e => { state.onlyInProgress = e.target.checked; render(); });
 }
 
 function restoreProgress(){
   try{
-    state.progression = JSON.parse(localStorage.getItem(PROG_KEY)) || {};
+    state.progression = JSON.parse(localStorage.getItem(progKey())) || {};
   }catch(e){ state.progression = {}; }
 }
-function saveProgress(){ localStorage.setItem(PROG_KEY, JSON.stringify(state.progression)); }
+function saveProgress(){ localStorage.setItem(progKey(), JSON.stringify(state.progression)); }
 
 function cycleProgress(ficheId){
   const cur = state.progression[ficheId] || 0;
@@ -63,12 +97,12 @@ function renderCard(f){
   <article class="card" data-id="${f.id}">
     <div class="badges">
       <span class="badge id">${f.id}</span>
-      <span class="badge axe">${f.axeLabel}</span>
+      <span class="badge axe">${f.axeLabel || f.axe || state.domain}</span>
     </div>
     <h3>${f.title}</h3>
     <details class="rule">
       <summary>Lire / cacher la règle</summary>
-      <div>${f.rule}</div>
+      <div>${f.rule || ''}</div>
       ${f.examples?.length ? `<ul>${f.examples.map(ex=>`<li>${ex}</li>`).join('')}</ul>`:''}
     </details>
 
@@ -138,6 +172,7 @@ function generateExercises(f){
   wrap.innerHTML = ''; // reset
 
   if(f.kind === 'homophone2'){
+    // NB: tu peux remettre 3 si tu veux strictement 3 questions.
     const items = pick(f.items, Math.min(8, f.items.length));
     items.forEach(it=>{
       const choices = shuffle([it.a, it.b]);
@@ -162,7 +197,7 @@ function generateExercises(f){
   if(f.kind === 'fill-in'){
     const items = pick(f.items, Math.min(6, f.items.length));
     items.forEach(it=>{
-      const prompt = it.prompt.replace('___', '<input type="text" placeholder="réponse">');
+      const prompt = (it.prompt || '').replace('___', '<input type="text" placeholder="réponse">');
       addQ(`
         <div class="prompt">${prompt}</div>
         <div><button class="primary">Valider</button></div>
@@ -170,11 +205,22 @@ function generateExercises(f){
       `, (el, done)=>{
         const btn = el.querySelector('button');
         btn.addEventListener('click', ()=>{
-          const user = (el.querySelector('input').value||'').trim();
-          // accept variants without capital or punctuation if configured
-          const normalized = s => s.toLowerCase().replace(/[.!?…]/g,'');
-          const ok = (it.acceptLoose ? normalized(user) === normalized(it.answer) : user === it.answer);
-          done(ok);
+          const user = (el.querySelector('input')?.value || '').trim();
+          const normalize = s => (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[.!?…\s]+$/,'');
+          const expected = it.answer;
+          // Autorise soit une chaîne simple, soit un motif type "ai|ées" (cas des accords)
+          let ok = false;
+          if(typeof expected === 'string'){
+            ok = it.acceptLoose ? (normalize(user) === normalize(expected)) : (user === expected);
+          }else if(Array.isArray(expected)){
+            ok = expected.some(ans => it.acceptLoose ? (normalize(user) === normalize(ans)) : (user === ans));
+          }else if(typeof expected === 'object' && expected.pattern){
+            ok = new RegExp(expected.pattern, 'i').test(user);
+          }else if(typeof expected === 'string' && expected.includes('|')){
+            const parts = expected.split('|');
+            ok = parts.some(p => normalize(user).includes(normalize(p))); // tolérant
+          }
+          done(!!ok);
         }, {once:true});
       });
     });
