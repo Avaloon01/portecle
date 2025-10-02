@@ -1008,6 +1008,551 @@
           "acceptLoose": true
         }
       ]
+    },
+    {
+      "id": "O16",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "M devant M, B, P",
+      "keywords": [
+        "m devant m/b/p",
+        "nasales",
+        "graphie"
+      ],
+      "rule": "<p>Devant les lettres <strong>m, b, p</strong>, le son [m] s’écrit toujours avec <strong>m</strong> et non <strong>n</strong>.</p>",
+      "examples": [
+        "une lampe, un tambour, une pompe, emmener, impeccable"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "la la___pe",
+          "answer": "m",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un ta___bour",
+          "answer": "m",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "une po___pe",
+          "answer": "m",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "e___mener",
+          "answer": "mm",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "i___peccable",
+          "answer": "mm",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O17",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "Lettres finales muettes",
+      "keywords": [
+        "lettres finales",
+        "muettes"
+      ],
+      "rule": "<p>Dans beaucoup de mots, une lettre finale ne se prononce pas : <strong>-t, -d, -s, -x, -p</strong>. (mais elles apparaissent parfois dans le pluriel ou la famille de mots).</p>",
+      "examples": [
+        "un chat / des chats, le froid, un tapis, un prix, un loup"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "un cha___",
+          "answer": "t",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "le froi___",
+          "answer": "d",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un tapi___",
+          "answer": "s",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un pri___",
+          "answer": "x",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un lou___",
+          "answer": "p",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O18",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "-ée / -té / -tié",
+      "keywords": [
+        "-ée",
+        "-té",
+        "-tié"
+      ],
+      "rule": "<p>Les noms féminins terminés par [e] s’écrivent souvent <strong>-ée</strong> (une allée, une dictée). Certains noms en [te] s’écrivent <strong>-té</strong> (la bonté, la clarté). Quelques noms rares en [tje] : <strong>-tié</strong> (l’amitié, la piété).</p>",
+      "examples": [
+        "une allée, une dictée, la bonté, la clarté, l’amitié"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "une all___",
+          "answer": "ée",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "une dict___",
+          "answer": "ée",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "la bon___",
+          "answer": "té",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "la clar___",
+          "answer": "té",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "l’ami___",
+          "answer": "tié",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O19",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "Pluriel en -al / -aux",
+      "keywords": [
+        "pluriel",
+        "-al",
+        "-aux"
+      ],
+      "rule": "<p>Les noms terminés par <strong>-al</strong> font souvent leur pluriel en <strong>-aux</strong> (un cheval → des chevaux). Exceptions : des bals, carnavals, festivals, récitals.</p>",
+      "examples": [
+        "un cheval / des chevaux, un journal / des journaux, un bal / des bals"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "un cheva___ (pluriel)",
+          "answer": "ux",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un journ___ (pluriel)",
+          "answer": "aux",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un ba___ (pluriel régulier)",
+          "answer": "ls",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O20",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "Pluriel en -ail / -aux",
+      "keywords": [
+        "pluriel",
+        "-ail",
+        "-aux"
+      ],
+      "rule": "<p>La plupart des noms terminés par <strong>-ail</strong> prennent un <strong>-s</strong> au pluriel (des chandails). Mais quelques-uns font leur pluriel en <strong>-aux</strong> (travail → travaux, vitrail → vitraux).</p>",
+      "examples": [
+        "un chandail / des chandails, un travail / des travaux, un vitrail / des vitraux"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "un travai___ (pluriel)",
+          "answer": "ux",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un vitrai___ (pluriel)",
+          "answer": "ux",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "un chandai___ (pluriel régulier)",
+          "answer": "s",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O21",
+      "axe": "accords",
+      "axeLabel": "Accords & participes",
+      "title": "Accord du participe passé avec être",
+      "keywords": [
+        "participe passé",
+        "accord",
+        "être"
+      ],
+      "rule": "<p>Avec l’auxiliaire <strong>être</strong>, le participe passé s’accorde en genre et en nombre avec le sujet.</p>",
+      "examples": [
+        "elles sont parties, ils sont venus, elle est allée"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "elles sont parti___",
+          "answer": "es",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "il est allé___",
+          "answer": " ",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "elles sont venu___",
+          "answer": "es",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O22",
+      "axe": "accords",
+      "axeLabel": "Accords & participes",
+      "title": "Accord du participe passé avec avoir",
+      "keywords": [
+        "participe passé",
+        "accord",
+        "avoir"
+      ],
+      "rule": "<p>Avec l’auxiliaire <strong>avoir</strong>, le participe passé ne s’accorde pas avec le sujet, mais avec le COD si celui-ci est placé avant le verbe.</p>",
+      "examples": [
+        "les fleurs que j’ai cueillies, les chansons qu’il a chantées"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "les fleurs que j’ai cueill___",
+          "answer": "ies",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "les chansons qu’il a chant___",
+          "answer": "ées",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "les pommes qu’elle a mang___",
+          "answer": "ées",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O23",
+      "axe": "accords",
+      "axeLabel": "Accords & participes",
+      "title": "Accord de l’adjectif qualificatif",
+      "keywords": [
+        "accord adjectif",
+        "féminin",
+        "pluriel"
+      ],
+      "rule": "<p>L’adjectif qualificatif s’accorde en genre et en nombre avec le nom qu’il qualifie.</p>",
+      "examples": [
+        "un petit garçon / une petite fille / des petits chiens / des petites fleurs"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "une petit___ fille",
+          "answer": "e",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "des petit___ chiens",
+          "answer": "s",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "des petit___ fleurs",
+          "answer": "es",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O24",
+      "axe": "accords",
+      "axeLabel": "Accords & participes",
+      "title": "Accord dans le GN (déterminant + nom)",
+      "keywords": [
+        "accord GN",
+        "déterminant",
+        "nom"
+      ],
+      "rule": "<p>Dans un groupe nominal, le déterminant et le nom s’accordent en genre et en nombre.</p>",
+      "examples": [
+        "un chien / une chienne / des chiens / des chiennes"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "un cheva___",
+          "answer": "l",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "une cheva___e",
+          "answer": "le",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "des cheva___x",
+          "answer": "u",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O25",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "Mots en -té / -tié : exceptions",
+      "keywords": [
+        "-té",
+        "-tié",
+        "exceptions"
+      ],
+      "rule": "<p>Certains mots masculins finissent aussi par <strong>-té</strong> ou <strong>-tié</strong> : <em>été, côté, comité, traité</em>.</p>",
+      "examples": [
+        "l’été, le côté, le comité, le traité"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "l’é___",
+          "answer": "té",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "le co___",
+          "answer": "té",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "le comi___",
+          "answer": "té",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "le trai___",
+          "answer": "té",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O26",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "-ment (adverbes)",
+      "keywords": [
+        "adverbes",
+        "-ment"
+      ],
+      "rule": "<p>Les adverbes se forment souvent avec l’adjectif féminin + <strong>-ment</strong> : <em>rapide → rapidement</em>.</p>",
+      "examples": [
+        "doucement, rapidement, sûrement"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "douce → douce___",
+          "answer": "ment",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "rapide → rapide___",
+          "answer": "ment",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "sûr → sûre___",
+          "answer": "ment",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O27",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "-tion / -sion / -xion",
+      "keywords": [
+        "-tion",
+        "-sion",
+        "-xion"
+      ],
+      "rule": "<p>Beaucoup de noms féminins se terminent par <strong>-tion</strong>. Certains par <strong>-sion</strong> (<em>tension, explosion</em>) ou <strong>-xion</strong> (<em>connexion</em>).</p>",
+      "examples": [
+        "attention, nation, tension, explosion, connexion"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "atten___",
+          "answer": "tion",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "na___",
+          "answer": "tion",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "ten___",
+          "answer": "sion",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "conne___",
+          "answer": "xion",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O28",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "-ette / -ète / -ète → -ette",
+      "keywords": [
+        "-ette",
+        "-ète",
+        "féminins"
+      ],
+      "rule": "<p>Beaucoup de noms féminins se terminent par <strong>-ette</strong> : <em>une fillette, une fourchette</em>. Attention aux accents (<em>une planète</em>).</p>",
+      "examples": [
+        "fillette, fourchette, baguette, planète"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "une fille___",
+          "answer": "tte",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "une fourche___",
+          "answer": "tte",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "une bagu___",
+          "answer": "ette",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "une plan___",
+          "answer": "ète",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O29",
+      "axe": "graphies",
+      "axeLabel": "Graphies & sons",
+      "title": "-aille / -eille / -ouille (féminins)",
+      "keywords": [
+        "-aille",
+        "-eille",
+        "-ouille"
+      ],
+      "rule": "<p>Noms féminins : -aille (paille), -eille (abeille), -ouille (grenouille).</p>",
+      "examples": [
+        "paille, abeille, grenouille"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "pa___e",
+          "answer": "ille",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "ab___e",
+          "answer": "eille",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "grenou___",
+          "answer": "ille",
+          "acceptLoose": true
+        }
+      ]
+    },
+    {
+      "id": "O30",
+      "axe": "lexique",
+      "axeLabel": "Lexique & familles de mots",
+      "title": "Préfixes usuels (re-, dé-, in-, im-)",
+      "keywords": [
+        "préfixes",
+        "re-",
+        "dé-",
+        "in-",
+        "im-"
+      ],
+      "rule": "<p>De nombreux mots sont formés par un préfixe ajouté au radical : <strong>re-</strong> (refaire), <strong>dé-</strong> (détruire), <strong>in-</strong> (incapable), <strong>im-</strong> (impossible).</p>",
+      "examples": [
+        "refaire, défaire, incapable, impossible"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "___faire (encore)",
+          "answer": "re",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "___truire (enlever)",
+          "answer": "dé",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "___capable (négatif)",
+          "answer": "in",
+          "acceptLoose": true
+        },
+        {
+          "prompt": "___possible (négatif devant p)",
+          "answer": "im",
+          "acceptLoose": true
+        }
+      ]
     }
   ]
 }
