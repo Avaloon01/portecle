@@ -1,6 +1,7 @@
 {
   "axes": [
-    { "id": "homophones", "title": "Homophones grammaticaux" }
+    { "id": "homophones", "title": "Homophones grammaticaux" },
+    { "id": "graphies", "title": "Graphie et sons" }
   ],
   "fiches": [
     {
