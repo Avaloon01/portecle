@@ -1,0 +1,291 @@
+{
+  "axes": [
+    {
+      "id": "grammaire",
+      "title": "Grammaire"
+    }
+  ],
+  "fiches": [
+    {
+      "id": "G1",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Accord du verbe avec le sujet",
+      "rule": "Le verbe s’accorde toujours avec son sujet, en personne et en nombre.",
+      "examples": [
+        "Les enfants jouent.",
+        "L’oiseau chante.",
+        "Tu manges une pomme."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Les élèves ___ dans la cour. (jouer)",
+          "answer": "jouent"
+        },
+        {
+          "prompt": "Je ___ du vélo. (faire)",
+          "answer": "fais"
+        },
+        {
+          "prompt": "Elle ___ son livre. (lire)",
+          "answer": "lit"
+        },
+        {
+          "prompt": "Nous ___ au parc. (aller)",
+          "answer": "allons"
+        }
+      ]
+    },
+    {
+      "id": "G2",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Les formes de phrases : affirmative / négative",
+      "rule": "Une phrase peut être affirmative (on affirme) ou négative (on utilise 'ne… pas', 'ne… jamais'...).",
+      "examples": [
+        "Il mange une pomme. (affirmative)",
+        "Il ne mange pas de pomme. (négative)"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Transforme en négative : Elle chante une chanson → Elle ___ une chanson.",
+          "answer": "ne chante pas"
+        },
+        {
+          "prompt": "Transforme en affirmative : Il ne court pas. → Il ___ .",
+          "answer": "court"
+        },
+        {
+          "prompt": "Transforme en négative : Ils jouent au ballon → Ils ___ au ballon.",
+          "answer": "ne jouent pas"
+        }
+      ]
+    },
+    {
+      "id": "G3",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "La phrase interrogative",
+      "rule": "On pose une question par l’intonation, avec 'est-ce que', ou par inversion du sujet et du verbe.",
+      "examples": [
+        "Tu viens ? — Est-ce que tu viens ? — Viens-tu ?"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Forme interrogative : Tu manges une pomme. → ___ ?",
+          "answer": "Manges-tu une pomme"
+        },
+        {
+          "prompt": "Avec 'est-ce que' : Vous aimez lire. → ___ ?",
+          "answer": "Est-ce que vous aimez lire"
+        },
+        {
+          "prompt": "Forme interrogative : Ils jouent au foot. → ___ ?",
+          "answer": "Jouent-ils au foot"
+        }
+      ]
+    },
+    {
+      "id": "G4a",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Accord de l’adjectif (GN)",
+      "rule": "L’adjectif s’accorde en genre et en nombre avec le nom qu’il qualifie.",
+      "examples": [
+        "Une maison blanche.",
+        "Des maisons blanches."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Un chien ___ (noir).",
+          "answer": "noir"
+        },
+        {
+          "prompt": "Des chiens ___ (noir).",
+          "answer": "noirs"
+        },
+        {
+          "prompt": "Une fleur ___ (joli).",
+          "answer": "jolie"
+        },
+        {
+          "prompt": "Des fleurs ___ (joli).",
+          "answer": "jolies"
+        }
+      ]
+    },
+    {
+      "id": "G4b",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Accord de l’adjectif apposé",
+      "rule": "L’adjectif apposé s’accorde avec le nom auquel il se rapporte.",
+      "examples": [
+        "Fatigué, l’élève s’endort.",
+        "Les élèves, fatigués, se reposent."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Les enfants, ___ (fatigué), dorment.",
+          "answer": "fatigués"
+        },
+        {
+          "prompt": "Marie, ___ (heureux), sourit.",
+          "answer": "heureuse"
+        },
+        {
+          "prompt": "Les fleurs, ___ (fané), sont tombées.",
+          "answer": "fanées"
+        }
+      ]
+    },
+    {
+      "id": "G5",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Accord de l’attribut du sujet",
+      "rule": "L’attribut du sujet s’accorde en genre et en nombre avec le sujet.",
+      "examples": [
+        "Paul est grand.",
+        "Marie est grande.",
+        "Les élèves sont attentifs."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Les filles sont ___. (joli)",
+          "answer": "jolies"
+        },
+        {
+          "prompt": "Pierre est ___. (fatigué)",
+          "answer": "fatigué"
+        },
+        {
+          "prompt": "Les garçons sont ___. (content)",
+          "answer": "contents"
+        }
+      ]
+    },
+    {
+      "id": "G6",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Accord en genre et en nombre",
+      "rule": "Le nom et l’adjectif prennent la marque du genre (masculin/féminin) et du nombre (singulier/pluriel).",
+      "examples": [
+        "Un petit garçon.",
+        "Une petite fille.",
+        "Des petits garçons."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Un chat ___. (blanc)",
+          "answer": "blanc"
+        },
+        {
+          "prompt": "Une chatte ___. (blanc)",
+          "answer": "blanche"
+        },
+        {
+          "prompt": "Des chats ___. (blanc)",
+          "answer": "blancs"
+        },
+        {
+          "prompt": "Des chattes ___. (blanc)",
+          "answer": "blanches"
+        }
+      ]
+    },
+    {
+      "id": "G7",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Accord en nombre (pluriels particuliers)",
+      "rule": "Certains noms/adjectifs ont des pluriels particuliers : -eau/-eu → -eaux/-eux ; -ou → -ous (sauf exceptions) ; -ail → -aux ; -al → -aux ; les mots en -s, -x, -z restent inchangés.",
+      "examples": [
+        "Un château → des châteaux",
+        "Un bijou → des bijoux",
+        "Un cheval → des chevaux"
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Un bateau → des ___",
+          "answer": "bateaux"
+        },
+        {
+          "prompt": "Un caillou → des ___",
+          "answer": "cailloux"
+        },
+        {
+          "prompt": "Un cheval → des ___",
+          "answer": "chevaux"
+        },
+        {
+          "prompt": "Un nez → des ___",
+          "answer": "nez"
+        }
+      ]
+    },
+    {
+      "id": "G8",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Déterminants possessifs et démonstratifs",
+      "rule": "Les déterminants possessifs (mon, ton, son, notre…) et démonstratifs (ce, cet, cette, ces) s’accordent avec le nom qu’ils déterminent.",
+      "examples": [
+        "Mon cahier.",
+        "Cette table.",
+        "Ces enfants."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "___ maison est grande. (ce)",
+          "answer": "Cette"
+        },
+        {
+          "prompt": "___ cahier est perdu. (mon)",
+          "answer": "Mon"
+        },
+        {
+          "prompt": "___ fleurs sont belles. (ces)",
+          "answer": "Ces"
+        }
+      ]
+    },
+    {
+      "id": "G9",
+      "axe": "grammaire",
+      "axeLabel": "Grammaire",
+      "title": "Pronoms possessifs et démonstratifs",
+      "rule": "Les pronoms possessifs (le mien, la tienne, les nôtres…) et démonstratifs (celui, celle, ceux, celles) remplacent un nom et s’accordent avec lui.",
+      "examples": [
+        "Ce cahier est le mien.",
+        "Ces fleurs sont les leurs.",
+        "Celle-ci est rouge."
+      ],
+      "kind": "fill-in",
+      "items": [
+        {
+          "prompt": "Ce livre est ___. (moi)",
+          "answer": "le mien"
+        },
+        {
+          "prompt": "Ces stylos sont ___. (vous)",
+          "answer": "les vôtres"
+        },
+        {
+          "prompt": "J’aime cette robe et aussi ___. (elle)",
+          "answer": "celle-ci"
+        }
+      ]
+    }
+  ]
+}
