@@ -1,52 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Porte‑Clé • Accueil</title>
-<link rel="icon" href="assets/icon.png">
-<link rel="stylesheet" href="assets/css/styles.css">
-<script type="module">
-  import { $, $$, loadDatasets, markActive } from './assets/js/app.js';
-  window.addEventListener('DOMContentLoaded', async ()=>{
-    markActive();
-    const data = await loadDatasets();
-    const domaines = [...new Set(data.map(d=>d.domaine))];
-    const container = $('.grid');
-    domaines.forEach(dom => {
-      const count = data.filter(d=>d.domaine===dom).length;
-      const card = document.createElement('article');
-      card.className='card';
-      card.innerHTML = `
-        <div class="badge">Domaine</div>
-        <h3>${dom}</h3>
-        <p>${count} fiches & exercices</p>
-        <div class="controls">
-          <a class="btn" href="theorie.html?d=${encodeURIComponent(dom)}">Théorie</a>
-          <a class="btn" href="exercices.html?d=${encodeURIComponent(dom)}">Exercices</a>
-        </div>`;
-      container.appendChild(card);
-    });
-  });
-</script>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porte-Clé • Accueil</title>
+<link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="assets/css/styles.css">
+<script type="module">import { markActive } from './assets/js/app.js'; window.addEventListener('DOMContentLoaded', ()=>{ markActive(); });</script>
 </head>
 <body>
-<nav class="top">
-  <div class="inner">
-    <img class="logo" src="assets/icon.png" alt="">
-    <span class="brand">Porte‑Clé</span>
-    <div style="flex:1"></div>
-    <a href="index.html">Accueil</a>
-    <a href="theorie.html">Théorie</a>
-    <a href="exercices.html">Exercices</a>
-    <a href="compte.html">Compte</a>
-  </div>
-</nav>
+<nav class="top"><div class="inner">
+<img class="logo" src="assets/icon.png" alt=""><span class="brand">Porte-Clé</span><div style="flex:1"></div>
+<a class="active" href="index.html">Accueil</a><a href="theorie.html">Théorie</a><a href="exercices.html">Exercices</a><a href="compte.html">Compte</a>
+</div></nav>
 <main class="app">
-  <h1>Bienvenue 👋</h1>
-  <p class="muted">Révise par domaines, entraîne‑toi, et suis tes progrès.</p>
-  <section class="grid"></section>
-  <footer>© 2025 • Porte‑Clé</footer>
+<section class="hero">
+  <div class="panel">
+    <h1>Bienvenue 👋</h1>
+    <p class="muted">Révise la <strong>théorie</strong>, entraîne-toi avec des <strong>exercices</strong> et suis tes <strong>progrès</strong> — par domaines (grammaire, orthographe, homonymes, conjugaison...).</p>
+    <div class="controls"><a class="btn" href="theorie.html">Ouvrir la théorie</a><a class="btn" href="exercices.html">Commencer les exercices</a></div>
+  </div>
+  <div class="panel">
+    <h2 style="margin-top:0">Mode d'emploi</h2>
+    <ol>
+      <li>Choisis un <strong>domaine</strong> dans <em>Théorie</em>.</li>
+      <li>Parmi les <strong>fiches</strong>, ouvre la règle à étudier.</li>
+      <li>Va dans <em>Exercices</em> ➜ sélectionne le domaine puis la fiche.</li>
+      <li>Ton <strong>taux de réussite</strong> apparaît dans <em>Compte</em> (local).</li>
+    </ol>
+  </div>
+</section>
 </main>
-</body>
-</html>
+</body></html>

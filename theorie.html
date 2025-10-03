@@ -1,52 +1,46 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Porte‑Clé • Théorie</title>
-<link rel="icon" href="assets/icon.png">
-<link rel="stylesheet" href="assets/css/styles.css">
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porte-Clé • Théorie</title>
+<link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="assets/css/styles.css">
 <script type="module">
-  import { $, $$, loadDatasets, markActive } from './assets/js/app.js';
-  window.addEventListener('DOMContentLoaded', async ()=>{
-    markActive();
-    const params = new URLSearchParams(location.search);
-    const domainFilter = params.get('d');
-    const data = await loadDatasets();
-    const list = $('#list');
-    data
-      .filter(d=>!domainFilter || d.domaine===domainFilter)
-      .forEach(rule=>{
-        const art = document.createElement('article');
-        art.className='card';
-        art.innerHTML = \`
-          <h3>\${rule.titre}</h3>
-          <p class="muted">\${rule.domaine}</p>
-          <p>\${rule.description || "Résumé de la règle à compléter."}</p>
-          <div class="controls">
-            <a class="btn" href="exercices.html?r=\${encodeURIComponent(rule.id)}">S'entraîner</a>
-            <a class="btn" href="off.html?r=\${encodeURIComponent(rule.id)}" target="_blank" rel="noopener">Imprimer</a>
-          </div>\`;
-        list.appendChild(art);
-      });
-  });
+import { $, loadDatasets, markActive } from './assets/js/app.js';
+window.addEventListener('DOMContentLoaded', async ()=>{
+  markActive();
+  const data = await loadDatasets();
+  const domaines = [...new Set(data.map(d=>d.domaine))].sort();
+  const sel = document.querySelector('#domainSelect');
+  domaines.forEach(dom=>{ const o=document.createElement('option'); o.value=dom; o.textContent=dom; sel.appendChild(o); });
+  sel.addEventListener('change', render);
+  render();
+  function render(){
+    const d = sel.value || domaines[0];
+    const list = document.querySelector('#list'); list.innerHTML='';
+    const rules = data.filter(x=>x.domaine===d);
+    if(!rules.length){ list.innerHTML='<div class="card empty"><p>Aucune fiche pour ce domaine.</p></div>'; return; }
+    rules.forEach(rule=>{
+      const art=document.createElement('article'); art.className='card';
+      art.innerHTML = `<div class="badge">${rule.domaine}</div>
+        <h3>${rule.titre}</h3>
+        <p class="muted">${rule.description||''}</p>
+        <div class="controls">
+          <a class="btn" href="exercices.html?d=${encodeURIComponent(rule.domaine)}&r=${encodeURIComponent(rule.id)}">S'entraîner</a>
+          <a class="btn" href="off.html?r=${encodeURIComponent(rule.id)}" target="_blank">Imprimer</a>
+        </div>`;
+      list.appendChild(art);
+    });
+  }
+});
 </script>
 </head>
 <body>
-<nav class="top">
-  <div class="inner">
-    <img class="logo" src="assets/icon.png" alt="">
-    <span class="brand">Porte‑Clé</span>
-    <div style="flex:1"></div>
-    <a href="index.html">Accueil</a>
-    <a class="active" href="theorie.html">Théorie</a>
-    <a href="exercices.html">Exercices</a>
-    <a href="compte.html">Compte</a>
-  </div>
-</nav>
+<nav class="top"><div class="inner">
+<img class="logo" src="assets/icon.png" alt=""><span class="brand">Porte-Clé</span><div style="flex:1"></div>
+<a href="index.html">Accueil</a><a class="active" href="theorie.html">Théorie</a><a href="exercices.html">Exercices</a><a href="compte.html">Compte</a>
+</div></nav>
 <main class="app">
   <h1>Théorie</h1>
-  <section id="list" class="grid"></section>
+  <div class="controls"><label for="domainSelect">Domaine</label><select id="domainSelect"></select></div>
+  <section id="list" class="grid" style="margin-top:14px"></section>
 </main>
-</body>
-</html>
+</body></html>
