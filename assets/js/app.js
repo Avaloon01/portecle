@@ -1,96 +1,288 @@
-/* ========= Porte-Clé — core utils ========= */
-const $  = (sel, ctx=document) => ctx.querySelector(sel);
-const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
-const STORE_KEY = "porte-cle:progress:v2";
-function getProgress(){ try { return JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); } catch { return {}; } }
-function setProgress(p){ localStorage.setItem(STORE_KEY, JSON.stringify(p)); }
-function recordRule(ruleId, status){
-  const p = getProgress();
-  const prev = p[ruleId] || { attempts:0, success:0, last:null };
-  const ok = status === "success";
-  p[ruleId] = { attempts: prev.attempts+1, success: prev.success+(ok?1:0), last:new Date().toISOString() };
-  setProgress(p);
-}
-function markActive(){
-  const page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  $$(".top a").forEach(a => { const href = (a.getAttribute("href") || "").toLowerCase(); a.classList.toggle("active", href.endsWith(page)); });
-}
-function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
-function pick(a,n){ return a.slice(0, Math.min(n, a.length)); }
-async function loadDatasets(){
-  const roots  = ["./data/","data/","./assets/data/","assets/data/"];
-  const files  = ["grammaire.json","orthographe.json","homonymes.json","conjugaison.json","vocabulaire.json"];
+/* ========================================================================
+   Atelier Français — app.js
+   - Domaines: orthographe / conjugaison / homonymes / grammaire
+   - Progression par domaine (localStorage séparé)
+   - Filtres: axe, recherche, "en cours"
+   - Générateur d'exercices: 3 questions aléatoires
+   ======================================================================== */
 
-  async function fetchJSON(url){
-    try{
-      const r = await fetch(url, { cache:"no-store" });
-      if(!r.ok) return null;
-      const txt = await r.text();
-      if(!txt || txt.trim().startsWith("<")) return null; // ignore HTML/placeholder
-      return JSON.parse(txt);
-    }catch{ return null; }
+(() => {
+  // --------------------------- Config -----------------------------------
+  const DATA_FILES = {
+    orthographe: 'data/orthographe.json',
+    conjugaison: 'data/conjugaison.json',
+    homonymes:   'data/homonymes.json',
+    grammaire:   'data/grammaire.json',
+  };
+
+  const AVAILABLE_DOMAINS = Object.keys(DATA_FILES);
+  const DEFAULT_DOMAIN = 'orthographe';
+  const QUESTIONS_PER_EXO = 3; // nombre de questions tirées au hasard
+
+  // --------------------------- State ------------------------------------
+  const state = {
+    domain: getUrlDomain() || DEFAULT_DOMAIN,
+    fiches: [],
+    progression: {}, // { ficheId: 0|1|2 }
+    axeFilter: 'all',
+    search: '',
+    onlyInProgress: false,
+  };
+
+  function progKey() { return `atelier_fr_progression_v1_${state.domain}`; }
+
+  // --------------------------- Init -------------------------------------
+  window.addEventListener('DOMContentLoaded', async () => {
+    initTabs();       // branche les onglets
+    await loadData(); // charge le bon JSON + axes
+    initFilters();    // branche les filtres
+  });
+
+  // ------------------------ Domain utils --------------------------------
+  function getUrlDomain() {
+    try {
+      const u = new URL(window.location.href);
+      const d = (u.searchParams.get('domain') || '').toLowerCase().trim();
+      if (AVAILABLE_DOMAINS.includes(d)) return d;
+    } catch {}
+    return null;
   }
 
-  // utilitaires
-  function inferDomainFromFilename(url=""){
-    const name = url.split("/").pop()?.replace(".json","").toLowerCase() || "";
-    const map = { grammaire:"Grammaire", orthographe:"Orthographe", homonymes:"Homonymes", conjugaison:"Conjugaison", vocabulaire:"Vocabulaire" };
-    return map[name] || name || "inconnu";
+  function setUrlDomain(d) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('domain', d);
+    history.replaceState({}, '', url);
   }
-  function normId(){ return Math.random().toString(36).slice(2); }
 
-  const out = [];
+  // --------------------------- Tabs -------------------------------------
+  function initTabs() {
+    const tabBtns = document.querySelectorAll('.tabs .tab[data-domain]');
+    tabBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.domain === state.domain);
 
-  for(const f of files){
-    let json=null, used=null;
-    for(const root of roots){
-      const url = root+f;
-      json = await fetchJSON(url);
-      if(json){ used=url; break; }
+      btn.addEventListener('click', async () => {
+        const newDomain = btn.dataset.domain;
+        if (!AVAILABLE_DOMAINS.includes(newDomain)) return; // domaine pas encore dispo
+        if (newDomain === state.domain) return;
+
+        state.domain = newDomain;
+        setUrlDomain(newDomain);
+
+        // reset filtres
+        state.axeFilter = 'all';
+        state.search = '';
+        state.onlyInProgress = false;
+        const si = document.getElementById('searchInput');
+        if (si) si.value = '';
+        const chk = document.getElementById('showOnlyInProgress');
+        if (chk) chk.checked = false;
+
+        await loadData();
+
+        tabBtns.forEach(b => b.classList.toggle('active', b === btn));
+      });
+    });
+  }
+
+  // ------------------------ Data loading --------------------------------
+  async function loadData() {
+    const src = DATA_FILES[state.domain];
+    const list = document.getElementById('ficheList');
+
+    try {
+      const res = await fetch(src);
+      if (!res.ok) throw new Error(res.statusText);
+      const data = await res.json();
+      state.fiches = data.fiches || [];
+      buildAxeSelect(data.axes || []);
+      restoreProgress();
+      render();
+    } catch (err) {
+      console.error("Erreur de chargement:", err);
+      list.innerHTML = `<p class="error">Impossible de charger les données pour <strong>${state.domain}</strong>.</p>`;
     }
-    if(!json) continue;
+  }
 
-    // ----- CAS A : format { axes:[], fiches:[] } (TON format gram.)
-    if (Array.isArray(json.fiches) && Array.isArray(json.axes)) {
-      // crée un dictionnaire des axes: "grammaire" -> "Grammaire"
-      const axisById = Object.fromEntries(
-        json.axes.map(ax => [ String(ax.id||"").toLowerCase(), ax.title || ax.titre || ax.label || ""])
-      );
+  // ------------------------ Filtres -------------------------------------
+  function initFilters() {
+    const si = document.getElementById('searchInput');
+    if (si) si.oninput = (e => { state.search = e.target.value.toLowerCase().trim(); render(); });
 
-      for(const fi of json.fiches){
-        // domaine = axelabel si présent, sinon on résout via l'axe
-        const axeId   = String(fi.axe || "").toLowerCase();
-        const domaine = fi.axelabel || axisById[axeId] || inferDomainFromFilename(used);
+    const chk = document.getElementById('showOnlyInProgress');
+    if (chk) chk.onchange = (e => { state.onlyInProgress = e.target.checked; render(); });
+  }
 
-        out.push({
-          id:    fi.id || fi.code || (fi.title || fi.titre || fi.regle) || normId(),
-          titre: fi.title || fi.titre || fi.regle || "Règle",
-          domaine,
-          description: fi.description || fi.resume || "",
-          // si pas d'items, on laisse [] (la page Exos gère un fallback)
-          items: fi.items || fi.exercices || fi.examples || []
-        });
+  function buildAxeSelect(axes) {
+    const sel = document.getElementById('axeSelect');
+    if (!sel) return;
+    sel.innerHTML = '<option value="all">Tous les axes</option>' + axes.map(a => `<option value="${a.id}">${a.title}</option>`).join('');
+    sel.value = 'all';
+    sel.onchange = (e => { state.axeFilter = e.target.value; render(); });
+  }
+
+  // ------------------------ Progression ---------------------------------
+  function restoreProgress() {
+    try {
+      state.progression = JSON.parse(localStorage.getItem(progKey())) || {};
+    } catch { state.progression = {}; }
+  }
+  function saveProgress() { localStorage.setItem(progKey(), JSON.stringify(state.progression)); }
+
+  function cycleProgress(ficheId) {
+    const cur = state.progression[ficheId] || 0;
+    const next = (cur + 1) % 3; // 0->1->2->0
+    state.progression[ficheId] = next;
+    saveProgress();
+    render();
+  }
+
+  // ------------------------ Rendering -----------------------------------
+  function render() {
+    const list = document.getElementById('ficheList');
+    const q = state.search;
+    const filtered = state.fiches.filter(f => {
+      if (state.axeFilter !== 'all' && f.axe !== state.axeFilter) return false;
+      if (q && !(f.title.toLowerCase().includes(q) || (f.keywords||[]).some(k => k.toLowerCase().includes(q)))) return false;
+      if (state.onlyInProgress) {
+        const s = state.progression[f.id] || 0;
+        if (s !== 1) return false;
       }
-      continue; // passe au fichier suivant
-    }
-
-    // ----- CAS B : tableaux simples / wrappers {data:[]}
-    const arr = Array.isArray(json) ? json : (json.data || json.items || json.exercices || json.examples || []);
-    if (Array.isArray(arr)) {
-      const domainFallback = inferDomainFromFilename(used);
-      for(const e of arr){
-        out.push({
-          id:    e.id || e.code || e.titre || e.title || e.regle || e.nom || normId(),
-          titre: e.titre || e.title || e.regle || e.nom || "Règle",
-          domaine: e.domaine || e.category || domainFallback,
-          description: e.description || e.resume || "",
-          items: e.items || e.exercices || e.examples || []
-        });
-      }
-    }
+      return true;
+    });
+    list.innerHTML = filtered.map(renderCard).join('');
+    bindCardEvents();
   }
 
-  // tri sympa: par domaine puis par titre
-  out.sort((a,b)=> (a.domaine||"").localeCompare(b.domaine||"") || (a.titre||"").localeCompare(b.titre||""));
-  return out;
-}
+  function renderCard(f) {
+    const prog = state.progression[f.id] || 0;
+    const progText = ['—','✓ en cours','✓✓ maîtrisé'][prog];
+    return `
+    <article class="card" data-id="${f.id}">
+      <div class="badges">
+        <span class="badge id">${f.id}</span>
+        <span class="badge axe">${f.axeLabel || f.axe || state.domain}</span>
+      </div>
+      <h3>${f.title}</h3>
+      <details class="rule">
+        <summary>Lire / cacher la règle</summary>
+        <div>${f.rule || ''}</div>
+        ${f.examples?.length ? `<ul>${f.examples.map(ex=>`<li>${ex}</li>`).join('')}</ul>`:''}
+      </details>
+
+      <div class="progress">
+        <button class="ghost js-cycle">Changer état</button>
+        <span class="state">${progText}</span>
+      </div>
+
+      <div class="actions">
+        <button class="primary js-generate" data-kind="${f.kind}">Générer des exercices</button>
+        <button class="ghost js-reset">Réinitialiser mes réponses</button>
+      </div>
+
+      <div class="exercise" id="ex-${f.id}"></div>
+    </article>
+    `;
+  }
+
+  function bindCardEvents() {
+    document.querySelectorAll('.js-cycle').forEach(btn => {
+      btn.onclick = e => {
+        const id = e.target.closest('.card').dataset.id;
+        cycleProgress(id);
+      };
+    });
+    document.querySelectorAll('.js-generate').forEach(btn => {
+      btn.onclick = e => {
+        const card = e.target.closest('.card');
+        const id = card.dataset.id;
+        const fiche = state.fiches.find(x => x.id === id);
+        generateExercises(fiche);
+      };
+    });
+    document.querySelectorAll('.js-reset').forEach(btn => {
+      btn.onclick = e => {
+        const wrap = e.target.closest('.card').querySelector('.exercise');
+        wrap.innerHTML = '';
+      };
+    });
+  }
+
+  // ---------------------- Exercices -------------------------------------
+  function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]); }
+  function pick(arr,n){ return shuffle(arr).slice(0,n); }
+
+  function generateExercises(f) {
+    const wrap = document.getElementById('ex-'+f.id);
+    let html = '';
+    let scoreCorrect = 0, total = 0;
+
+    function addQ(qhtml, onCheck){
+      const qid = Math.random().toString(36).slice(2,8);
+      html += `<div class="q" id="${qid}">${qhtml}</div>`;
+      setTimeout(()=> {
+        const el = document.getElementById(qid);
+        onCheck(el, (ok)=> {
+          el.classList.remove('correct','wrong');
+          el.classList.add(ok? 'correct':'wrong');
+          if(ok) scoreCorrect++;
+          total++;
+          el.querySelector('.result').textContent = ok ? 'Bravo !' : 'Essaie encore';
+          wrap.querySelector('.score').textContent = `Score: ${scoreCorrect} / ${total}`;
+        });
+      },0);
+    }
+
+    wrap.innerHTML = '';
+
+    if(f.kind === 'homophone2'){
+      const items = pick(f.items, Math.min(QUESTIONS_PER_EXO, f.items.length));
+      items.forEach(it=>{
+        const choices = shuffle([it.a, it.b]);
+        const sentence = it.sentence.replace('___', '<strong>___</strong>');
+        addQ(`
+          <div class="prompt">${sentence}</div>
+          <div class="choices">
+            ${choices.map(c=>`<button>${c}</button>`).join('')}
+          </div>
+          <div class="result"></div>
+        `, (el, done)=>{
+          el.querySelectorAll('button').forEach(b=>{
+            b.addEventListener('click', ()=>{
+              done(b.textContent === it.correct);
+            }, {once:true});
+          });
+        });
+      });
+    }
+
+    if(f.kind === 'fill-in'){
+      const items = pick(f.items, Math.min(QUESTIONS_PER_EXO, f.items.length));
+      items.forEach(it=>{
+        const prompt = (it.prompt || '').replace('___', '<input type="text" placeholder="réponse">');
+        addQ(`
+          <div class="prompt">${prompt}</div>
+          <div><button class="primary">Valider</button></div>
+          <div class="result"></div>
+        `, (el, done)=>{
+          const btn = el.querySelector('button');
+          btn.addEventListener('click', ()=>{
+            const user = (el.querySelector('input')?.value || '').trim();
+            const normalize = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[.!?…\s]+$/,'');
+            const exp = it.answer;
+            let ok = false;
+            if(typeof exp === 'string'){
+              ok = it.acceptLoose ? normalize(user) === normalize(exp) : user === exp;
+            } else if(Array.isArray(exp)){
+              ok = exp.some(ans => it.acceptLoose ? normalize(user) === normalize(ans) : user === ans);
+            } else if(typeof exp === 'object' && exp.pattern){
+              ok = new RegExp(exp.pattern, 'i').test(user);
+            }
+            done(ok);
+          }, {once:true});
+        });
+      });
+    }
+
+    wrap.innerHTML = html + `<div class="score">Score: 0 / 0</div>`;
+  }
+})();

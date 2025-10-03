@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html lang="fr"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Porte-Clé • Accueil</title>
-<link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="assets/css/styles.css">
-<script type="module">import { markActive } from './assets/js/app.js'; window.addEventListener('DOMContentLoaded', ()=>{ markActive(); });</script>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier Français — Règles & Exercices</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/app.js"></script>
 </head>
 <body>
-<nav class="top"><div class="inner">
-<img class="logo" src="assets/icon.png" alt=""><span class="brand">Porte-Clé</span><div style="flex:1"></div>
-<a class="active" href="index.html">Accueil</a><a href="theorie.html">Théorie</a><a href="exercices.html">Exercices</a><a href="compte.html">Compte</a>
-</div></nav>
-<main class="app">
-<section class="hero">
-  <div class="panel">
-    <h1>Bienvenue 👋</h1>
-    <p class="muted">Révise la <strong>théorie</strong>, entraîne-toi avec des <strong>exercices</strong> et suis tes <strong>progrès</strong> — par domaines (grammaire, orthographe, homonymes, conjugaison...).</p>
-    <div class="controls"><a class="btn" href="theorie.html">Ouvrir la théorie</a><a class="btn" href="exercices.html">Commencer les exercices</a></div>
-  </div>
-  <div class="panel">
-    <h2 style="margin-top:0">Mode d'emploi</h2>
-    <ol>
-      <li>Choisis un <strong>domaine</strong> dans <em>Théorie</em>.</li>
-      <li>Parmi les <strong>fiches</strong>, ouvre la règle à étudier.</li>
-      <li>Va dans <em>Exercices</em> ➜ sélectionne le domaine puis la fiche.</li>
-      <li>Ton <strong>taux de réussite</strong> apparaît dans <em>Compte</em> (local).</li>
-    </ol>
-  </div>
-</section>
+<header class="site-header">
+  <h1>Atelier Français</h1>
+  <nav class="tabs">
+    <button class="tab active" data-domain="orthographe">Orthographe</button>
+    <button class="tab" data-domain="conjugaison">Conjugaison</button>
+    <button class="tab" data-domain="homonymes">Homonymes</button>
+    <button class="tab" data-domain="grammaire">Grammaire</button>
+  </nav>
+</header>
+
+<main class="wrapper">
+  <section id="filters">
+    <label for="axeSelect">Axe travaillé</label>
+    <select id="axeSelect"></select>
+    <input id="searchInput" type="search" placeholder="Rechercher une fiche (titre, mot-clé)…">
+    <label class="toggle">
+      <input type="checkbox" id="showOnlyInProgress"> Montrer seulement mes fiches en cours
+    </label>
+  </section>
+
+  <section id="ficheList" class="grid"></section>
 </main>
-</body></html>
+
+<footer class="site-footer">
+  <p>Progression enregistrée sur cet appareil (localStorage). ✓ = en cours, ✓✓ = maîtrisé.</p>
+</footer>
+</body>
+</html>
