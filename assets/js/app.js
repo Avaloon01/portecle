@@ -12,7 +12,7 @@ function setProgress(p){ localStorage.setItem(storeKey, JSON.stringify(p)); }
 /* Merge available datasets: expects assets/data/*.json keys: id, titre, domaine, regle, items */
 async function loadDatasets(){
   const dataDir = "/data/";
-  const files = ["orthographe.json","grammaire.json","homonymes.json","conjugaison.json","vocabulaire.json"];
+  const files = ["orthographe.json","grammaire.json","homonymes.json","conjugaison.json"];
   async function fetchIfExists(path){
     try{ const r = await fetch(path, {cache:"no-store"}); if(r.ok){ return r.json(); } }catch(e){}
     return null;
