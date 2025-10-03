@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porte‑Clé • Compte</title>
+<link rel="icon" href="assets/images/logo.png">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="module">
+  import { $, $$, getProgress, setProgress, loadDatasets, markActive } from './assets/js/app.js';
+  window.addEventListener('DOMContentLoaded', async ()=>{
+    markActive();
+    const data = await loadDatasets();
+    const progress = getProgress();
+    const body = $('#tbody');
+    const total = { attempts:0, success:0 };
+    data.forEach(rule=>{
+      const p = progress[rule.id] || {attempts:0, success:0, last:null};
+      total.attempts += p.attempts; total.success += p.success;
+      const tr = document.createElement('tr');
+      const rate = p.attempts ? Math.round(100 * p.success / p.attempts) : 0;
+      tr.innerHTML = \`
+        <td>\${rule.titre}</td>
+        <td>\${rule.domaine}</td>
+        <td>\${p.attempts}</td>
+        <td>\${p.success}</td>
+        <td>\${rate}%</td>
+        <td>\${p.last ? new Date(p.last).toLocaleDateString() : "—"}</td>\`;
+      body.appendChild(tr);
+    });
+    $('#global').textContent = (total.attempts ? Math.round(100*total.success/total.attempts) : 0) + '%';
+    $('#reset').onclick = ()=>{
+      if(confirm('Réinitialiser le suivi local ?')){ localStorage.removeItem('porte-cle:progress:v2'); location.reload(); }
+    };
+  });
+</script>
+</head>
+<body>
+<nav class="top">
+  <div class="inner">
+    <img class="logo" src="assets/images/logo.png" alt="">
+    <span class="brand">Porte‑Clé</span>
+    <div style="flex:1"></div>
+    <a href="index.html">Accueil</a>
+    <a href="theorie.html">Théorie</a>
+    <a href="exercices.html">Exercices</a>
+    <a class="active" href="compte.html">Compte</a>
+  </div>
+</nav>
+<main class="app">
+  <h1>Mon compte</h1>
+  <div class="kpis">
+    <div class="kpi"><div>Taux de réussite global</div><strong id="global">—</strong></div>
+    <button id="reset" class="ghost">Réinitialiser</button>
+  </div>
+  <table class="table" style="margin-top:14px">
+    <thead><tr><th>Règle</th><th>Domaine</th><th>Essais</th><th>Réussites</th><th>Réussite</th><th>Dernière</th></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</main>
+</body>
+</html>

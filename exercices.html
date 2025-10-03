@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porte‑Clé • Exercices</title>
+<link rel="icon" href="assets/images/logo.png">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="module">
+  import { $, $$, loadDatasets, markActive, recordRule, shuffle, pick } from './assets/js/app.js';
+  window.addEventListener('DOMContentLoaded', async ()=>{
+    markActive();
+    const params = new URLSearchParams(location.search);
+    const ruleId = params.get('r');
+    const wanted = params.get('d');
+    const data = await loadDatasets();
+    const rules = data.filter(d=> ruleId ? d.id===ruleId : (wanted ? d.domaine===wanted : true));
+    const select = $('#ruleSelect');
+    rules.forEach(r=>{
+      const opt = document.createElement('option');
+      opt.value = r.id; opt.textContent = r.titre + ' — ' + r.domaine;
+      select.appendChild(opt);
+    });
+    if(ruleId) select.value = ruleId;
+    run();
+    $('#runBtn').addEventListener('click', run);
+    
+    function run(){
+      const chosenId = select.value;
+      const rule = data.find(d=>d.id===chosenId) || rules[0];
+      if(!rule){ $('#content').innerHTML='<p>Aucune règle trouvée.</p>'; return; }
+      $('#ruleName').textContent = rule.titre;
+      const items = rule.items && rule.items.length ? rule.items : [
+        { q:'Complète: Le chat ___ sur le mur.', a:'saute' },
+        { q:'Choisis: Leur / Leurs — ___ cartable est rouge.', a:'Leur' },
+        { q:'Transforme au présent: (nous) chanter', a:'nous chantons' }
+      ];
+      const picked = pick(shuffle(items.slice()), 8);
+      const area = $('#content'); area.innerHTML='';
+      picked.forEach((it,idx)=>{
+        const row = document.createElement('div');
+        row.className='card';
+        row.innerHTML = \`
+          <div class="badge">Ex \${idx+1}</div>
+          <p>\${it.q || it.question || it.texte}</p>
+          <input data-a="\${(it.a||it.reponse||'').toString().trim().toLowerCase()}" placeholder="Ta réponse…">
+        \`;
+        area.appendChild(row);
+      });
+      $('#validate').onclick = ()=>{
+        let ok=0, tot=0;
+        $$('#content input').forEach(inp=>{
+          tot++;
+          const user = (inp.value||'').trim().toLowerCase().replace(/[.!?]$/,'');
+          const ans = inp.dataset.a;
+          if(ans){
+            if(user===ans){ ok++; inp.style.borderColor='var(--ok)'; }
+            else { inp.style.borderColor='var(--bad)'; }
+          }
+        });
+        $('#score').textContent = ok + ' / ' + tot;
+        recordRule(rule.id, ok===tot ? 'success' : 'attempt');
+      };
+    }
+  });
+</script>
+</head>
+<body>
+<nav class="top">
+  <div class="inner">
+    <img class="logo" src="assets/images/logo.png" alt="">
+    <span class="brand">Porte‑Clé</span>
+    <div style="flex:1"></div>
+    <a href="index.html">Accueil</a>
+    <a href="theorie.html">Théorie</a>
+    <a class="active" href="exercices.html">Exercices</a>
+    <a href="compte.html">Compte</a>
+  </div>
+</nav>
+<main class="app">
+  <h1>Exercices <span id="ruleName" class="muted"></span></h1>
+  <div class="controls">
+    <label for="ruleSelect">Règle</label>
+    <select id="ruleSelect"></select>
+    <button id="runBtn" class="ghost">↻ Générer</button>
+  </div>
+  <section id="content" class="grid" style="margin-top:14px"></section>
+  <div class="kpis">
+    <div class="kpi"><div>Score</div><strong id="score">—</strong></div>
+    <button id="validate">Valider</button>
+  </div>
+</main>
+</body>
+</html>

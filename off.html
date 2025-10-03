@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porte‑Clé • Fiches imprimables</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="module">
+  import { $, $$, loadDatasets } from './assets/js/app.js';
+  window.addEventListener('DOMContentLoaded', async ()=>{
+    const params = new URLSearchParams(location.search);
+    const ruleId = params.get('r');
+    const data = await loadDatasets();
+    const target = ruleId ? data.filter(d=>d.id===ruleId) : data;
+    const host = $('#host');
+    target.forEach(rule=>{
+      const wrap = document.createElement('section');
+      wrap.className='print-sheet';
+      wrap.innerHTML = \`
+        <h2>\${rule.titre}</h2>
+        <div class="print-meta">\${rule.domaine}</div>
+        <p>\${rule.description || ""}</p>
+        <hr>
+        <ol>
+          \${(rule.items||[]).slice(0,12).map(it=>'<li class="exercise">'+(it.q||it.question||it.texte||'…')+'</li>').join('')}
+        </ol>\`;
+      host.appendChild(wrap);
+    });
+  });
+</script>
+</head>
+<body>
+<main class="app">
+  <div id="host"></div>
+</main>
+</body>
+</html>
