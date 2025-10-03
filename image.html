@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Générateur d’autocollants Panini – Fiches orthographe</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%235b7cfa'/%3E%3Ctext x='50' y='60' font-size='52' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3E★%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#f7f9fc; --ink:#101827; --muted:#6b7280; --brand:#5b7cfa; --ring:#c7d2fe;
+      --ok:#10b981; --bad:#ef4444; --card:#ffffff; --line:#e5e7eb;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .app{width:min(1200px,100%); margin:24px auto; padding:16px;}
+    header{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    h1{font-size:clamp(20px,3.2vw,28px); margin:0}
+    .toolbar{display:flex; flex-wrap:wrap; gap:10px; align-items:end;}
+    .field{display:flex; flex-direction:column; gap:6px}
+    .field label{font-size:12px; color:var(--muted)}
+    input[type="number"], select, input[type="text"], .btn, .file{height:40px; padding:0 12px; border:1px solid var(--line); background:#fff; border-radius:10px; font-size:14px}
+    input[type="checkbox"]{transform:translateY(1px)}
+    .btn{display:inline-flex; align-items:center; gap:8px; cursor:pointer; background:var(--brand); color:#fff; border:none}
+    .btn.secondary{background:#fff; color:var(--ink); border:1px solid var(--line)}
+    .btn.ghost{background:transparent; color:var(--brand); border:1px dashed var(--brand)}
+    .hint{font-size:12px; color:var(--muted)}
+
+    .stack{display:grid; gap:12px}
+    .cards{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; margin-top:16px}
+    .card-wrap{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; box-shadow:0 4px 20px rgba(16,24,39,.06)}
+
+    /* === Sticker design (ratio 62x88 mm par défaut) === */
+    .sticker{position:relative; width:310px; height:440px; /* aperçu à l’écran ~
+      5px/mm si 62x88 → 310x440 */
+      border-radius:22px; background:linear-gradient(160deg, #ffffff, #f3f6ff 60%);
+      box-shadow: inset 0 0 0 2px #e6ecff; display:flex; flex-direction:column; overflow:hidden
+    }
+    .sticker .bar{height:52px; background:linear-gradient(90deg, var(--brand), #8da5ff);
+      color:#fff; display:flex; align-items:center; justify-content:space-between; padding:0 14px}
+    .badge{background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.45); padding:4px 10px; border-radius:999px; font-weight:700; letter-spacing:.4px}
+    .axis{font-size:12px; opacity:.9}
+    .title{padding:12px 14px 0 14px; font-weight:800; font-size:18px}
+    .rule{padding:6px 14px 8px 14px; color:#374151; font-size:14px}
+    .examples{margin:0; padding:8px 18px; color:#4b5563; font-size:13px}
+    .examples li{margin:2px 0}
+    .footer{margin-top:auto; padding:10px 14px; display:flex; align-items:center; justify-content:space-between; font-size:12px; color:#6b7280; border-top:1px dashed #e5e7eb}
+    .mark{font-weight:700; color:#334155}
+
+    .gridline{position:absolute; inset:8px; border:1px dashed #cfd8ff; border-radius:16px; pointer-events:none}
+
+    .sticky{position:sticky; top:10px}
+    .warn{background:#fff7ed; border:1px solid #ffedd5; padding:10px 12px; border-radius:12px; color:#9a3412}
+
+    /* Print helper (optional): show true size using CSS mm when printing) */
+    @media print{
+      body{background:#fff}
+      .no-print{display:none}
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Générateur d’autocollants – Album Panini</h1>
+    <div class="toolbar">
+      <div class="field"><label>Charger le JSON</label>
+        <input class="file" id="jsonFile" type="file" accept="application/json" />
+      </div>
+      <div class="field"><label>Filtrer par axe</label>
+        <select id="axeFilter"><option value="">(tous)</option></select>
+      </div>
+      <div class="field"><label>Format</label>
+        <select id="format">
+          <option value="png">PNG (un fichier/carte)</option>
+          <option value="pdf">PDF (un fichier/carte)</option>
+          <option value="both">PNG + PDF</option>
+        </select>
+      </div>
+      <div class="field"><label>Largeur sticker (mm)</label>
+        <input id="wmm" type="number" value="62" min="30" max="120" />
+      </div>
+      <div class="field"><label>Hauteur sticker (mm)</label>
+        <input id="hmm" type="number" value="88" min="30" max="160" />
+      </div>
+      <div class="field"><label>DPI export</label>
+        <input id="dpi" type="number" value="300" min="72" max="600" />
+      </div>
+      <button class="btn" id="btnPreview">Prévisualiser</button>
+      <button class="btn secondary" id="btnZip">Créer le ZIP</button>
+    </div>
+  </header>
+
+  <div class="stack" style="margin-top:12px">
+    <div class="warn no-print"><strong>Astuce impression :</strong> les fichiers exportés sont dimensionnés à l’échelle. Si votre imprimeur impose des gabarits (fonds perdus, repères), choisissez PDF et laissez un massicotage de 2–3 mm au besoin.</div>
+    <div id="meta" class="hint"></div>
+    <div class="cards" id="cards"></div>
+  </div>
+</div>
+
+<!-- ========== TPL Carte ========== -->
+<template id="stickerTpl">
+  <div class="sticker" data-id="">
+    <div class="bar">
+      <span class="badge id"></span>
+      <span class="axis"></span>
+    </div>
+    <div class="title"></div>
+    <div class="rule"></div>
+    <ul class="examples"></ul>
+    <div class="footer">
+      <span class="mark"></span>
+      <span class="brand">Un problème à la fois</span>
+    </div>
+    <div class="gridline" aria-hidden="true"></div>
+  </div>
+</template>
+
+<!-- ========== Libs ========== -->
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<script>
+(function(){
+  const $ = (sel, el=document) => el.querySelector(sel);
+  const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+
+  const tpl = $('#stickerTpl');
+  const cardsEl = $('#cards');
+  const fileEl = $('#jsonFile');
+  const axeFilter = $('#axeFilter');
+  const meta = $('#meta');
+
+  // State
+  let DATA = null; // {axes:[], fiches:[]}
+  let PREVIEWS = []; // {fiche, node}
+
+  function mmToPx(mm, dpi){ return Math.round(mm * dpi / 25.4); }
+  function slug(s){ return (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/gi,'-').replace(/^-+|-+$/g,'').toLowerCase(); }
+
+  function hydrateAxes(){
+    axeFilter.innerHTML = '<option value="">(tous)</option>' +
+      (DATA?.axes||[]).map(a=>`<option value="${a.id}">${a.title}</option>`).join('');
+  }
+
+  function buildCardNode(fiche){
+    const node = tpl.content.firstElementChild.cloneNode(true);
+    node.dataset.id = fiche.id;
+    $('.id', node).textContent = fiche.id;
+    $('.axis', node).textContent = fiche.axeLabel || fiche.axe || '';
+    $('.title', node).textContent = fiche.title || '';
+    $('.rule', node).textContent = fiche.rule || '';
+    const ul = $('.examples', node);
+    ul.innerHTML = '';
+    (fiche.examples||[]).slice(0,4).forEach(ex=>{
+      const li = document.createElement('li');
+      li.textContent = ex; ul.appendChild(li);
+    });
+    $('.mark', node).textContent = (fiche.axe || '').toUpperCase();
+    return node;
+  }
+
+  function renderPreviews(){
+    PREVIEWS = [];
+    cardsEl.innerHTML='';
+    if(!DATA){ meta.textContent='Aucun JSON chargé.'; return; }
+    const filterId = axeFilter.value || '';
+    const list = (DATA.fiches||[]).filter(f=>!filterId || f.axe === filterId);
+    list.forEach(fiche=>{
+      const wrap = document.createElement('div');
+      wrap.className = 'card-wrap';
+      const node = buildCardNode(fiche);
+      wrap.appendChild(node);
+      cardsEl.appendChild(wrap);
+      PREVIEWS.push({fiche, node});
+    });
+    meta.textContent = `${list.length} carte(s) prêtes.`;
+  }
+
+  async function nodeToPng(node, mmW, mmH, dpi){
+    const w = mmToPx(mmW, dpi);
+    const h = mmToPx(mmH, dpi);
+
+    // Clone in a sandbox container to force exact px size
+    const sandbox = document.createElement('div');
+    sandbox.style.position='fixed'; sandbox.style.left='-99999px'; sandbox.style.top='0';
+    const clone = node.cloneNode(true);
+    clone.style.width = w+'px';
+    clone.style.height = h+'px';
+    clone.style.transform = 'translateZ(0)';
+    sandbox.appendChild(clone);
+    document.body.appendChild(sandbox);
+
+    const canvas = await html2canvas(clone, {scale:1, backgroundColor:null, useCORS:true});
+    const dataUrl = canvas.toDataURL('image/png');
+    sandbox.remove();
+    return {dataUrl, w, h};
+  }
+
+  async function nodeToPdf(node, mmW, mmH, dpi){
+    const { jsPDF } = window.jspdf;
+    const {dataUrl, w, h} = await nodeToPng(node, mmW, mmH, dpi);
+    // jsPDF: unit mm, custom page size
+    const doc = new jsPDF({orientation: (mmW>mmH?'l':'p'), unit:'mm', format:[mmW, mmH]});
+    // Convert px to mm for image size at 96dpi basis, but better to draw full page
+    doc.addImage(dataUrl, 'PNG', 0, 0, mmW, mmH, undefined, 'FAST');
+    return doc.output('arraybuffer');
+  }
+
+  async function createZip(){
+    if(!DATA){ alert('Charge un JSON d’abord.'); return; }
+    const filterId = axeFilter.value || '';
+    const dpi = parseInt($('#dpi').value,10)||300;
+    const mmW = parseFloat($('#wmm').value)||62;
+    const mmH = parseFloat($('#hmm').value)||88;
+    const fmt = $('#format').value; // png | pdf | both
+
+    const fiches = (DATA.fiches||[]).filter(f=>!filterId || f.axe === filterId);
+    if(!fiches.length){ alert('Aucune fiche avec ce filtre.'); return; }
+
+    const zip = new JSZip();
+    const folder = zip.folder('stickers');
+
+    let i=0;
+    for(const fiche of fiches){
+      i++;
+      const node = buildCardNode(fiche);
+      // PNG
+      if(fmt==='png' || fmt==='both'){
+        const {dataUrl} = await nodeToPng(node, mmW, mmH, dpi);
+        const base64 = dataUrl.split(',')[1];
+        folder.file(`${String(i).padStart(2,'0')}-${fiche.id}-${slug(fiche.title)}.png`, base64, {base64:true});
+      }
+      // PDF
+      if(fmt==='pdf' || fmt==='both'){
+        const ab = await nodeToPdf(node, mmW, mmH, dpi);
+        folder.file(`${String(i).padStart(2,'0')}-${fiche.id}-${slug(fiche.title)}.pdf`, ab);
+      }
+    }
+
+    const blob = await zip.generateAsync({type:'blob'});
+    saveAs(blob, `autocollants_${filterId||'tous'}.zip`);
+  }
+
+  // Load JSON from file input
+  fileEl.addEventListener('change', async (e)=>{
+    const f = e.target.files?.[0];
+    if(!f) return;
+    try{
+      const text = await f.text();
+      DATA = JSON.parse(text);
+      hydrateAxes();
+      renderPreviews();
+    }catch(err){
+      alert('JSON invalide : '+ err.message);
+    }
+  });
+
+  axeFilter.addEventListener('change', renderPreviews);
+  $('#btnPreview').addEventListener('click', renderPreviews);
+  $('#btnZip').addEventListener('click', createZip);
+
+  // Demo: structure minimale si aucun JSON n’est chargé (pour tester l’UI)
+  DATA = { axes:[{id:'homophones', title:'Homophones grammaticaux'}], fiches:[
+    {id:'DEMO1', axe:'homophones', axeLabel:'Homophones grammaticaux', title:'a / à', rule:'« a » = verbe avoir ; « à » = préposition.', examples:['Zoé a un chien.','Il part à midi.']},
+    {id:'DEMO2', axe:'homophones', axeLabel:'Homophones grammaticaux', title:'et / est', rule:'« et » = conjonction ; « est » = verbe être.', examples:['Tu es ici et il est là.']}
+  ]};
+  hydrateAxes();
+  renderPreviews();
+})();
+</script>
+</body>
+</html>
