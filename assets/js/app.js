@@ -11,14 +11,20 @@ function setProgress(p){ localStorage.setItem(storeKey, JSON.stringify(p)); }
 
 /* Merge available datasets: expects assets/data/*.json keys: id, titre, domaine, regle, items */
 async function loadDatasets(){
-  const dataDir = "/assets/data/";
-  const files = ["orthographe.json","grammaire.json","homonymes.json"];
+  const roots = ["/data/", "/assets/data/", "./data/", "./assets/data/"];
+  const files = ["orthographe.json","grammaire.json","homonymes.json","conjugaison.json","vocabulaire.json"];
+  async function fetchIfExists(path){
+    try{ const r = await fetch(path, {cache:"no-store"}); if(r.ok){ return r.json(); } }catch(e){}
+    return null;
+  }
   const out = [];
   for(const f of files){
-    try{
-      const res = await fetch(dataDir+f);
-      if(res.ok){
-        const json = await res.json();
+    let json = null;
+    for(const root of roots){
+      if(json) break;
+      json = await fetchIfExists(root+f);
+    }
+    if(json){
         const arr = Array.isArray(json) ? json : (json.data || []);
         for(const e of arr){
           // normalize
@@ -31,8 +37,9 @@ async function loadDatasets(){
           });
         }
       }
-    }catch(e){ console.warn("Skip", f, e); }
+    }
   }
+  if(!out.length){ console.warn('Aucune base de données JSON trouvée dans', roots, 'pour', files); }
   return out;
 }
 
