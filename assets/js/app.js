@@ -10,11 +10,7 @@ function getProgress(){
 function setProgress(p){ localStorage.setItem(storeKey, JSON.stringify(p)); }
 
 /* Merge available datasets: expects assets/data/*.json keys: id, titre, domaine, regle, items */
-async function loadDatasets(){
-  const dataDir = "/data/";
-  const files = ["orthographe.json","grammaire.json","homonymes.json","conjugaison.json"];
-  async function fetchIfExists(path){
-    try{ const r = await fetch(path, {cache:"no-store"}); if(r.ok){ return r.json(); } }catch(e){}
+); if(r.ok){ return r.json(); } }catch(e){}
     return null;
   }
   const out = [];
@@ -64,3 +60,31 @@ function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.rand
 function pick(a,n){ return a.slice(0, Math.min(n, a.length)); }
 
 export { $, $$, getProgress, setProgress, loadDatasets, markActive, recordRule, shuffle, pick };
+
+
+async function loadDatasets(){
+  const roots = ["./data/", "data/", "./assets/data/", "assets/data/"];
+  const files = ["orthographe.json","grammaire.json","homonymes.json","conjugaison.json","vocabulaire.json"];
+  async function fetchJSON(url){
+    try{ const r = await fetch(url,{cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
+    return null;
+  }
+  const out = [];
+  for(const f of files){
+    let json=null;
+    for(const root of roots){ if(json) break; json = await fetchJSON(root+f); }
+    if(!json) continue;
+    const arr = Array.isArray(json)?json:(json.data||[]);
+    for(const e of arr){
+      out.push({
+        id: e.id||e.code||e.titre||e.regle||Math.random().toString(36).slice(2),
+        titre: e.titre||e.regle||e.nom||"Règle",
+        domaine: e.domaine||e.category||"inconnu",
+        description: e.description||e.resume||"",
+        items: e.items||e.exercices||e.examples||[]
+      });
+    }
+  }
+  if(!out.length) console.warn("Aucune base JSON trouvée dans",roots,"pour",files);
+  return out;
+}
