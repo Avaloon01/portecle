@@ -1,0 +1,988 @@
+{
+  "axes": [
+    {
+      "id": "homonymes",
+      "title": "Homophones (mots qui se prononcent pareil)"
+    }
+  ],
+  "fiches": [
+    {
+      "id": "H1",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "pause / pose / poses / posent",
+      "rule": "pause = arrêt ; pose = action de poser ; poses = tu poses ; posent = ils/elles posent.",
+      "examples": [
+        "Je fais une pause.",
+        "Il prend la pose.",
+        "Tu poses la question.",
+        "Ils posent leurs sacs."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "pause",
+          "b": "pose",
+          "sentence": "J’ai besoin d’une ___ après la course.",
+          "correct": "pause"
+        },
+        {
+          "a": "pose",
+          "b": "pause",
+          "sentence": "Le photographe demande une ___.",
+          "correct": "pose"
+        },
+        {
+          "a": "poses",
+          "b": "posent",
+          "sentence": "Tu ___ toujours de bonnes questions.",
+          "correct": "poses"
+        },
+        {
+          "a": "poses",
+          "b": "posent",
+          "sentence": "Elles ___ leurs manteaux ici.",
+          "correct": "posent"
+        },
+        {
+          "a": "pause",
+          "b": "pose",
+          "sentence": "On fait une ___ de dix minutes.",
+          "correct": "pause"
+        },
+        {
+          "a": "pose",
+          "b": "pause",
+          "sentence": "La ___ de la première pierre aura lieu demain.",
+          "correct": "pose"
+        }
+      ]
+    },
+    {
+      "id": "H2",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "voix / voie / vois / voit / voient",
+      "rule": "voix = son produit par la parole ; voie = chemin ; vois = je/tu voir ; voit = il/elle voir ; voient = ils/elles voir.",
+      "examples": [
+        "Sa voix est douce.",
+        "Cette voie est barrée.",
+        "Je vois la mer.",
+        "Il voit bien.",
+        "Ils voient tout."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "voix",
+          "b": "voie",
+          "sentence": "Sa ___ porte loin dans l’auditorium.",
+          "correct": "voix"
+        },
+        {
+          "a": "voix",
+          "b": "voie",
+          "sentence": "La ___ de gauche est réservée aux bus.",
+          "correct": "voie"
+        },
+        {
+          "a": "vois",
+          "b": "voit",
+          "sentence": "Je ___ les étoiles ce soir.",
+          "correct": "vois"
+        },
+        {
+          "a": "voit",
+          "b": "voient",
+          "sentence": "Il ___ mieux avec ses nouvelles lunettes.",
+          "correct": "voit"
+        },
+        {
+          "a": "voient",
+          "b": "voit",
+          "sentence": "Ils ___ déjà l’arrivée.",
+          "correct": "voient"
+        },
+        {
+          "a": "voie",
+          "b": "voix",
+          "sentence": "Cette ___ ferrée traverse la ville.",
+          "correct": "voie"
+        }
+      ]
+    },
+    {
+      "id": "H3",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "père / pair / paire / perd / perds",
+      "rule": "père = papa ; pair = égal/semblable ; paire = ensemble de deux ; perd = il/elle perdre ; perds = je/tu perdre.",
+      "examples": [
+        "Mon père lit.",
+        "Une paire de gants.",
+        "Son avis est celui d’un pair.",
+        "Je perds mes clés.",
+        "Il perd le match."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "père",
+          "b": "pair",
+          "sentence": "Mon ___ cuisine ce soir.",
+          "correct": "père"
+        },
+        {
+          "a": "paire",
+          "b": "pair",
+          "sentence": "J’ai acheté une ___ de chaussures.",
+          "correct": "paire"
+        },
+        {
+          "a": "perds",
+          "b": "perd",
+          "sentence": "Je ___ souvent mes stylos.",
+          "correct": "perds"
+        },
+        {
+          "a": "perd",
+          "b": "perds",
+          "sentence": "Il ___ patience rapidement.",
+          "correct": "perd"
+        },
+        {
+          "a": "pair",
+          "b": "paire",
+          "sentence": "Il a été reconnu par ses ___.",
+          "correct": "pair"
+        },
+        {
+          "a": "père",
+          "b": "pair",
+          "sentence": "Il écrit à son ___ tous les dimanches.",
+          "correct": "père"
+        }
+      ]
+    },
+    {
+      "id": "H4",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "plaine / pleine",
+      "rule": "plaine = grande étendue plate ; pleine = remplie (féminin de plein).",
+      "examples": [
+        "La plaine s’étend à perte de vue.",
+        "Une boîte pleine de billes."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "plaine",
+          "b": "pleine",
+          "sentence": "La ___ est verdoyante au printemps.",
+          "correct": "plaine"
+        },
+        {
+          "a": "pleine",
+          "b": "plaine",
+          "sentence": "Une valise ___ de vêtements.",
+          "correct": "pleine"
+        },
+        {
+          "a": "plaine",
+          "b": "pleine",
+          "sentence": "Ils traversent la ___ à vélo.",
+          "correct": "plaine"
+        },
+        {
+          "a": "pleine",
+          "b": "plaine",
+          "sentence": "La salle est ___ ce soir.",
+          "correct": "pleine"
+        },
+        {
+          "a": "pleine",
+          "b": "plaine",
+          "sentence": "La rivière est ___ à cause des pluies.",
+          "correct": "pleine"
+        }
+      ]
+    },
+    {
+      "id": "H5",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "cour / cours / court / courent",
+      "rule": "cour = espace/tribunal ; cours = leçon ou mouvement de l’eau ; court = adjectif ; courent = ils/elles courir.",
+      "examples": [
+        "La cour de récréation.",
+        "Je vais en cours.",
+        "Un pantalon court.",
+        "Ils courent chaque matin."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "cour",
+          "b": "cours",
+          "sentence": "Les enfants jouent dans la ___.",
+          "correct": "cour"
+        },
+        {
+          "a": "courent",
+          "b": "court",
+          "sentence": "Ils ___ très vite.",
+          "correct": "courent"
+        },
+        {
+          "a": "cours",
+          "b": "cour",
+          "sentence": "J’ai un ___ de français à 10h.",
+          "correct": "cours"
+        },
+        {
+          "a": "court",
+          "b": "cours",
+          "sentence": "Ce texte est trop ___ pour l’examen.",
+          "correct": "court"
+        },
+        {
+          "a": "cour",
+          "b": "cours",
+          "sentence": "La ___ d’appel a rendu son arrêt.",
+          "correct": "cour"
+        },
+        {
+          "a": "cours",
+          "b": "courent",
+          "sentence": "Le ___ de la rivière est rapide.",
+          "correct": "cours"
+        }
+      ]
+    },
+    {
+      "id": "H6",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "chaîne / chêne",
+      "rule": "chaîne = suite/objet ; chêne = arbre.",
+      "examples": [
+        "Une chaîne en argent.",
+        "Un vieux chêne."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "chaîne",
+          "b": "chêne",
+          "sentence": "Il porte une ___ autour du cou.",
+          "correct": "chaîne"
+        },
+        {
+          "a": "chêne",
+          "b": "chaîne",
+          "sentence": "Le ___ est un arbre robuste.",
+          "correct": "chêne"
+        },
+        {
+          "a": "chaîne",
+          "b": "chêne",
+          "sentence": "La ___ de montagne est enneigée.",
+          "correct": "chaîne"
+        },
+        {
+          "a": "chêne",
+          "b": "chaîne",
+          "sentence": "Ils se reposent sous un ___.",
+          "correct": "chêne"
+        },
+        {
+          "a": "chaîne",
+          "b": "chêne",
+          "sentence": "Change de ___ de télévision.",
+          "correct": "chaîne"
+        }
+      ]
+    },
+    {
+      "id": "H7",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "vin / vingt / vain / vint",
+      "rule": "vin = boisson ; vingt = nombre 20 ; vain = inutile ; vint = passé simple de venir.",
+      "examples": [
+        "Du vin rouge.",
+        "Vingt élèves.",
+        "Un effort vain.",
+        "Il vint un soir d’hiver."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "vin",
+          "b": "vain",
+          "sentence": "Un verre de ___.",
+          "correct": "vin"
+        },
+        {
+          "a": "vingt",
+          "b": "vint",
+          "sentence": "Ils sont ___ à la réunion.",
+          "correct": "vingt"
+        },
+        {
+          "a": "vain",
+          "b": "vin",
+          "sentence": "C’était un espoir ___.",
+          "correct": "vain"
+        },
+        {
+          "a": "vint",
+          "b": "vingt",
+          "sentence": "Il ___ sans prévenir.",
+          "correct": "vint"
+        },
+        {
+          "a": "vingt",
+          "b": "vin",
+          "sentence": "___ minutes suffiront.",
+          "correct": "vingt"
+        }
+      ]
+    },
+    {
+      "id": "H8",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "champ / chant",
+      "rule": "champ = terrain/domaine ; chant = mélodie/acte de chanter.",
+      "examples": [
+        "Un champ de blé.",
+        "Le chant des oiseaux."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "champ",
+          "b": "chant",
+          "sentence": "Le ___ est moissonné.",
+          "correct": "champ"
+        },
+        {
+          "a": "chant",
+          "b": "champ",
+          "sentence": "Le ___ est magnifique au lever du jour.",
+          "correct": "chant"
+        },
+        {
+          "a": "chant",
+          "b": "champ",
+          "sentence": "Elle suit des cours de ___.",
+          "correct": "chant"
+        },
+        {
+          "a": "champ",
+          "b": "chant",
+          "sentence": "Ce ___ magnétique est puissant.",
+          "correct": "champ"
+        },
+        {
+          "a": "chant",
+          "b": "champ",
+          "sentence": "On entend le ___ des cigales.",
+          "correct": "chant"
+        }
+      ]
+    },
+    {
+      "id": "H9",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "au / aux / haut / eau",
+      "rule": "au = à + le ; aux = à + les ; haut = élevé ; eau = liquide.",
+      "examples": [
+        "Je vais au parc.",
+        "Elle parle aux enfants.",
+        "Une tour très haute.",
+        "Un verre d’eau."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "au",
+          "b": "aux",
+          "sentence": "Je vais ___ cinéma.",
+          "correct": "au"
+        },
+        {
+          "a": "aux",
+          "b": "au",
+          "sentence": "Il parle ___ voisins.",
+          "correct": "aux"
+        },
+        {
+          "a": "haut",
+          "b": "eau",
+          "sentence": "Ce mur est très ___.",
+          "correct": "haut"
+        },
+        {
+          "a": "eau",
+          "b": "au",
+          "sentence": "Elle boit de l’___.",
+          "correct": "eau"
+        },
+        {
+          "a": "aux",
+          "b": "haut",
+          "sentence": "Nous pensons ___ conséquences.",
+          "correct": "aux"
+        }
+      ]
+    },
+    {
+      "id": "H10",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "fête / faite / faîte / faites",
+      "rule": "fête = célébration ; faite = participe passé de faire (féminin) ; faites = 2e pers. pl. de faire ; faîte = sommet d’un toit.",
+      "examples": [
+        "Une fête d’anniversaire.",
+        "La robe est faite main.",
+        "Vous faites du sport.",
+        "Le faîte du toit."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "fête",
+          "b": "faite",
+          "sentence": "On organise une ___ pour l’école.",
+          "correct": "fête"
+        },
+        {
+          "a": "faite",
+          "b": "faites",
+          "sentence": "La tarte est ___ maison.",
+          "correct": "faite"
+        },
+        {
+          "a": "faites",
+          "b": "fête",
+          "sentence": "Vous ___ du yoga le matin.",
+          "correct": "faites"
+        },
+        {
+          "a": "faîte",
+          "b": "faite",
+          "sentence": "Le ___ du toit est endommagé.",
+          "correct": "faîte"
+        },
+        {
+          "a": "fête",
+          "b": "faites",
+          "sentence": "Bonne ___ !",
+          "correct": "fête"
+        },
+        {
+          "a": "faite",
+          "b": "faîte",
+          "sentence": "C’est une sculpture ___ en bois.",
+          "correct": "faite"
+        }
+      ]
+    },
+    {
+      "id": "H11",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "boue / bous / bout / bouent",
+      "rule": "boue = terre mouillée ; bous = je/tu bous (verbe bouillir) ; bout = extrémité ; bouent = ils/elles bouillir.",
+      "examples": [
+        "De la boue partout.",
+        "Je bous de colère.",
+        "Le bout de la rue.",
+        "Les pâtes bouent."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "boue",
+          "b": "bout",
+          "sentence": "Il y a de la ___ sur tes chaussures.",
+          "correct": "boue"
+        },
+        {
+          "a": "bous",
+          "b": "bouent",
+          "sentence": "Je ___ d’impatience.",
+          "correct": "bous"
+        },
+        {
+          "a": "bout",
+          "b": "boue",
+          "sentence": "Au ___ de l’allée, tourne à droite.",
+          "correct": "bout"
+        },
+        {
+          "a": "bouent",
+          "b": "bous",
+          "sentence": "Les légumes ___ dans la casserole.",
+          "correct": "bouent"
+        },
+        {
+          "a": "boue",
+          "b": "bout",
+          "sentence": "La __ de la rivière est épaisse aujourd’hui.",
+          "correct": "boue"
+        }
+      ]
+    },
+    {
+      "id": "H12",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "pâte / patte",
+      "rule": "pâte = préparation culinaire/matière ; patte = pied d’un animal.",
+      "examples": [
+        "De la pâte à pain.",
+        "La patte du chien."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "pâte",
+          "b": "patte",
+          "sentence": "La ___ lève doucement.",
+          "correct": "pâte"
+        },
+        {
+          "a": "patte",
+          "b": "pâte",
+          "sentence": "Le chat s’est blessé à la ___.",
+          "correct": "patte"
+        },
+        {
+          "a": "pâte",
+          "b": "patte",
+          "sentence": "Ajoute la ___ au moule.",
+          "correct": "pâte"
+        },
+        {
+          "a": "patte",
+          "b": "pâte",
+          "sentence": "Cette table a une ___ cassée.",
+          "correct": "patte"
+        },
+        {
+          "a": "pâte",
+          "b": "patte",
+          "sentence": "Il faut étaler la ___.",
+          "correct": "pâte"
+        }
+      ]
+    },
+    {
+      "id": "H13",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "roux / roue",
+      "rule": "roux = couleur des cheveux (masc. sing.) ; roue = objet circulaire.",
+      "examples": [
+        "Un chat roux.",
+        "La roue du vélo."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "roux",
+          "b": "roue",
+          "sentence": "Son chat est ___.",
+          "correct": "roux"
+        },
+        {
+          "a": "roue",
+          "b": "roux",
+          "sentence": "La ___ arrière est crevée.",
+          "correct": "roue"
+        },
+        {
+          "a": "roue",
+          "b": "roux",
+          "sentence": "La ___ tourne vite.",
+          "correct": "roue"
+        },
+        {
+          "a": "roux",
+          "b": "roue",
+          "sentence": "Il a les cheveux ___.",
+          "correct": "roux"
+        },
+        {
+          "a": "roux",
+          "b": "roue",
+          "sentence": "Un renard ___ traverse la route.",
+          "correct": "roux"
+        }
+      ]
+    },
+    {
+      "id": "H14",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "cou / coût / coup / coud / couds",
+      "rule": "cou = partie du corps ; coût = prix ; coup = choc/essai ; coud/couds = verbe coudre (il/je/tu).",
+      "examples": [
+        "Un mal au cou.",
+        "Le coût des travaux.",
+        "Un coup de vent.",
+        "Je couds un bouton."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "cou",
+          "b": "coût",
+          "sentence": "Il a mal au ___.",
+          "correct": "cou"
+        },
+        {
+          "a": "coût",
+          "b": "coup",
+          "sentence": "Le ___ du projet augmente.",
+          "correct": "coût"
+        },
+        {
+          "a": "coup",
+          "b": "cou",
+          "sentence": "Un ___ de tonnerre a retenti.",
+          "correct": "coup"
+        },
+        {
+          "a": "couds",
+          "b": "coud",
+          "sentence": "Je ___ une poche sur la veste.",
+          "correct": "couds"
+        },
+        {
+          "a": "coud",
+          "b": "coup",
+          "sentence": "Elle ___ très régulièrement.",
+          "correct": "coud"
+        }
+      ]
+    },
+    {
+      "id": "H15",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "goutter / goûter",
+      "rule": "goutter = tomber en gouttes ; goûter = déguster/encas.",
+      "examples": [
+        "L’eau se met à goutter.",
+        "J’aime goûter le gâteau."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "goutter",
+          "b": "goûter",
+          "sentence": "Le robinet va ___.",
+          "correct": "goutter"
+        },
+        {
+          "a": "goûter",
+          "b": "goutter",
+          "sentence": "Tu veux ___ ce fromage ?",
+          "correct": "goûter"
+        },
+        {
+          "a": "goûter",
+          "b": "goutter",
+          "sentence": "Les enfants prennent le ___ à 16h.",
+          "correct": "goûter"
+        },
+        {
+          "a": "goutter",
+          "b": "goûter",
+          "sentence": "Le toit se met à ___.",
+          "correct": "goutter"
+        },
+        {
+          "a": "goûter",
+          "b": "goutter",
+          "sentence": "Viens ___ la soupe !",
+          "correct": "goûter"
+        }
+      ]
+    },
+    {
+      "id": "H16",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "cœur / chœur",
+      "rule": "cœur = organe/centre ; chœur = ensemble de chanteurs.",
+      "examples": [
+        "Avoir mal au cœur.",
+        "Un chœur d’enfants."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "cœur",
+          "b": "chœur",
+          "sentence": "Mon ___ bat très vite.",
+          "correct": "cœur"
+        },
+        {
+          "a": "chœur",
+          "b": "cœur",
+          "sentence": "Le ___ répète pour le concert.",
+          "correct": "chœur"
+        },
+        {
+          "a": "cœur",
+          "b": "chœur",
+          "sentence": "Il connaît le ___ de la ville.",
+          "correct": "cœur"
+        },
+        {
+          "a": "chœur",
+          "b": "cœur",
+          "sentence": "Le ___ chante juste.",
+          "correct": "chœur"
+        },
+        {
+          "a": "cœur",
+          "b": "chœur",
+          "sentence": "De tout ___, merci !",
+          "correct": "cœur"
+        }
+      ]
+    },
+    {
+      "id": "H17",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "col / colle / colles / collent",
+      "rule": "col = passage/partie de vêtement ; colle = substance adhésive ; colles = tu colles ; collent = ils/elles collent.",
+      "examples": [
+        "Un col de chemise.",
+        "De la colle forte.",
+        "Tu colles l’étiquette.",
+        "Ils collent les affiches."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "col",
+          "b": "colle",
+          "sentence": "Le ___ de sa veste est usé.",
+          "correct": "col"
+        },
+        {
+          "a": "colle",
+          "b": "col",
+          "sentence": "Peux-tu me prêter de la ___ ?",
+          "correct": "colle"
+        },
+        {
+          "a": "colles",
+          "b": "collent",
+          "sentence": "Tu ___ bien l’étiquette.",
+          "correct": "colles"
+        },
+        {
+          "a": "collent",
+          "b": "colles",
+          "sentence": "Ils ___ les posters sur le mur.",
+          "correct": "collent"
+        },
+        {
+          "a": "col",
+          "b": "colle",
+          "sentence": "Nous grimpons un ___ de montagne.",
+          "correct": "col"
+        }
+      ]
+    },
+    {
+      "id": "H18",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "soie / soi",
+      "rule": "soie = tissu ; soi = pronom réfléchi (soi-même).",
+      "examples": [
+        "Une écharpe en soie.",
+        "Prendre soin de soi."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "soie",
+          "b": "soi",
+          "sentence": "Une robe en ___.",
+          "correct": "soie"
+        },
+        {
+          "a": "soi",
+          "b": "soie",
+          "sentence": "Il faut penser à ___.",
+          "correct": "soi"
+        },
+        {
+          "a": "soie",
+          "b": "soi",
+          "sentence": "Cette ___ est très douce.",
+          "correct": "soie"
+        },
+        {
+          "a": "soi",
+          "b": "soie",
+          "sentence": "Chacun pour ___.",
+          "correct": "soi"
+        },
+        {
+          "a": "soie",
+          "b": "soi",
+          "sentence": "Des fils de ___.",
+          "correct": "soie"
+        }
+      ]
+    },
+    {
+      "id": "H19",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "reine / renne / rêne",
+      "rule": "reine = souveraine ; renne = animal ; rêne = lanière pour diriger un cheval.",
+      "examples": [
+        "La reine d’Angleterre.",
+        "Un troupeau de rennes.",
+        "Tendre la rêne."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "reine",
+          "b": "renne",
+          "sentence": "La ___ porte une couronne.",
+          "correct": "reine"
+        },
+        {
+          "a": "renne",
+          "b": "rêne",
+          "sentence": "Un ___ vit dans le Grand Nord.",
+          "correct": "renne"
+        },
+        {
+          "a": "rêne",
+          "b": "reine",
+          "sentence": "Tiens bien la ___ du cheval.",
+          "correct": "rêne"
+        },
+        {
+          "a": "reine",
+          "b": "renne",
+          "sentence": "La ___ salue la foule.",
+          "correct": "reine"
+        },
+        {
+          "a": "renne",
+          "b": "rêne",
+          "sentence": "Le ___ traverse la route.",
+          "correct": "renne"
+        }
+      ]
+    },
+    {
+      "id": "H20",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "fin / faim",
+      "rule": "fin = terminaison/qualité ; faim = appétit.",
+      "examples": [
+        "La fin du film.",
+        "Avoir faim."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "fin",
+          "b": "faim",
+          "sentence": "La ___ de la journée approche.",
+          "correct": "fin"
+        },
+        {
+          "a": "faim",
+          "b": "fin",
+          "sentence": "J’ai très ___ ce midi.",
+          "correct": "faim"
+        },
+        {
+          "a": "fin",
+          "b": "faim",
+          "sentence": "C’est la ___ de l’histoire.",
+          "correct": "fin"
+        },
+        {
+          "a": "faim",
+          "b": "fin",
+          "sentence": "Il crie famine : il a ___.",
+          "correct": "faim"
+        },
+        {
+          "a": "fin",
+          "b": "faim",
+          "sentence": "Mettons un point ___ à ce débat.",
+          "correct": "fin"
+        }
+      ]
+    },
+    {
+      "id": "H21",
+      "axe": "homonymes",
+      "axeLabel": "Homophones",
+      "title": "pic / pique",
+      "rule": "pic = sommet/outil ; pique = verbe piquer (je/il) ou parole mordante.",
+      "examples": [
+        "Le pic montagneux.",
+        "Il pique avec une aiguille.",
+        "Une pique acerbe."
+      ],
+      "kind": "homophone2",
+      "items": [
+        {
+          "a": "pic",
+          "b": "pique",
+          "sentence": "Le ___ de ce massif est enneigé.",
+          "correct": "pic"
+        },
+        {
+          "a": "pique",
+          "b": "pic",
+          "sentence": "Il ___ la balle avec sa fourchette.",
+          "correct": "pique"
+        },
+        {
+          "a": "pique",
+          "b": "pic",
+          "sentence": "Elle lui lance une ___ méchante.",
+          "correct": "pique"
+        },
+        {
+          "a": "pic",
+          "b": "pique",
+          "sentence": "Utilise ce ___ pour casser la glace.",
+          "correct": "pic"
+        },
+        {
+          "a": "pique",
+          "b": "pic",
+          "sentence": "L’abeille me ___ !",
+          "correct": "pique"
+        }
+      ]
+    }
+  ]
+}
