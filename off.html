@@ -233,7 +233,8 @@
 
             return html2canvas(cardElement, {
                 useCORS: true,
-                scale: 2
+                scale: 2,
+                backgroundColor: '#f3f4f6' // Ajout pour améliorer le rendu des dégradés et ombres
             }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = filename;
@@ -268,7 +269,7 @@
                     
                     statusMessage.textContent = `Image ${i + 1}/${cardElements.length}...`;
 
-                    const canvas = await html2canvas(cardElement, { useCORS: true, scale: 2 });
+                    const canvas = await html2canvas(cardElement, { useCORS: true, scale: 2, backgroundColor: '#f3f4f6' }); // Ajout pour améliorer le rendu
                     const imageData = canvas.toDataURL('image/png').substring('data:image/png;base64,'.length);
                     zip.file(filename, imageData, { base64: true });
                 }
