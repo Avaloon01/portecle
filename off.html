@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Bibliothèque pour convertir le HTML en image (PNG) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- NOUVEAU : Bibliothèque pour créer des fichiers ZIP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         /* Ajout d'une police plus sympa et de quelques styles personnalisés */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -81,13 +83,50 @@
             <!-- Zone de saisie du texte -->
             <div>
                 <label for="jsonData" class="block text-lg font-semibold mb-2 text-gray-700">Votre texte JSON :</label>
-                <textarea id="jsonData" rows="10" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow duration-200" placeholder="Collez le contenu JSON ici..."></textarea>
+                <textarea id="jsonData" rows="10" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow duration-200" placeholder="Collez le contenu JSON ici...">{
+ "axes": [
+ { "id": "homophones", "title": "Homophones grammaticaux" },
+ { "id": "graphies", "title": "Graphie et sons" }
+ ],
+ "fiches": [
+ {
+ "id": "O1",
+ "axe": "homophones",
+ "axeLabel": "Homophones grammaticaux",
+ "title": "a / à",
+ "rule": "« a » = verbe avoir ; « à » = préposition invariable (lieu, temps, but…).",
+ "examples": ["Zoé a des patins à roulettes.", "Il part à midi."],
+ "kind": "homophone2",
+ "items": [
+ { "a": "a", "b": "à", "sentence": "Zoé ___ des patins ___ roulettes.", "correct": "a" },
+ { "a": "a", "b": "à", "sentence": "Il part ___ midi.", "correct": "à" }
+ ]
+ },
+ {
+ "id": "O10",
+ "axe": "homophones",
+ "axeLabel": "Homophones grammaticaux",
+ "title": "c’est / s’est (c’était / s’était)",
+ "rule": "« c’est / c’était » + nom/adj ; « s’est / s’était » + verbe (pronominal).",
+ "examples": ["C’est mon frère. Il s’est blessé.", "C’était mon frère. Il s’était blessé."],
+ "kind": "homophone2",
+ "items": [
+ { "a": "c’est", "b": "s’est", "sentence": "___ incroyable !", "correct": "c’est" },
+ { "a": "c’est", "b": "s’est", "sentence": "Elle ___ levée tôt.", "correct": "s’est" }
+ ]
+ }
+ ]
+}</textarea>
             </div>
             
-            <!-- Bouton pour générer les cartes et zone de statut -->
-            <div class="text-center mt-6">
+            <!-- Boutons pour générer les cartes et zone de statut -->
+            <div class="text-center mt-6 space-y-4 md:space-y-0 md:space-x-4">
                 <button id="generateBtn" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed">
                     Transformer en fiches !
+                </button>
+                <!-- NOUVEAU : Bouton pour tout télécharger, initialement caché -->
+                <button id="downloadAllBtn" class="hidden bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed">
+                    Tout télécharger en ZIP
                 </button>
                 <p id="statusMessage" class="mt-4 text-gray-600 h-6"></p>
             </div>
@@ -102,123 +141,108 @@
 
     <script>
         const generateBtn = document.getElementById('generateBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn'); // Nouveau bouton
         const jsonDataInput = document.getElementById('jsonData');
         const cardsContainer = document.getElementById('cards-container');
         const statusMessage = document.getElementById('statusMessage');
 
         // Événement au clic sur le bouton de génération
         generateBtn.addEventListener('click', () => {
+            downloadAllBtn.classList.add('hidden'); // Cache le bouton ZIP au début
             const rawText = jsonDataInput.value;
             if (!rawText.trim()) {
                 alert("Veuillez coller du texte dans la zone prévue.");
                 return;
             }
 
-            // --- Début de la gestion de l'état de chargement ---
             generateBtn.disabled = true;
             generateBtn.innerHTML = `Génération en cours... <span class="spinner"></span>`;
             statusMessage.textContent = 'Analyse des données...';
             cardsContainer.innerHTML = ''; 
 
-            // On utilise un setTimeout pour laisser le temps au navigateur de rafraîchir l'interface
-            // et d'afficher le message de chargement avant de lancer le traitement lourd.
             setTimeout(() => {
                 try {
-                    // 1. On essaie de convertir le texte en objet JSON
                     const data = JSON.parse(rawText);
                     
-                    // On vérifie que le format est correct (présence d'un tableau "fiches")
                     if (!data.fiches || !Array.isArray(data.fiches)) {
                         throw new Error("Le format JSON est invalide ou ne contient pas de tableau 'fiches'.");
                     }
 
                     statusMessage.textContent = `Création de ${data.fiches.length} fiches...`;
 
-                    // 2. On crée une carte pour chaque fiche dans les données
                     data.fiches.forEach(fiche => {
                         createCard(fiche);
                     });
-
+                    
+                    if (data.fiches.length > 0) {
+                        downloadAllBtn.classList.remove('hidden'); // Affiche le bouton ZIP si des cartes sont créées
+                    }
                     statusMessage.textContent = `Terminé ! ${data.fiches.length} fiches ont été créées.`;
 
                 } catch (error) {
-                    // En cas d'erreur de format JSON
                     console.error("Erreur de parsing JSON:", error);
                     statusMessage.textContent = `Erreur : ${error.message}`;
                     alert("Le texte fourni n'est pas un JSON valide. Veuillez vérifier la structure.\n\n" + error.message);
                 } finally {
-                    // --- Fin de la gestion de l'état de chargement ---
                     generateBtn.disabled = false;
                     generateBtn.textContent = 'Transformer en fiches !';
-                    // On efface le message de statut après 5 secondes
                     setTimeout(() => {
                         statusMessage.textContent = '';
                     }, 5000);
                 }
-            }, 50); // Un court délai suffit
+            }, 50);
         });
 
         /**
          * Crée et affiche une carte autocollant à partir des données d'une fiche.
-         * @param {object} fiche - L'objet contenant les données (id, title, rule).
          */
         function createCard(fiche) {
-            // Création de l'élément principal de la carte
             const cardWrapper = document.createElement('div');
             cardWrapper.className = 'flex flex-col items-center';
-
             const cardId = `card-${fiche.id}`;
+            
+            // MODIFIÉ : Remplace les ';' par des balises <br> pour un retour à la ligne
+            const formattedRule = fiche.rule.replace(/;/g, '<br>');
 
-            // Contenu HTML de la carte
             cardWrapper.innerHTML = `
                 <div id="${cardId}" class="panini-card">
-                    <!-- En-tête avec le numéro de la fiche -->
                     <div class="flex justify-end">
                         <div class="bg-white/70 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center border-2 border-white">
                             <span class="text-2xl font-bold text-gray-700">${fiche.id}</span>
                         </div>
                     </div>
-                    
-                    <!-- Corps de la carte avec le titre et la règle -->
                     <div class="text-center">
                         <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 mb-2">${fiche.title}</h2>
-                        <p class="text-gray-600 leading-relaxed">${fiche.rule}</p>
+                        <p class="text-gray-600 leading-relaxed">${formattedRule}</p>
                     </div>
-
-                    <!-- Espace vide pour l'équilibre du design -->
                     <div></div> 
                 </div>
                 <button class="download-btn mt-4 bg-gray-700 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-800 transition-colors duration-200" data-target="${cardId}">
                     Télécharger (.png)
                 </button>
             `;
-            
             cardsContainer.appendChild(cardWrapper);
         }
 
         /**
          * Gère le téléchargement d'une carte en format PNG.
-         * @param {string} targetId - L'ID de l'élément HTML à convertir en image.
-         * @param {string} filename - Le nom du fichier à sauvegarder.
          */
         function downloadCardAsPNG(targetId, filename) {
             const cardElement = document.getElementById(targetId);
             if (!cardElement) return;
 
-            // Utilisation de la bibliothèque html2canvas pour "photographier" la carte
-            html2canvas(cardElement, {
-                useCORS: true, // Permet de gérer les images externes si besoin
-                scale: 2 // Améliore la résolution de l'image finale
+            return html2canvas(cardElement, {
+                useCORS: true,
+                scale: 2
             }).then(canvas => {
-                // Crée un lien de téléchargement temporaire
                 const link = document.createElement('a');
                 link.download = filename;
                 link.href = canvas.toDataURL('image/png');
-                link.click(); // Simule un clic pour déclencher le téléchargement
+                link.click();
             });
         }
-
-        // Ajout d'un seul gestionnaire d'événements pour tous les boutons de téléchargement
+        
+        // Gestionnaire d'événements pour les boutons (téléchargement individuel)
         cardsContainer.addEventListener('click', function(event) {
             if (event.target.classList.contains('download-btn')) {
                 const targetId = event.target.dataset.target;
@@ -226,7 +250,54 @@
                 downloadCardAsPNG(targetId, filename);
             }
         });
+
+        // NOUVEAU : Gestionnaire d'événements pour le bouton "Tout télécharger en ZIP"
+        downloadAllBtn.addEventListener('click', async () => {
+            downloadAllBtn.disabled = true;
+            downloadAllBtn.innerHTML = `Compression... <span class="spinner"></span>`;
+            statusMessage.textContent = 'Préparation des images...';
+
+            const zip = new JSZip();
+            const cardElements = document.querySelectorAll('.panini-card');
+
+            try {
+                for (let i = 0; i < cardElements.length; i++) {
+                    const cardElement = cardElements[i];
+                    const cardId = cardElement.id.split('-')[1] || `carte-${i + 1}`;
+                    const filename = `Fiche-${cardId}.png`;
+                    
+                    statusMessage.textContent = `Image ${i + 1}/${cardElements.length}...`;
+
+                    const canvas = await html2canvas(cardElement, { useCORS: true, scale: 2 });
+                    const imageData = canvas.toDataURL('image/png').substring('data:image/png;base64,'.length);
+                    zip.file(filename, imageData, { base64: true });
+                }
+
+                statusMessage.textContent = 'Génération du fichier ZIP...';
+
+                const zipBlob = await zip.generateAsync({ type: "blob" });
+
+                const link = document.createElement('a');
+                link.download = 'Album-Panini-Fiches.zip';
+                link.href = URL.createObjectURL(zipBlob);
+                link.click();
+                URL.revokeObjectURL(link.href);
+
+                statusMessage.textContent = 'Téléchargement du ZIP terminé !';
+
+            } catch (error) {
+                console.error("Erreur lors de la création du ZIP:", error);
+                statusMessage.textContent = "Erreur lors de la création du ZIP.";
+            } finally {
+                downloadAllBtn.disabled = false;
+                downloadAllBtn.textContent = 'Tout télécharger en ZIP';
+                setTimeout(() => {
+                    statusMessage.textContent = '';
+                }, 5000);
+            }
+        });
         
     </script>
 </body>
 </html>
+
