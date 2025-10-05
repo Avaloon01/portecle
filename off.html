@@ -1,24 +1,713 @@
-<!DOCTYPE html>
-<html lang="fr"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Porte-Clé • Fiches imprimables</title>
-<link rel="stylesheet" href="assets/css/styles.css">
-<script type="module">
-import { $, loadDatasets } from './assets/js/app.js';
-window.addEventListener('DOMContentLoaded', async ()=>{
-  const params = new URLSearchParams(location.search);
-  const ruleId = params.get('r');
-  const data = await loadDatasets();
-  const target = ruleId ? data.filter(d=>d.id===ruleId) : data;
-  const host = document.querySelector('#host');
-  target.forEach(rule=>{
-    const wrap = document.createElement('section'); wrap.className='print-sheet';
-    wrap.innerHTML = `<h2>${rule.titre}</h2><div class="print-meta">${rule.domaine}</div>
-      <p>${rule.description || ""}</p><hr>
-      <ol>${(rule.items||[]).slice(0,12).map(it=>'<li class="exercise">'+(it.q||it.question||it.texte||'…')+'</li>').join('')}</ol>`;
-    host.appendChild(wrap);
-  });
-});
-</script>
-</head>
-<body><main class="app"><div id="host"></div></main></body></html>
+{
+  "axes": [
+    { "id": "homophones", "title": "Homophones grammaticaux" },
+    { "id": "graphies", "title": "Graphie et sons" }
+  ],
+  "fiches": [
+    {
+      "id": "O1",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "a / à",
+      "rule": "« a » = verbe avoir ; « à » = préposition invariable (lieu, temps, but…).",
+      "examples": ["Zoé a des patins à roulettes.", "Il part à midi."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "a", "b": "à", "sentence": "Zoé ___ des patins ___ roulettes.", "correct": "a" },
+        { "a": "a", "b": "à", "sentence": "Il part ___ midi.", "correct": "à" },
+        { "a": "a", "b": "à", "sentence": "Mon frère ___ faim.", "correct": "a" },
+        { "a": "a", "b": "à", "sentence": "Nous allons ___ la piscine.", "correct": "à" },
+        { "a": "a", "b": "à", "sentence": "Papa ___ oublié ses clés.", "correct": "a" },
+        { "a": "a", "b": "à", "sentence": "Viens ___ table, s’il te plaît.", "correct": "à" }
+      ]
+    },
+    {
+      "id": "O2",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "et / es / est",
+      "rule": "« et » = conjonction ; « es » et « est » = formes du verbe être (tu es, il/elle est).",
+      "examples": ["Tu es gentil et il est poli."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "et", "b": "est", "sentence": "Il ___ en retard.", "correct": "est" },
+        { "a": "et", "b": "es", "sentence": "Tu ___ content.", "correct": "es" },
+        { "a": "et", "b": "est", "sentence": "Il fait froid ___ je mets une veste.", "correct": "et" },
+        { "a": "es", "b": "est", "sentence": "Tu ___ prêt ? Il ___ déjà dehors.", "correct": "es" },
+        { "a": "et", "b": "est", "sentence": "Le livre ___ sur la table ___ par terre.", "correct": "est" },
+        { "a": "es", "b": "et", "sentence": "Tu ___ courageux ___ persévérant.", "correct": "es" }
+      ]
+    },
+    {
+      "id": "O3",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "on / ont",
+      "rule": "« on » = pronom personnel ; « ont » = verbe avoir (ils/elles ont).",
+      "examples": ["On frappe à la porte. Ils ont fini."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "on", "b": "ont", "sentence": "___ frappe à la porte.", "correct": "on" },
+        { "a": "on", "b": "ont", "sentence": "Ils ___ fini leur travail.", "correct": "ont" },
+        { "a": "on", "b": "ont", "sentence": "___ dit qu’il va neiger.", "correct": "on" },
+        { "a": "on", "b": "ont", "sentence": "Elles ___ de bonnes notes.", "correct": "ont" },
+        { "a": "on", "b": "ont", "sentence": "___ part à huit heures.", "correct": "on" },
+        { "a": "on", "b": "ont", "sentence": "Les voisins ___ un chien.", "correct": "ont" }
+      ]
+    },
+    {
+      "id": "O4",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "son / sont",
+      "rule": "« son » = déterminant possessif ; « sont » = verbe être (ils/elles sont).",
+      "examples": ["Il a perdu son cartable. Ils sont contents."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "son", "b": "sont", "sentence": "Il cherche ___ cahier.", "correct": "son" },
+        { "a": "son", "b": "sont", "sentence": "Les élèves ___ attentifs.", "correct": "sont" },
+        { "a": "son", "b": "sont", "sentence": "Elle a oublié ___ manteau.", "correct": "son" },
+        { "a": "son", "b": "sont", "sentence": "Les chats ___ mignons.", "correct": "sont" },
+        { "a": "son", "b": "sont", "sentence": "Il a retrouvé ___ stylo.", "correct": "son" },
+        { "a": "son", "b": "sont", "sentence": "Les voisins ___ partis.", "correct": "sont" }
+      ]
+    },
+    {
+      "id": "O5",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "ce / se",
+      "rule": "« ce » + nom = déterminant démonstratif ; « se » + verbe = pronom réfléchi.",
+      "examples": ["Ce chien aboie. Il se lave."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "ce", "b": "se", "sentence": "Il ___ lave les mains.", "correct": "se" },
+        { "a": "ce", "b": "se", "sentence": "___ cahier est bleu.", "correct": "ce" },
+        { "a": "ce", "b": "se", "sentence": "Elle ___ prépare pour le concours.", "correct": "se" },
+        { "a": "ce", "b": "se", "sentence": "Regarde ___ tableau.", "correct": "ce" },
+        { "a": "ce", "b": "se", "sentence": "Ils ___ parlent doucement.", "correct": "se" },
+        { "a": "ce", "b": "se", "sentence": "___ garçon court vite.", "correct": "ce" }
+      ]
+    },
+    {
+      "id": "O6",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "ces / ses",
+      "rule": "« ces » = déterminant démonstratif ; « ses » = déterminant possessif.",
+      "examples": ["Ces fleurs sont belles. Ses jouets sont cassés."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "ces", "b": "ses", "sentence": "___ amis arrivent.", "correct": "ces" },
+        { "a": "ces", "b": "ses", "sentence": "Il a perdu ___ clés.", "correct": "ses" },
+        { "a": "ces", "b": "ses", "sentence": "___ maisons sont anciennes.", "correct": "ces" },
+        { "a": "ces", "b": "ses", "sentence": "Elle range ___ affaires.", "correct": "ses" },
+        { "a": "ces", "b": "ses", "sentence": "___ idées sont originales.", "correct": "ces" },
+        { "a": "ces", "b": "ses", "sentence": "Il adore ___ chats.", "correct": "ses" }
+      ]
+    },
+    {
+      "id": "O7",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "ou / où",
+      "rule": "« ou » = ou bien ; « où » = lieu / question.",
+      "examples": ["Où es-tu ? Pain ou croissant ?"],
+      "kind": "homophone2",
+      "items": [
+        { "a": "ou", "b": "où", "sentence": "___ vas-tu ?", "correct": "où" },
+        { "a": "ou", "b": "où", "sentence": "Tu veux du thé ___ du café ?", "correct": "ou" },
+        { "a": "ou", "b": "où", "sentence": "Je ne sais pas ___ sont mes gants.", "correct": "où" },
+        { "a": "ou", "b": "où", "sentence": "Viens lundi ___ mardi.", "correct": "ou" },
+        { "a": "ou", "b": "où", "sentence": "___ est la salle de sport ?", "correct": "où" },
+        { "a": "ou", "b": "où", "sentence": "Pain ___ gâteau ?", "correct": "ou" }
+      ]
+    },
+    {
+      "id": "O8",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "on / on n’",
+      "rule": "« on » = phrase affirmative ; « on n’ » = forme négative (devant voyelle).",
+      "examples": ["On chante. On n’attend pas."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "on", "b": "on n’", "sentence": "___ a cours cet après-midi.", "correct": "on" },
+        { "a": "on", "b": "on n’", "sentence": "___ n’a pas faim.", "correct": "on n’" },
+        { "a": "on", "b": "on n’", "sentence": "___ aime voyager.", "correct": "on" },
+        { "a": "on", "b": "on n’", "sentence": "___ n’entre pas sans frapper.", "correct": "on n’" },
+        { "a": "on", "b": "on n’", "sentence": "___ ira à la piscine demain.", "correct": "on" },
+        { "a": "on", "b": "on n’", "sentence": "___ n’oublie pas les devoirs.", "correct": "on n’" }
+      ]
+    },
+    {
+      "id": "O9",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "mes / mais",
+      "rule": "« mes » = déterminant possessif ; « mais » = conjonction d’opposition.",
+      "examples": ["Mes amis arrivent mais il pleut."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "mes", "b": "mais", "sentence": "___ parents arrivent, ___ il pleut.", "correct": "mes" },
+        { "a": "mes", "b": "mais", "sentence": "Il est gentil ___ parfois timide.", "correct": "mais" },
+        { "a": "mes", "b": "mais", "sentence": "Où sont ___ cahiers ?", "correct": "mes" },
+        { "a": "mes", "b": "mais", "sentence": "Je veux venir ___ je suis malade.", "correct": "mais" },
+        { "a": "mes", "b": "mais", "sentence": "___ idées sont claires.", "correct": "mes" },
+        { "a": "mes", "b": "mais", "sentence": "C’est simple ___ utile.", "correct": "mais" }
+      ]
+    },
+    {
+      "id": "O10",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "c’est / s’est (c’était / s’était)",
+      "rule": "« c’est / c’était » + nom/adj ; « s’est / s’était » + verbe (pronominal).",
+      "examples": ["C’est mon frère. Il s’est blessé.", "C’était mon frère. Il s’était blessé."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "c’est", "b": "s’est", "sentence": "___ incroyable !", "correct": "c’est" },
+        { "a": "c’est", "b": "s’est", "sentence": "Elle ___ levée tôt.", "correct": "s’est" },
+        { "a": "c’était", "b": "s’était", "sentence": "___ une bonne idée.", "correct": "c’était" },
+        { "a": "c’était", "b": "s’était", "sentence": "Il ___ trompé d’arrêt.", "correct": "s’était" },
+        { "a": "c’est", "b": "s’est", "sentence": "___ fini !", "correct": "c’est" },
+        { "a": "c’était", "b": "s’était", "sentence": "___ un problème simple.", "correct": "c’était" }
+      ]
+    },
+    {
+      "id": "O11",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "la / là / l’a / l’as",
+      "rule": "« la » = déterminant ou pronom ; « là » = adverbe de lieu ; « l’a » = pronom + verbe avoir ; « l’as » = tu + avoir.",
+      "examples": ["La voiture est là.", "Je l’a vue.", "Tu l’as prise."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "la", "b": "l’a", "sentence": "Je ___ vue hier.", "correct": "l’a" },
+        { "a": "la", "b": "l’as", "sentence": "Tu ___ rencontrée.", "correct": "l’as" },
+        { "a": "la", "b": "là", "sentence": "La maison est juste ___.", "correct": "là" },
+        { "a": "la", "b": "l’a", "sentence": "Il ___ mangée.", "correct": "l’a" },
+        { "a": "la", "b": "là", "sentence": "___ petite fille joue.", "correct": "la" },
+        { "a": "la", "b": "l’a", "sentence": "On ___ trouvée dans le parc.", "correct": "l’a" }
+      ]
+    },
+    {
+      "id": "O12",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "quel(s) / quelle(s) / qu’elle(s)",
+      "rule": "« quel(s), quelle(s) » = déterminants interrogatifs ou exclamatifs ; « qu’elle(s) » = pronom + elle(s).",
+      "examples": ["Quelle belle journée !", "Il faut qu’elle vienne."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "quelle", "b": "qu’elle", "sentence": "Il faut ___ parte.", "correct": "qu’elle" },
+        { "a": "quel", "b": "qu’elle", "sentence": "___ jour sommes-nous ?", "correct": "quel" },
+        { "a": "quelle", "b": "qu’elle", "sentence": "___ surprise !", "correct": "quelle" },
+        { "a": "quel", "b": "qu’elle", "sentence": "Il faut absolument ___ réussisse.", "correct": "qu’elle" },
+        { "a": "quelles", "b": "qu’elles", "sentence": "Je veux ___ affaires.", "correct": "quelles" },
+        { "a": "quelle", "b": "qu’elle", "sentence": "___ histoire !", "correct": "quelle" }
+      ]
+    },
+    {
+      "id": "O13",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "le son [s] : c / ç / s / ss",
+      "rule": "Le son [s] peut s’écrire c (devant e, i), ç (devant a, o, u), s ou ss.",
+      "examples": ["une cerise, un garçon, une soupe, une trousse"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "une ___oupe", "answer": "s", "acceptLoose": true },
+        { "prompt": "un gar_ _on", "answer": "ç", "acceptLoose": true },
+        { "prompt": "une cer__ise", "answer": "s", "acceptLoose": true },
+        { "prompt": "une trou__", "answer": "ss", "acceptLoose": true },
+        { "prompt": "une balan__e", "answer": "ç", "acceptLoose": true },
+        { "prompt": "une ma__on", "answer": "s", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O14",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "noms féminins en -ie",
+      "rule": "Beaucoup de noms féminins se terminent par -ie : boulangerie, partie, magie.",
+      "examples": ["la boulangerie, la partie, la magie"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "boulang___", "answer": "erie", "acceptLoose": true },
+        { "prompt": "part___", "answer": "ie", "acceptLoose": true },
+        { "prompt": "mag___", "answer": "ie", "acceptLoose": true },
+        { "prompt": "cop___", "answer": "ie", "acceptLoose": true },
+        { "prompt": "galax___", "answer": "ie", "acceptLoose": true },
+        { "prompt": "batter___", "answer": "ie", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O15",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "er / -é / -ée / -és / -ées",
+      "rule": "À l’infinitif : terminaison en -er ; participe passé : -é, -ée, -és, -ées.",
+      "examples": ["chanter, il a chanté, une idée, des idées"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "chant___ (infinitif)", "answer": "er", "acceptLoose": true },
+        { "prompt": "il a chant___", "answer": "é", "acceptLoose": true },
+        { "prompt": "une id___", "answer": "ée", "acceptLoose": true },
+        { "prompt": "des id___", "answer": "ées", "acceptLoose": true },
+        { "prompt": "elles ont mang___", "answer": "é", "acceptLoose": true },
+        { "prompt": "ador___ (infinitif)", "answer": "er", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O16",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "mots en -eur",
+      "rule": "La terminaison -eur est fréquente pour les noms (chanteur). Exceptions : beurre, demeure, cœur, sœur, heure.",
+      "examples": ["un chanteur, la chaleur, le beurre"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "chant___", "answer": "eur", "acceptLoose": true },
+        { "prompt": "beu___", "answer": "urre", "acceptLoose": true },
+        { "prompt": "deme___", "answer": "ure", "acceptLoose": true },
+        { "prompt": "sœ___", "answer": "ur", "acceptLoose": true },
+        { "prompt": "cœ___", "answer": "ur", "acceptLoose": true },
+        { "prompt": "cha___", "answer": "leur", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O17",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "mots en -ail, -eil, -euil, -ouil",
+      "rule": "Les noms se terminent en -ail, -eil, -euil, -ouil (travail, soleil, accueil, grenouille).",
+      "examples": ["travail, soleil, accueil, grenouille"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "trav___", "answer": "ail", "acceptLoose": true },
+        { "prompt": "sole___", "answer": "il", "acceptLoose": true },
+        { "prompt": "acc___", "answer": "ueil", "acceptLoose": true },
+        { "prompt": "grenou___", "answer": "ille", "acceptLoose": true },
+        { "prompt": "millef___", "answer": "euille", "acceptLoose": true },
+        { "prompt": "org___", "answer": "ueil", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O18",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "noms féminins en -ue",
+      "rule": "Certains noms féminins finissent par -ue : rue, issue, crue.",
+      "examples": ["une rue, une issue, une crue"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "r___", "answer": "ue", "acceptLoose": true },
+        { "prompt": "iss___", "answer": "ue", "acceptLoose": true },
+        { "prompt": "cr___", "answer": "ue", "acceptLoose": true },
+        { "prompt": "aven___", "answer": "ue", "acceptLoose": true },
+        { "prompt": "stat___", "answer": "ue", "acceptLoose": true },
+        { "prompt": "stat___r", "answer": "uer", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O19",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "m devant m, b, p",
+      "rule": "Devant m, b, p, on écrit toujours m (jamais n).",
+      "examples": ["une lampe, un tambour, une pompe"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "la la___pe", "answer": "m", "acceptLoose": true },
+        { "prompt": "un ta___bour", "answer": "m", "acceptLoose": true },
+        { "prompt": "une po___pe", "answer": "m", "acceptLoose": true },
+        { "prompt": "e___mener", "answer": "mm", "acceptLoose": true },
+        { "prompt": "i___possible", "answer": "m", "acceptLoose": true },
+        { "prompt": "e___barrasser", "answer": "m", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O20",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "lettre finale muette",
+      "rule": "Beaucoup de mots ont une lettre finale muette (t, d, s, x, p…).",
+      "examples": ["un chat, le froid, un tapis, un prix, un loup"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "un cha___", "answer": "t", "acceptLoose": true },
+        { "prompt": "le froi___", "answer": "d", "acceptLoose": true },
+        { "prompt": "un tapi___", "answer": "s", "acceptLoose": true },
+        { "prompt": "un pri___", "answer": "x", "acceptLoose": true },
+        { "prompt": "un lou___", "answer": "p", "acceptLoose": true },
+        { "prompt": "un ba___", "answer": "t", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O21",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "noms féminins en -ée, -té, -tié",
+      "rule": "Les noms féminins se terminant par [e] s’écrivent souvent -ée (dictée, allée). Certains s’écrivent -té (bonté, clarté). Quelques rares en -tié (amitié, piété).",
+      "examples": ["une dictée, la bonté, l’amitié"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "dict___", "answer": "ée", "acceptLoose": true },
+        { "prompt": "bon___", "answer": "té", "acceptLoose": true },
+        { "prompt": "ami___", "answer": "tié", "acceptLoose": true },
+        { "prompt": "all___", "answer": "ée", "acceptLoose": true },
+        { "prompt": "clar___", "answer": "té", "acceptLoose": true },
+        { "prompt": "pi___", "answer": "tié", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O22",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "le son [e]",
+      "rule": "Le son [e] peut s’écrire é, er, ez, ais, ait, aient…",
+      "examples": ["clé, chanter, nez, j’aimais"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "cl___", "answer": "é", "acceptLoose": true },
+        { "prompt": "chant___ (infinitif)", "answer": "er", "acceptLoose": true },
+        { "prompt": "n___", "answer": "ez", "acceptLoose": true },
+        { "prompt": "j’aim___", "answer": "ais", "acceptLoose": true },
+        { "prompt": "il aim___", "answer": "ait", "acceptLoose": true },
+        { "prompt": "ils aim___", "answer": "aient", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O23",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "noms en -eu, -eue, -eux",
+      "rule": "Noms terminés par -eu (le jeu), -eue (la queue), -eux (les cheveux).",
+      "examples": ["le feu, la queue, les cheveux"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "f___", "answer": "eu", "acceptLoose": true },
+        { "prompt": "qu___", "answer": "eue", "acceptLoose": true },
+        { "prompt": "chev___", "answer": "eux", "acceptLoose": true },
+        { "prompt": "d___x", "answer": "eux", "acceptLoose": true },
+        { "prompt": "j___", "answer": "eu", "acceptLoose": true },
+        { "prompt": "bl___", "answer": "eu", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O24",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "quand le t se prononce [s]",
+      "rule": "Dans certains mots, la lettre t se prononce [s] : attention, opération, ambitieux.",
+      "examples": ["attention, opération, ambitieux"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "atten___ion", "answer": "t", "acceptLoose": true },
+        { "prompt": "opéra___ion", "answer": "t", "acceptLoose": true },
+        { "prompt": "ambi___ieux", "answer": "t", "acceptLoose": true },
+        { "prompt": "préci___ieux", "answer": "t", "acceptLoose": true },
+        { "prompt": "excep___ion", "answer": "t", "acceptLoose": true },
+        { "prompt": "invita___ion", "answer": "t", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O25",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "les adjectifs de couleur",
+      "rule": "Les adjectifs de couleur simples s’accordent (rouge, verte). Mais certains restent invariables (marron, orange, kaki).",
+      "examples": ["une robe verte, des fleurs rouges, des yeux marron"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "une robe vert___", "answer": "e", "acceptLoose": true },
+        { "prompt": "des fleurs roug___", "answer": "es", "acceptLoose": true },
+        { "prompt": "des yeux marr___", "answer": "on", "acceptLoose": true },
+        { "prompt": "un pantalon orang___", "answer": "e", "acceptLoose": true },
+        { "prompt": "des vestes kaki___", "answer": " ", "acceptLoose": true },
+        { "prompt": "un sac bleu___", "answer": " ", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O26",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "leur et leur(s)",
+      "rule": "« leur » = pronom invariable ou déterminant singulier ; « leurs » = déterminant pluriel.",
+      "examples": ["Je leur ai parlé. Leurs parents arrivent."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "leur", "b": "leurs", "sentence": "Je ___ ai donné un conseil.", "correct": "leur" },
+        { "a": "leur", "b": "leurs", "sentence": "Ils ont oublié ___ affaires.", "correct": "leurs" },
+        { "a": "leur", "b": "leurs", "sentence": "Tu ___ as écrit une lettre.", "correct": "leur" },
+        { "a": "leur", "b": "leurs", "sentence": "___ amis sont gentils.", "correct": "leurs" },
+        { "a": "leur", "b": "leurs", "sentence": "Je ___ ferai confiance.", "correct": "leur" },
+        { "a": "leur", "b": "leurs", "sentence": "Ils aiment ___ chien.", "correct": "leur" }
+      ]
+    },
+    {
+      "id": "O27",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "dont / donc / d’on",
+      "rule": "« dont » = pronom relatif ; « donc » = conjonction ; « d’on » = rare (archaïque).",
+      "examples": ["Le livre dont je parle. Il est donc parti."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "dont", "b": "donc", "sentence": "Le livre ___ je parle est intéressant.", "correct": "dont" },
+        { "a": "dont", "b": "donc", "sentence": "Il est malade, ___ absent.", "correct": "donc" },
+        { "a": "dont", "b": "donc", "sentence": "Je connais l’élève ___ tu parles.", "correct": "dont" },
+        { "a": "dont", "b": "donc", "sentence": "Il pleut, ___ nous restons ici.", "correct": "donc" },
+        { "a": "dont", "b": "donc", "sentence": "L’ami ___ il est fier.", "correct": "dont" },
+        { "a": "dont", "b": "donc", "sentence": "Tu es fatigué, ___ repose-toi.", "correct": "donc" }
+      ]
+    },
+    {
+      "id": "O28",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "le son [ks]",
+      "rule": "Le son [ks] peut s’écrire x, cc, ct : taxi, accent, diction.",
+      "examples": ["taxi, diction, accent"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "ta___i", "answer": "x", "acceptLoose": true },
+        { "prompt": "di___ionnaire", "answer": "ct", "acceptLoose": true },
+        { "prompt": "a___ent", "answer": "cc", "acceptLoose": true },
+        { "prompt": "bo___", "answer": "x", "acceptLoose": true },
+        { "prompt": "séle___ion", "answer": "ct", "acceptLoose": true },
+        { "prompt": "ma___imum", "answer": "x", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O29",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "noms en -oir, -oire",
+      "rule": "Les noms masculins finissent souvent par -oir (miroir), les féminins par -oire (histoire).",
+      "examples": ["un miroir, une histoire"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "mir___", "answer": "oir", "acceptLoose": true },
+        { "prompt": "hist___", "answer": "oire", "acceptLoose": true },
+        { "prompt": "devoir / dev___", "answer": "oir", "acceptLoose": true },
+        { "prompt": "vict___", "answer": "oire", "acceptLoose": true },
+        { "prompt": "reflet___", "answer": "oir", "acceptLoose": true },
+        { "prompt": "mémoire / mém___", "answer": "oire", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O30",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "préfixe en in-, im-, il-, ir-",
+      "rule": "Le préfixe in- exprime la négation. Il devient im- devant m/b/p, il- devant l, ir- devant r.",
+      "examples": ["incapable, impossible, illisible, irrégulier"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "___capable", "answer": "in", "acceptLoose": true },
+        { "prompt": "___possible", "answer": "im", "acceptLoose": true },
+        { "prompt": "___lisible", "answer": "il", "acceptLoose": true },
+        { "prompt": "___régulier", "answer": "ir", "acceptLoose": true },
+        { "prompt": "___attendu", "answer": "in", "acceptLoose": true },
+        { "prompt": "___mobile", "answer": "im", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O31",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "mots en aff-, eff-, off-, acc-, app-",
+      "rule": "On double souvent la consonne après ces préfixes : affaire, effort, offrir, accompagner, appeler.",
+      "examples": ["affaire, effort, offrir, accompagner, appeler"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "af___aire", "answer": "f", "acceptLoose": true },
+        { "prompt": "ef___ort", "answer": "f", "acceptLoose": true },
+        { "prompt": "of___rir", "answer": "f", "acceptLoose": true },
+        { "prompt": "ac___ompagner", "answer": "c", "acceptLoose": true },
+        { "prompt": "ap___eler", "answer": "p", "acceptLoose": true },
+        { "prompt": "ap___araitre", "answer": "p", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O32",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "tout, tous, toute, toutes",
+      "rule": "« tout » peut être adjectif, pronom, adverbe. Accord en genre/nombre sauf quand adverbe (invariable).",
+      "examples": ["Toute la classe est là.", "Ils sont tous partis.", "Elle est tout étonnée."],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "___ la classe est là.", "answer": "Toute", "acceptLoose": true },
+        { "prompt": "Ils sont ___ contents.", "answer": "tous", "acceptLoose": true },
+        { "prompt": "Elles sont ___ arrivées.", "answer": "toutes", "acceptLoose": true },
+        { "prompt": "Elle est ___ petite.", "answer": "toute", "acceptLoose": true },
+        { "prompt": "Il est ___ seul.", "answer": "tout", "acceptLoose": true },
+        { "prompt": "Nous sommes ___ prêts.", "answer": "tous", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O33",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "si / s’y",
+      "rule": "« si » = conjonction ou adverbe ; « s’y » = pronom + y.",
+      "examples": ["Si tu veux. Il s’y connaît."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "si", "b": "s’y", "sentence": "___ tu veux, on ira.", "correct": "si" },
+        { "a": "si", "b": "s’y", "sentence": "Il ___ connaît bien.", "correct": "s’y" },
+        { "a": "si", "b": "s’y", "sentence": "___ elle vient, je pars.", "correct": "si" },
+        { "a": "si", "b": "s’y", "sentence": "Elle ___ intéresse beaucoup.", "correct": "s’y" },
+        { "a": "si", "b": "s’y", "sentence": "___ seulement tu savais !", "correct": "si" }
+      ]
+    },
+    {
+      "id": "O34",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "ni / n’y",
+      "rule": "« ni » = conjonction de négation ; « n’y » = pronom + y.",
+      "examples": ["Il n’y a personne. Ni pain ni vin."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "ni", "b": "n’y", "sentence": "Il ___ a plus de place.", "correct": "n’y" },
+        { "a": "ni", "b": "n’y", "sentence": "___ pain ___ vin.", "correct": "ni" },
+        { "a": "ni", "b": "n’y", "sentence": "Elle ___ est pas allée.", "correct": "n’y" },
+        { "a": "ni", "b": "n’y", "sentence": "___ toi ___ moi.", "correct": "ni" },
+        { "a": "ni", "b": "n’y", "sentence": "Il ___ pense jamais.", "correct": "n’y" }
+      ]
+    },
+    {
+      "id": "O35",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "l’adjectif numéral cardinal",
+      "rule": "Les adjectifs numéraux vingt et cent prennent un s au pluriel sauf quand suivis d’un autre nombre : quatre-vingts, mais quatre-vingt-un.",
+      "examples": ["quatre-vingts, deux cents, mais cent vingt"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "quatre-vingt___", "answer": "s", "acceptLoose": true },
+        { "prompt": "deux cent___", "answer": "s", "acceptLoose": true },
+        { "prompt": "cent vingt___", "answer": " ", "acceptLoose": true },
+        { "prompt": "trois cent___ vingt-cinq", "answer": "s", "acceptLoose": true },
+        { "prompt": "quatre-vingt___ deux", "answer": " ", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O36",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "adverbes en -ment, -amment, -emment",
+      "rule": "Les adverbes se forment à partir de l’adjectif féminin + -ment. Certains en -ant font -amment, ceux en -ent font -emment.",
+      "examples": ["doucement, prudemment, élégamment"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "doux → douce___", "answer": "ment", "acceptLoose": true },
+        { "prompt": "prudent → prud___", "answer": "emment", "acceptLoose": true },
+        { "prompt": "élégant → élég___", "answer": "amment", "acceptLoose": true },
+        { "prompt": "sûr → sû___", "answer": "rement", "acceptLoose": true },
+        { "prompt": "violent → viol___", "answer": "emment", "acceptLoose": true },
+        { "prompt": "bruyant → bruy___", "answer": "amment", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O37",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "diminutifs en -et, -ette",
+      "rule": "Le suffixe -et marque un petit objet masculin (livret), -ette pour le féminin (fillette).",
+      "examples": ["livret, fillette"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "livr___", "answer": "et", "acceptLoose": true },
+        { "prompt": "fill___", "answer": "ette", "acceptLoose": true },
+        { "prompt": "maisonn___", "answer": "ette", "acceptLoose": true },
+        { "prompt": "carn___", "answer": "et", "acceptLoose": true },
+        { "prompt": "fourch___", "answer": "ette", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O38",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "le son [f]",
+      "rule": "Le son [f] peut s’écrire f, ff, ph : fanfare, souffler, photo.",
+      "examples": ["fête, souffler, photo"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "so___ler", "answer": "uff", "acceptLoose": true },
+        { "prompt": "pho___to", "answer": "pho", "acceptLoose": true },
+        { "prompt": "co___eur", "answer": "iffe", "acceptLoose": true },
+        { "prompt": "fé___", "answer": "te", "acceptLoose": true },
+        { "prompt": "télé___one", "answer": "ph", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O39",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "dans / d’en",
+      "rule": "« dans » = préposition de lieu ou temps ; « d’en » = préposition + pronom en.",
+      "examples": ["Je suis dans la maison. J’en viens → d’en venir."],
+      "kind": "homophone2",
+      "items": [
+        { "a": "dans", "b": "d’en", "sentence": "Je suis ___ le jardin.", "correct": "dans" },
+        { "a": "dans", "b": "d’en", "sentence": "Il vient ___ parler.", "correct": "d’en" },
+        { "a": "dans", "b": "d’en", "sentence": "Mets ça ___ la boîte.", "correct": "dans" },
+        { "a": "dans", "b": "d’en", "sentence": "Je t’ai entendu ___ parler.", "correct": "d’en" },
+        { "a": "dans", "b": "d’en", "sentence": "Nous restons ___ la maison.", "correct": "dans" }
+      ]
+    },
+    {
+      "id": "O40",
+      "axe": "homophones",
+      "axeLabel": "Homophones grammaticaux",
+      "title": "quand, quant, qu’en",
+      "rule": "« quand » = temps ; « quant » = en ce qui concerne ; « qu’en » = que + en.",
+      "examples": ["Quand viens-tu ? Quant à moi, je reste. Qu’en penses-tu ?"],
+      "kind": "homophone2",
+      "items": [
+        { "a": "quand", "b": "quant", "sentence": "___ viens-tu ?", "correct": "quand" },
+        { "a": "quand", "b": "quant", "sentence": "___ à moi, je refuse.", "correct": "quant" },
+        { "a": "quand", "b": "qu’en", "sentence": "___ penses-tu ?", "correct": "qu’en" },
+        { "a": "quant", "b": "qu’en", "sentence": "___ dis-tu ?", "correct": "qu’en" },
+        { "a": "quand", "b": "quant", "sentence": "___ il pleut, je prends mon parapluie.", "correct": "quand" }
+      ]
+    },
+    {
+      "id": "O41",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "les noms masculins en -er",
+      "rule": "Certains noms masculins finissent par -er (un boucher, un boulanger).",
+      "examples": ["un boucher, un boulanger"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "boulang___", "answer": "er", "acceptLoose": true },
+        { "prompt": "bouch___", "answer": "er", "acceptLoose": true },
+        { "prompt": "fromag___", "answer": "er", "acceptLoose": true },
+        { "prompt": "chandl___", "answer": "er", "acceptLoose": true },
+        { "prompt": "banqu___", "answer": "er", "acceptLoose": true }
+      ]
+    },
+    {
+      "id": "O42",
+      "axe": "graphies",
+      "axeLabel": "Graphies et sons",
+      "title": "le h aspiré et le h muet",
+      "rule": "Le h muet se comporte comme une voyelle (liaison : l’homme). Le h aspiré empêche la liaison (le héros).",
+      "examples": ["l’homme, le héros"],
+      "kind": "fill-in",
+      "items": [
+        { "prompt": "l’___omme", "answer": "h (muet)", "acceptLoose": true },
+        { "prompt": "le ___éros", "answer": "h (aspiré)", "acceptLoose": true },
+        { "prompt": "l’___ôtel", "answer": "h (muet)", "acceptLoose": true },
+        { "prompt": "le ___ibou", "answer": "h (aspiré)", "acceptLoose": true },
+        { "prompt": "l’___istoire", "answer": "h (muet)", "acceptLoose": true }
+      ]
+    }
+  ]
+}
