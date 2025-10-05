@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Bibliothèque pour convertir le HTML en image (PNG) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- NOUVEAU : Bibliothèque pour créer des fichiers ZIP -->
+    <!-- Bibliothèque pour créer des fichiers ZIP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         /* Ajout d'une police plus sympa et de quelques styles personnalisés */
@@ -124,7 +124,7 @@
                 <button id="generateBtn" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed">
                     Transformer en fiches !
                 </button>
-                <!-- NOUVEAU : Bouton pour tout télécharger, initialement caché -->
+                <!-- Bouton pour tout télécharger, initialement caché -->
                 <button id="downloadAllBtn" class="hidden bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed">
                     Tout télécharger en ZIP
                 </button>
@@ -141,14 +141,14 @@
 
     <script>
         const generateBtn = document.getElementById('generateBtn');
-        const downloadAllBtn = document.getElementById('downloadAllBtn'); // Nouveau bouton
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
         const jsonDataInput = document.getElementById('jsonData');
         const cardsContainer = document.getElementById('cards-container');
         const statusMessage = document.getElementById('statusMessage');
 
         // Événement au clic sur le bouton de génération
         generateBtn.addEventListener('click', () => {
-            downloadAllBtn.classList.add('hidden'); // Cache le bouton ZIP au début
+            downloadAllBtn.classList.add('hidden');
             const rawText = jsonDataInput.value;
             if (!rawText.trim()) {
                 alert("Veuillez coller du texte dans la zone prévue.");
@@ -163,19 +163,15 @@
             setTimeout(() => {
                 try {
                     const data = JSON.parse(rawText);
-                    
                     if (!data.fiches || !Array.isArray(data.fiches)) {
                         throw new Error("Le format JSON est invalide ou ne contient pas de tableau 'fiches'.");
                     }
 
                     statusMessage.textContent = `Création de ${data.fiches.length} fiches...`;
-
-                    data.fiches.forEach(fiche => {
-                        createCard(fiche);
-                    });
+                    data.fiches.forEach(fiche => createCard(fiche));
                     
                     if (data.fiches.length > 0) {
-                        downloadAllBtn.classList.remove('hidden'); // Affiche le bouton ZIP si des cartes sont créées
+                        downloadAllBtn.classList.remove('hidden');
                     }
                     statusMessage.textContent = `Terminé ! ${data.fiches.length} fiches ont été créées.`;
 
@@ -186,22 +182,15 @@
                 } finally {
                     generateBtn.disabled = false;
                     generateBtn.textContent = 'Transformer en fiches !';
-                    setTimeout(() => {
-                        statusMessage.textContent = '';
-                    }, 5000);
+                    setTimeout(() => statusMessage.textContent = '', 5000);
                 }
             }, 50);
         });
 
-        /**
-         * Crée et affiche une carte autocollant à partir des données d'une fiche.
-         */
         function createCard(fiche) {
             const cardWrapper = document.createElement('div');
             cardWrapper.className = 'flex flex-col items-center';
             const cardId = `card-${fiche.id}`;
-            
-            // MODIFIÉ : Remplace les ';' par des balises <br> pour un retour à la ligne
             const formattedRule = fiche.rule.replace(/;/g, '<br>');
 
             cardWrapper.innerHTML = `
@@ -225,22 +214,43 @@
         }
 
         /**
-         * Gère le téléchargement d'une carte en format PNG.
+         * Prépare et télécharge une carte en format PNG.
+         * MODIFIÉ : Utilise un clone de la carte pour corriger les problèmes de rendu.
          */
-        function downloadCardAsPNG(targetId, filename) {
-            const cardElement = document.getElementById(targetId);
-            if (!cardElement) return;
+        async function downloadCardAsPNG(targetId, filename) {
+            const originalCard = document.getElementById(targetId);
+            if (!originalCard) return;
 
-            return html2canvas(cardElement, {
-                useCORS: true,
-                scale: 2,
-                backgroundColor: '#f3f4f6' // Ajout pour améliorer le rendu des dégradés et ombres
-            }).then(canvas => {
+            // 1. Cloner la carte pour la modifier sans affecter l'affichage
+            const clone = originalCard.cloneNode(true);
+            const title = clone.querySelector('h2');
+            
+            // 2. Simplifier le style du titre pour html2canvas
+            title.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-blue-600', 'to-purple-700');
+            title.classList.add('text-blue-600'); // Appliquer une couleur unie
+
+            // 3. Positionner le clone hors de l'écran pour qu'il soit rendu par le navigateur
+            clone.style.position = 'absolute';
+            clone.style.left = '-9999px';
+            document.body.appendChild(clone);
+
+            try {
+                // 4. Capturer le clone optimisé
+                const canvas = await html2canvas(clone, {
+                    useCORS: true,
+                    scale: 2,
+                    backgroundColor: '#f3f4f6'
+                });
+
+                // 5. Déclencher le téléchargement
                 const link = document.createElement('a');
                 link.download = filename;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
-            });
+            } finally {
+                // 6. Nettoyer en supprimant le clone du DOM
+                document.body.removeChild(clone);
+            }
         }
         
         // Gestionnaire d'événements pour les boutons (téléchargement individuel)
@@ -252,7 +262,7 @@
             }
         });
 
-        // NOUVEAU : Gestionnaire d'événements pour le bouton "Tout télécharger en ZIP"
+        // Gestionnaire d'événements pour le bouton "Tout télécharger en ZIP"
         downloadAllBtn.addEventListener('click', async () => {
             downloadAllBtn.disabled = true;
             downloadAllBtn.innerHTML = `Compression... <span class="spinner"></span>`;
@@ -260,6 +270,7 @@
 
             const zip = new JSZip();
             const cardElements = document.querySelectorAll('.panini-card');
+            const clones = []; // Pour garder une trace des clones à supprimer
 
             try {
                 for (let i = 0; i < cardElements.length; i++) {
@@ -269,13 +280,22 @@
                     
                     statusMessage.textContent = `Image ${i + 1}/${cardElements.length}...`;
 
-                    const canvas = await html2canvas(cardElement, { useCORS: true, scale: 2, backgroundColor: '#f3f4f6' }); // Ajout pour améliorer le rendu
+                    // Cloner et optimiser chaque carte
+                    const clone = cardElement.cloneNode(true);
+                    const title = clone.querySelector('h2');
+                    title.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-blue-600', 'to-purple-700');
+                    title.classList.add('text-blue-600');
+                    clone.style.position = 'absolute';
+                    clone.style.left = '-9999px';
+                    document.body.appendChild(clone);
+                    clones.push(clone); // Ajouter le clone à la liste pour le nettoyage
+
+                    const canvas = await html2canvas(clone, { useCORS: true, scale: 2, backgroundColor: '#f3f4f6' });
                     const imageData = canvas.toDataURL('image/png').substring('data:image/png;base64,'.length);
                     zip.file(filename, imageData, { base64: true });
                 }
 
                 statusMessage.textContent = 'Génération du fichier ZIP...';
-
                 const zipBlob = await zip.generateAsync({ type: "blob" });
 
                 const link = document.createElement('a');
@@ -290,11 +310,12 @@
                 console.error("Erreur lors de la création du ZIP:", error);
                 statusMessage.textContent = "Erreur lors de la création du ZIP.";
             } finally {
+                // Nettoyer tous les clones
+                clones.forEach(clone => document.body.removeChild(clone));
+                
                 downloadAllBtn.disabled = false;
                 downloadAllBtn.textContent = 'Tout télécharger en ZIP';
-                setTimeout(() => {
-                    statusMessage.textContent = '';
-                }, 5000);
+                setTimeout(() => statusMessage.textContent = '', 5000);
             }
         });
         
