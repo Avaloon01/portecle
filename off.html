@@ -75,48 +75,93 @@
                 L'usine à autocollants Panini
             </h1>
             <p class="text-gray-600 mt-2">
-                Collez votre texte JSON ci-dessous pour créer de magnifiques fiches de révision.
+                Collez votre texte ci-dessous pour créer de magnifiques fiches de révision.
             </p>
         </header>
 
         <main class="bg-white p-6 rounded-2xl shadow-lg">
             <!-- Zone de saisie du texte -->
             <div>
-                <label for="jsonData" class="block text-lg font-semibold mb-2 text-gray-700">Votre texte JSON :</label>
-                <textarea id="jsonData" rows="10" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow duration-200" placeholder="Collez le contenu JSON ici...">{
- "axes": [
- { "id": "homophones", "title": "Homophones grammaticaux" },
- { "id": "graphies", "title": "Graphie et sons" }
- ],
- "fiches": [
- {
- "id": "O1",
- "axe": "homophones",
- "axeLabel": "Homophones grammaticaux",
- "title": "a / à",
- "rule": "« a » = verbe avoir ; « à » = préposition invariable (lieu, temps, but…).",
- "examples": ["Zoé a des patins à roulettes.", "Il part à midi."],
- "kind": "homophone2",
- "items": [
- { "a": "a", "b": "à", "sentence": "Zoé ___ des patins ___ roulettes.", "correct": "a" },
- { "a": "a", "b": "à", "sentence": "Il part ___ midi.", "correct": "à" }
- ]
- },
- {
- "id": "O10",
- "axe": "homophones",
- "axeLabel": "Homophones grammaticaux",
- "title": "c’est / s’est (c’était / s’était)",
- "rule": "« c’est / c’était » + nom/adj ; « s’est / s’était » + verbe (pronominal).",
- "examples": ["C’est mon frère. Il s’est blessé.", "C’était mon frère. Il s’était blessé."],
- "kind": "homophone2",
- "items": [
- { "a": "c’est", "b": "s’est", "sentence": "___ incroyable !", "correct": "c’est" },
- { "a": "c’est", "b": "s’est", "sentence": "Elle ___ levée tôt.", "correct": "s’est" }
- ]
- }
- ]
-}</textarea>
+                <label for="plainTextData" class="block text-lg font-semibold mb-2 text-gray-700">Votre texte :</label>
+                <textarea id="plainTextData" rows="10" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow duration-200" placeholder="Collez votre texte ici...">🟦 Géométrie 1 – Le vocabulaire de la géométrie
+Un point : c’est un endroit précis, comme une petite trace sur la feuille. On le nomme avec une lettre majuscule (ex. : A).
+Un segment : c’est une ligne droite entre deux points. Il a un début et une fin. On l’écrit [AB].
+Une droite : c’est une ligne infinie qui passe par deux points (elle continue toujours). On l’écrit (AB).
+Une demi-droite : elle commence à un point, puis continue à l’infini d’un seul côté.
+Un angle droit : c’est un angle “carré” comme dans un coin de cahier. On le reconnaît avec l’équerre.
+🟦 Géométrie 2 – Tracer un segment
+Un segment, c’est une ligne droite limitée par deux points.
+Pour le tracer :
+Place deux points (ex. A et B).
+Pose ta latte bien alignée.
+Trace la ligne droite qui relie A et B.
+Écris le nom du segment [AB] au-dessus ou en dessous.
+💡 Astuce : ne bouge pas ta latte et fais un trait fin et net.
+🟦 Géométrie 3 – Les droites perpendiculaires
+Deux droites sont perpendiculaires quand elles se coupent en formant un angle droit (comme le coin d’un livre).
+Pour les tracer :
+Trace une première droite (AB).
+Pose ton équerre sur la droite : un côté sur la droite, l’autre en haut.
+Trace une nouvelle droite le long du bord vertical de l’équerre.
+💡 L’angle formé est un angle droit : 90°.
+🟦 Géométrie 4 – Réviser les segments et les perpendiculaires
+On refait des figures simples en combinant les segments et les droites perpendiculaires.
+Cela aide à mieux maîtriser la latte et l’équerre.
+🟦 Géométrie 5 – Les droites parallèles
+Deux droites sont parallèles quand elles ne se croisent jamais, même si on les prolonge.
+Pour les tracer :
+Trace une première droite.
+Pose ta latte et ton équerre de façon à reproduire la même direction un peu plus loin.
+Trace la deuxième droite.
+💡 On écrit (AB)//(CD).
+🟦 Géométrie 6 – Le rectangle
+Un rectangle a quatre côtés et quatre angles droits.
+Pour le tracer :
+Trace une première droite (le côté du bas).
+Utilise l’équerre pour tracer une droite perpendiculaire.
+Trace les autres côtés pour fermer la figure.
+💡 Les côtés opposés sont parallèles et égaux.
+🟦 Géométrie 7 – Le carré
+Un carré a quatre côtés égaux et quatre angles droits.
+Pour le tracer :
+Trace un premier côté avec ta latte (ex. 4 cm).
+Utilise l’équerre pour tracer un angle droit.
+Reporte la même longueur pour chaque côté.
+💡 Un carré est un rectangle “parfait”.
+🟦 Géométrie 8 – Le parallélogramme
+Un parallélogramme a deux paires de côtés parallèles.
+Pour le tracer :
+Trace un segment de base.
+Utilise l’équerre pour tracer une parallèle à ce segment.
+Ferme la figure avec deux autres segments.
+💡 Les côtés opposés sont égaux.
+🟦 Géométrie 9 – Les quadrilatères
+Un quadrilatère a quatre côtés.
+Il peut être carré, rectangle, losange, trapèze, parallélogramme…
+Pour les reconnaître : observe les longueurs, les angles droits, et les parallélismes.
+🟦 Géométrie 10 – Le triangle rectangle
+C’est un triangle qui a un angle droit.
+Pour le tracer :
+Trace un angle droit avec l’équerre.
+Choisis la longueur des deux côtés.
+Relie les deux extrémités pour fermer le triangle.
+🟦 Géométrie 11 – Le triangle isocèle
+Un triangle isocèle a deux côtés de même longueur.
+Pour le tracer :
+Trace la base.
+Choisis un point au-dessus de la base.
+Relie ce point aux deux extrémités de la base avec des côtés égaux (même mesure à la latte ou au compas).
+🟦 Géométrie 12 – Le triangle équilatéral
+Un triangle équilatéral a trois côtés égaux et trois angles égaux.
+Pour le tracer :
+Trace la base.
+Avec le compas, reporte la longueur de la base sur les deux côtés.
+Relie les trois sommets.
+💡 C’est le triangle “parfait”.
+🟦 Géométrie 13 – Les triangles dans d’autres figures
+On apprend à dessiner des triangles à l’intérieur de carrés ou de rectangles.
+Cela permet d’observer les relations entre les figures (parallèles, diagonales…).
+</textarea>
             </div>
             
             <!-- Boutons pour générer les cartes et zone de statut -->
@@ -142,14 +187,14 @@
     <script>
         const generateBtn = document.getElementById('generateBtn');
         const downloadAllBtn = document.getElementById('downloadAllBtn');
-        const jsonDataInput = document.getElementById('jsonData');
+        const textDataInput = document.getElementById('plainTextData');
         const cardsContainer = document.getElementById('cards-container');
         const statusMessage = document.getElementById('statusMessage');
 
         // Événement au clic sur le bouton de génération
         generateBtn.addEventListener('click', () => {
             downloadAllBtn.classList.add('hidden');
-            const rawText = jsonDataInput.value;
+            const rawText = textDataInput.value;
             if (!rawText.trim()) {
                 alert("Veuillez coller du texte dans la zone prévue.");
                 return;
@@ -162,23 +207,48 @@
 
             setTimeout(() => {
                 try {
-                    const data = JSON.parse(rawText);
-                    if (!data.fiches || !Array.isArray(data.fiches)) {
-                        throw new Error("Le format JSON est invalide ou ne contient pas de tableau 'fiches'.");
+                    // NOUVELLE LOGIQUE DE PARSING POUR LE TEXTE SIMPLE
+                    const fiches = [];
+                    const blocks = rawText.split('🟦').filter(block => block.trim() !== '');
+
+                    blocks.forEach((block, index) => {
+                        const lines = block.trim().split('\n');
+                        const header = lines.shift().trim();
+                        
+                        const match = header.match(/(\w+)\s*(\d+)\s*[–-]\s*(.*)/i);
+                        
+                        let id = `G${index + 1}`; // ID par défaut
+                        let title = header;
+                        
+                        if (match) {
+                            const prefix = match[1].charAt(0).toUpperCase();
+                            const number = match[2];
+                            id = `${prefix}${number}`;
+                            title = match[3].trim();
+                        }
+
+                        // Le reste des lignes constitue la règle, en convertissant les sauts de ligne en <br>
+                        const rule = lines.map(line => line.trim()).join('<br>');
+
+                        fiches.push({ id, title, rule });
+                    });
+
+                    if (fiches.length === 0) {
+                        throw new Error("Aucune fiche valide n'a pu être extraite. Chaque fiche doit commencer par '🟦'.");
                     }
 
-                    statusMessage.textContent = `Création de ${data.fiches.length} fiches...`;
-                    data.fiches.forEach(fiche => createCard(fiche));
+                    statusMessage.textContent = `Création de ${fiches.length} fiches...`;
+                    fiches.forEach(fiche => createCard(fiche));
                     
-                    if (data.fiches.length > 0) {
+                    if (fiches.length > 0) {
                         downloadAllBtn.classList.remove('hidden');
                     }
-                    statusMessage.textContent = `Terminé ! ${data.fiches.length} fiches ont été créées.`;
+                    statusMessage.textContent = `Terminé ! ${fiches.length} fiches ont été créées.`;
 
                 } catch (error) {
-                    console.error("Erreur de parsing JSON:", error);
+                    console.error("Erreur de parsing:", error);
                     statusMessage.textContent = `Erreur : ${error.message}`;
-                    alert("Le texte fourni n'est pas un JSON valide. Veuillez vérifier la structure.\n\n" + error.message);
+                    alert("Le format du texte est invalide.\n\n" + error.message);
                 } finally {
                     generateBtn.disabled = false;
                     generateBtn.textContent = 'Transformer en fiches !';
@@ -191,7 +261,6 @@
             const cardWrapper = document.createElement('div');
             cardWrapper.className = 'flex flex-col items-center';
             const cardId = `card-${fiche.id}`;
-            const formattedRule = fiche.rule.replace(/;/g, '<br>');
 
             cardWrapper.innerHTML = `
                 <div id="${cardId}" class="panini-card">
@@ -202,7 +271,7 @@
                     </div>
                     <div class="text-center">
                         <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 mb-2">${fiche.title}</h2>
-                        <p class="text-gray-600 leading-relaxed">${formattedRule}</p>
+                        <p class="text-gray-600 leading-relaxed">${fiche.rule}</p>
                     </div>
                     <div></div> 
                 </div>
@@ -215,40 +284,34 @@
 
         /**
          * Prépare et télécharge une carte en format PNG.
-         * MODIFIÉ : Utilise un clone de la carte pour corriger les problèmes de rendu.
+         * Utilise un clone de la carte pour corriger les problèmes de rendu.
          */
         async function downloadCardAsPNG(targetId, filename) {
             const originalCard = document.getElementById(targetId);
             if (!originalCard) return;
 
-            // 1. Cloner la carte pour la modifier sans affecter l'affichage
             const clone = originalCard.cloneNode(true);
             const title = clone.querySelector('h2');
             
-            // 2. Simplifier le style du titre pour html2canvas
             title.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-blue-600', 'to-purple-700');
-            title.classList.add('text-blue-600'); // Appliquer une couleur unie
+            title.classList.add('text-blue-600'); 
 
-            // 3. Positionner le clone hors de l'écran pour qu'il soit rendu par le navigateur
             clone.style.position = 'absolute';
             clone.style.left = '-9999px';
             document.body.appendChild(clone);
 
             try {
-                // 4. Capturer le clone optimisé
                 const canvas = await html2canvas(clone, {
                     useCORS: true,
                     scale: 2,
                     backgroundColor: '#f3f4f6'
                 });
 
-                // 5. Déclencher le téléchargement
                 const link = document.createElement('a');
                 link.download = filename;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             } finally {
-                // 6. Nettoyer en supprimant le clone du DOM
                 document.body.removeChild(clone);
             }
         }
@@ -270,7 +333,7 @@
 
             const zip = new JSZip();
             const cardElements = document.querySelectorAll('.panini-card');
-            const clones = []; // Pour garder une trace des clones à supprimer
+            const clones = []; 
 
             try {
                 for (let i = 0; i < cardElements.length; i++) {
@@ -280,7 +343,6 @@
                     
                     statusMessage.textContent = `Image ${i + 1}/${cardElements.length}...`;
 
-                    // Cloner et optimiser chaque carte
                     const clone = cardElement.cloneNode(true);
                     const title = clone.querySelector('h2');
                     title.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-blue-600', 'to-purple-700');
@@ -288,7 +350,7 @@
                     clone.style.position = 'absolute';
                     clone.style.left = '-9999px';
                     document.body.appendChild(clone);
-                    clones.push(clone); // Ajouter le clone à la liste pour le nettoyage
+                    clones.push(clone);
 
                     const canvas = await html2canvas(clone, { useCORS: true, scale: 2, backgroundColor: '#f3f4f6' });
                     const imageData = canvas.toDataURL('image/png').substring('data:image/png;base64,'.length);
@@ -310,7 +372,6 @@
                 console.error("Erreur lors de la création du ZIP:", error);
                 statusMessage.textContent = "Erreur lors de la création du ZIP.";
             } finally {
-                // Nettoyer tous les clones
                 clones.forEach(clone => document.body.removeChild(clone));
                 
                 downloadAllBtn.disabled = false;
