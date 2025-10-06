@@ -18,7 +18,7 @@
         }
         /* Style de la carte "autocollant" */
         .panini-card {
-            /* MODIFIÉ : Adapté au ratio d'étiquettes standard 70mm x 100mm */
+            /* Adapté au ratio d'étiquettes standard 70mm x 100mm */
             width: 280px; 
             height: 400px;
             border-radius: 1.25rem; /* Ajusté légèrement */
@@ -73,7 +73,7 @@
         <!-- Section d'en-tête -->
         <header class="text-center mb-8 bg-white p-6 rounded-2xl shadow-lg">
             <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
-                L'usine à autocollants Panini format étiquettes
+                L'usine à autocollants Panini
             </h1>
             <p class="text-gray-600 mt-2">
                 Collez votre texte ci-dessous pour créer de magnifiques fiches de révision.
@@ -253,42 +253,32 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
 
             setTimeout(() => {
                 try {
-                    // NOUVELLE LOGIQUE DE PARSING POUR LE TEXTE SIMPLE
                     const fiches = [];
                     const blocks = rawText.split('🟦').filter(block => block.trim() !== '');
 
                     blocks.forEach((block, index) => {
                         const lines = block.trim().split('\n');
                         const header = lines.shift().trim();
-                        
                         const match = header.match(/(\w+)\s*(\d+)\s*[–-]\s*(.*)/i);
-                        
-                        let id = `G${index + 1}`; // ID par défaut
+                        let id = `G${index + 14}`;
                         let title = header;
-                        
                         if (match) {
                             const prefix = match[1].charAt(0).toUpperCase();
                             const number = match[2];
                             id = `${prefix}${number}`;
                             title = match[3].trim();
                         }
-
-                        // Le reste des lignes constitue la règle, en convertissant les sauts de ligne en <br>
                         const rule = lines.map(line => line.trim()).join('<br>');
-
                         fiches.push({ id, title, rule });
                     });
 
-                    if (fiches.length === 0) {
-                        throw new Error("Aucune fiche valide n'a pu être extraite. Chaque fiche doit commencer par '🟦'.");
-                    }
+                    if (fiches.length === 0) throw new Error("Aucune fiche valide n'a pu être extraite.");
 
                     statusMessage.textContent = `Création de ${fiches.length} fiches...`;
                     fiches.forEach(fiche => createCard(fiche));
                     
-                    if (fiches.length > 0) {
-                        downloadAllBtn.classList.remove('hidden');
-                    }
+                    if (fiches.length > 0) downloadAllBtn.classList.remove('hidden');
+                    
                     statusMessage.textContent = `Terminé ! ${fiches.length} fiches ont été créées.`;
 
                 } catch (error) {
@@ -304,16 +294,48 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
         });
 
         function createCard(fiche) {
+            const tempWrapper = document.createElement('div');
+            tempWrapper.style.position = 'absolute';
+            tempWrapper.style.left = '-9999px';
+            
+            const cardId = `card-${fiche.id}`;
+            tempWrapper.innerHTML = `
+                <div id="${cardId}-temp" class="panini-card">
+                    <div class="flex justify-end">
+                         <div class="bg-white/70 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center border-2 border-white">
+                            <span class="text-2xl font-bold text-gray-700">${fiche.id}</span>
+                        </div>
+                    </div>
+                    <div class="text-content text-center overflow-hidden flex-grow flex flex-col justify-center">
+                        <h2 class="card-title text-2xl font-bold">${fiche.title}</h2>
+                        <p class="card-rule text-gray-600 leading-snug">${fiche.rule}</p>
+                    </div>
+                    <div></div> 
+                </div>`;
+            document.body.appendChild(tempWrapper);
+            
+            const cardElement = document.getElementById(`${cardId}-temp`);
+            const textContent = cardElement.querySelector('.text-content');
+            
+            const isOverflowing = textContent.scrollHeight > textContent.clientHeight;
+            
+            document.body.removeChild(tempWrapper);
+
+            if (isOverflowing) {
+                createDoubleCard(fiche);
+            } else {
+                createSingleCard(fiche);
+            }
+        }
+
+        function createSingleCard(fiche) {
             const cardWrapper = document.createElement('div');
             cardWrapper.className = 'flex flex-col items-center';
             const cardId = `card-${fiche.id}`;
-
             cardWrapper.innerHTML = `
                 <div id="${cardId}" class="panini-card">
                     <div class="flex justify-end">
-                        <div class="bg-white/70 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center border-2 border-white">
-                            <span class="text-2xl font-bold text-gray-700">${fiche.id}</span>
-                        </div>
+                        <div class="bg-white/70 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center border-2 border-white"><span class="text-2xl font-bold text-gray-700">${fiche.id}</span></div>
                     </div>
                     <div class="text-content text-center overflow-hidden flex-grow flex flex-col justify-center">
                         <h2 class="card-title text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 mb-2">${fiche.title}</h2>
@@ -321,85 +343,79 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
                     </div>
                     <div></div> 
                 </div>
-                <button class="download-btn mt-4 bg-gray-700 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-800 transition-colors duration-200" data-target="${cardId}">
-                    Télécharger (.png)
-                </button>
+                <button class="download-btn mt-4 bg-gray-700 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-800 transition-colors duration-200" data-target="${cardId}" data-part="single">Télécharger (.png)</button>`;
+            cardsContainer.appendChild(cardWrapper);
+        }
+
+        function createDoubleCard(fiche) {
+            const cardWrapper = document.createElement('div');
+            cardWrapper.className = 'flex flex-col items-center col-span-1 sm:col-span-2';
+            const cardId = `card-${fiche.id}`;
+            cardWrapper.innerHTML = `
+                <div id="${cardId}" class="panini-card is-double" style="width: 584px;">
+                     <div class="flex justify-end">
+                        <div class="bg-white/70 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center border-2 border-white"><span class="text-2xl font-bold text-gray-700">${fiche.id}</span></div>
+                    </div>
+                    <div class="text-content text-center overflow-hidden flex-grow flex flex-col justify-center" style="column-count: 2; column-gap: 2rem;">
+                        <h2 class="card-title text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 mb-2" style="column-span: all;">${fiche.title}</h2>
+                        <p class="card-rule text-gray-600 leading-snug">${fiche.rule}</p>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="flex gap-4">
+                    <button class="download-btn mt-4 bg-gray-700 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-800 transition-colors duration-200" data-target="${cardId}" data-part="A">Télécharger A</button>
+                    <button class="download-btn mt-4 bg-gray-700 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-800 transition-colors duration-200" data-target="${cardId}" data-part="B">Télécharger B</button>
+                </div>
             `;
             cardsContainer.appendChild(cardWrapper);
-
-            // Appeler la fonction pour ajuster la taille du texte
-            const cardElement = document.getElementById(cardId);
-            const textContentElement = cardElement.querySelector('.text-content');
-            adjustFontSize(textContentElement);
         }
 
-        /**
-         * AMÉLIORÉ : Ajuste dynamiquement la taille de la police du titre ET de la règle.
-         */
-        function adjustFontSize(contentElement) {
-            const title = contentElement.querySelector('.card-title');
-            const rule = contentElement.querySelector('.card-rule');
-            
-            // On vérifie le débordement du conteneur de texte
-            while (contentElement.scrollHeight > contentElement.clientHeight) {
-                const currentTitleSize = parseFloat(window.getComputedStyle(title).fontSize);
-                const currentRuleSize = parseFloat(window.getComputedStyle(rule).fontSize);
-
-                // On arrête si le texte est trop petit pour être lisible
-                if (currentRuleSize <= 10) {
-                    break;
-                }
-                
-                // On réduit la taille des deux éléments
-                title.style.fontSize = `${currentTitleSize - 0.5}px`;
-                rule.style.fontSize = `${currentRuleSize - 0.5}px`;
-            }
-        }
-
-        /**
-         * Prépare et télécharge une carte en format PNG.
-         * Utilise un clone de la carte pour corriger les problèmes de rendu.
-         */
-        async function downloadCardAsPNG(targetId, filename) {
-            const originalCard = document.getElementById(targetId);
-            if (!originalCard) return;
-
-            const clone = originalCard.cloneNode(true);
+        async function captureCardPart(cardElement, part = null) {
+            const clone = cardElement.cloneNode(true);
             const title = clone.querySelector('.card-title');
             
-            title.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-blue-600', 'to-purple-700');
+            title.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r');
             title.classList.add('text-blue-600'); 
 
             clone.style.position = 'absolute';
             clone.style.left = '-9999px';
             document.body.appendChild(clone);
 
-            try {
-                const canvas = await html2canvas(clone, {
-                    useCORS: true,
-                    scale: 2,
-                    backgroundColor: '#f3f4f6'
-                });
+            const options = { useCORS: true, scale: 2, backgroundColor: '#f3f4f6' };
+            if (part === 'A' || part === 'B') {
+                options.width = clone.offsetWidth / 2;
+                options.x = part === 'B' ? clone.offsetWidth / 2 : 0;
+            }
 
-                const link = document.createElement('a');
-                link.download = filename;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
+            try {
+                const canvas = await html2canvas(clone, options);
+                return canvas;
             } finally {
                 document.body.removeChild(clone);
             }
         }
+
+        async function downloadCardAsPNG(targetId, filename, part) {
+            const cardElement = document.getElementById(targetId);
+            if (!cardElement) return;
+            const canvas = await captureCardPart(cardElement, part);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
         
-        // Gestionnaire d'événements pour les boutons (téléchargement individuel)
         cardsContainer.addEventListener('click', function(event) {
             if (event.target.classList.contains('download-btn')) {
-                const targetId = event.target.dataset.target;
-                const filename = `Fiche-${targetId.split('-')[1]}.png`;
-                downloadCardAsPNG(targetId, filename);
+                const button = event.target;
+                const targetId = button.dataset.target;
+                const part = button.dataset.part;
+                const baseId = targetId.replace('card-', '');
+                const filename = part === 'single' ? `Fiche-${baseId}.png` : `Fiche-${baseId}-${part}.png`;
+                downloadCardAsPNG(targetId, filename, part);
             }
         });
 
-        // Gestionnaire d'événements pour le bouton "Tout télécharger en ZIP"
         downloadAllBtn.addEventListener('click', async () => {
             downloadAllBtn.disabled = true;
             downloadAllBtn.innerHTML = `Compression... <span class="spinner"></span>`;
@@ -407,28 +423,28 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
 
             const zip = new JSZip();
             const cardElements = document.querySelectorAll('.panini-card');
-            const clones = []; 
-
+            
             try {
                 for (let i = 0; i < cardElements.length; i++) {
                     const cardElement = cardElements[i];
-                    const cardId = cardElement.id.split('-')[1] || `carte-${i + 1}`;
-                    const filename = `Fiche-${cardId}.png`;
+                    const baseId = cardElement.id.replace('card-', '');
                     
-                    statusMessage.textContent = `Image ${i + 1}/${cardElements.length}...`;
-
-                    const clone = cardElement.cloneNode(true);
-                    const title = clone.querySelector('.card-title');
-                    title.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-blue-600', 'to-purple-700');
-                    title.classList.add('text-blue-600');
-                    clone.style.position = 'absolute';
-                    clone.style.left = '-9999px';
-                    document.body.appendChild(clone);
-                    clones.push(clone);
-
-                    const canvas = await html2canvas(clone, { useCORS: true, scale: 2, backgroundColor: '#f3f4f6' });
-                    const imageData = canvas.toDataURL('image/png').substring('data:image/png;base64,'.length);
-                    zip.file(filename, imageData, { base64: true });
+                    if (cardElement.classList.contains('is-double')) {
+                        statusMessage.textContent = `Image ${baseId}-A...`;
+                        let canvasA = await captureCardPart(cardElement, 'A');
+                        let imageDataA = canvasA.toDataURL('image/png').substring('data:image/png;base64,'.length);
+                        zip.file(`Fiche-${baseId}-A.png`, imageDataA, { base64: true });
+                        
+                        statusMessage.textContent = `Image ${baseId}-B...`;
+                        let canvasB = await captureCardPart(cardElement, 'B');
+                        let imageDataB = canvasB.toDataURL('image/png').substring('data:image/png;base64,'.length);
+                        zip.file(`Fiche-${baseId}-B.png`, imageDataB, { base64: true });
+                    } else {
+                        statusMessage.textContent = `Image ${baseId}...`;
+                        let canvas = await captureCardPart(cardElement, 'single');
+                        let imageData = canvas.toDataURL('image/png').substring('data:image/png;base64,'.length);
+                        zip.file(`Fiche-${baseId}.png`, imageData, { base64: true });
+                    }
                 }
 
                 statusMessage.textContent = 'Génération du fichier ZIP...';
@@ -446,8 +462,6 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
                 console.error("Erreur lors de la création du ZIP:", error);
                 statusMessage.textContent = "Erreur lors de la création du ZIP.";
             } finally {
-                clones.forEach(clone => document.body.removeChild(clone));
-                
                 downloadAllBtn.disabled = false;
                 downloadAllBtn.textContent = 'Tout télécharger en ZIP';
                 setTimeout(() => statusMessage.textContent = '', 5000);
