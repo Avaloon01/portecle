@@ -18,9 +18,10 @@
         }
         /* Style de la carte "autocollant" */
         .panini-card {
-            width: 320px;
-            height: 450px;
-            border-radius: 1.5rem;
+            /* MODIFIÉ : Adapté au ratio d'étiquettes standard 70mm x 100mm */
+            width: 280px; 
+            height: 400px;
+            border-radius: 1.25rem; /* Ajusté légèrement */
             border: 4px solid white;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255,255,255,0.5) inset;
             position: relative;
@@ -28,7 +29,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 1.5rem;
+            padding: 1.25rem; /* Ajusté légèrement */
             background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
         }
         /* Effet "holographique" subtil sur la carte */
@@ -72,7 +73,7 @@
         <!-- Section d'en-tête -->
         <header class="text-center mb-8 bg-white p-6 rounded-2xl shadow-lg">
             <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
-                L'usine à autocollants Panini
+                L'usine à autocollants Panini format étiquettes
             </h1>
             <p class="text-gray-600 mt-2">
                 Collez votre texte ci-dessous pour créer de magnifiques fiches de révision.
@@ -316,7 +317,7 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
                     </div>
                     <div class="text-content text-center overflow-hidden flex-grow flex flex-col justify-center">
                         <h2 class="card-title text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 mb-2">${fiche.title}</h2>
-                        <p class="card-rule text-gray-600 leading-relaxed">${fiche.rule}</p>
+                        <p class="card-rule text-gray-600 leading-snug">${fiche.rule}</p>
                     </div>
                     <div></div> 
                 </div>
@@ -333,13 +334,15 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
         }
 
         /**
-         * NOUVEAU : Ajuste dynamiquement la taille de la police pour que le texte tienne dans son conteneur.
+         * AMÉLIORÉ : Ajuste dynamiquement la taille de la police du titre ET de la règle.
          */
         function adjustFontSize(contentElement) {
+            const title = contentElement.querySelector('.card-title');
             const rule = contentElement.querySelector('.card-rule');
             
             // On vérifie le débordement du conteneur de texte
             while (contentElement.scrollHeight > contentElement.clientHeight) {
+                const currentTitleSize = parseFloat(window.getComputedStyle(title).fontSize);
                 const currentRuleSize = parseFloat(window.getComputedStyle(rule).fontSize);
 
                 // On arrête si le texte est trop petit pour être lisible
@@ -347,7 +350,8 @@ combiner toutes ces notions pour créer une grande figure géométrique complèt
                     break;
                 }
                 
-                // On réduit la taille du texte de la règle
+                // On réduit la taille des deux éléments
+                title.style.fontSize = `${currentTitleSize - 0.5}px`;
                 rule.style.fontSize = `${currentRuleSize - 0.5}px`;
             }
         }
